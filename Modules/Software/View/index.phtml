@@ -1,0 +1,22 @@
+<?PHP
+
+$db = new Entities_Software();
+$grid = new Com_Wizard_Grid();
+$grid->title = "Listado de Personas";
+$grid->setIdField("SofId");
+$grid->setQuery($db->getList());
+$grid->setAlias(array("SofNombre" => "Nombre", "SofNivel" => "Nivel"));
+$grid->setFilters(array("PerNombre" => get('PerNombre')));
+
+$toolBar = new Com_Wizard_ToolBar();
+$toolBar->add("plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/Software/Add');
+$toolBar->add("search", "Filtrar", null, "showHide('.filters')");
+$toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Admin');
+$grid->setToolBar($toolBar);
+
+$grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Software/Edit/id/_ID_');
+$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/Software/Delete/id/_ID_' . "':'';");
+
+$grid->customField("SofStatus", array("value" => array('1' => 'Leido', '0' => 'No Leido')));
+
+$grid->render();

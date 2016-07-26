@@ -1,0 +1,60 @@
+<?PHP
+
+$form = new Com_Wizard_Form();
+$form->title = "Formulario Links";
+
+$form->addAction("floppy-disk", "Guardar", null, "document.getElementById('saveForm').click();");
+$form->addAction("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "/Admin/Idiomas");
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Nombre";
+$control->label = "Idioma";
+$control->default = $this->Nombre;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "PerId";
+$control->label = "PerId";
+$control->default = $this->PerId;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Escribe";
+$control->label = "Escribe";
+$control->default = $this->Escribe;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Lee";
+$control->label = "Lee";
+$control->default = $this->Lee;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Habla";
+$control->label = "Habla";
+$control->default = $this->Habla;
+$control->required = true;
+$control->length = 50;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
+$control->name = "Status";
+$control->label = "Estado";
+$control->default = $this->Status;
+$control->required = true;
+$control->addItem('1', 'Leido');
+$control->addItem('0', 'No Leido');
+$form->add($control);
+
+$form->render();

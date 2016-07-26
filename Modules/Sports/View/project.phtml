@@ -1,0 +1,214 @@
+<div class="project">
+    <div class="background">
+        <div class="clouds">
+
+        </div>
+        <div class="timeline">
+            <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/project_background.png"/>
+        </div>
+        <div class="title">
+            <?PHP echo $this->project->ProTitle; ?>
+        </div>
+        <div class="titleHeader2">
+            <?PHP echo $this->project->ProHeader; ?>
+        </div>
+        <?PHP
+        foreach ($this->project->pins as $pin) {
+            $class = "pin100";
+
+            if ($pin->TimX < 100) {
+                $class = "pin80";
+            }
+            if ($pin->TimX < 80) {
+                $class = "pin60";
+            }
+            if ($pin->TimX < 60) {
+                $class = "pin40";
+            }
+            if ($pin->TimX < 40) {
+                $class = "pin20";
+            }
+            ?>
+            <div class="pin <?PHP echo $class; ?>" style="left:<?PHP echo $pin->TimX; ?>%;top:<?PHP echo $pin->TimY; ?>%;">
+                <div class="image">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $pin->TimImagePin; ?>"/>
+                </div>
+                <div class="data">
+                    <div class="name">
+                        <?PHP echo $pin->TimTitle; ?>
+                    </div>
+                </div>
+                <div class="extras">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $pin->TimImage; ?>"/>
+                    <div class="description">
+                        <?PHP echo $pin->TimDescription; ?>
+                    </div>
+                </div>
+            </div>
+            <?PHP
+        }
+        ?>
+    </div>
+    
+    <div class="result2">
+        <div class="share">
+                <?PHP $url = Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, 'project/' . $this->project->ProUrl); ?>
+                <ul>
+                    <li>
+                        <a href="http://www.facebook.com/sharer/sharer.php?u=<?PHP echo $url; ?>" target="_blank">
+                            <span><?PHP echo $this->translator->share; ?></span><span class="fa fa-facebook"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/intent/tweet?text=<?PHP echo $url ?>&via=HeiferBolivia" target="_blank">
+                            <span><?PHP echo $this->translator->tweet; ?></span> <span class="fa fa-twitter"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/share?url=<?PHP echo $url; ?>" target="_blank"> 
+                            <span><?PHP echo $this->translator->shareG; ?></span> <span class="fa fa-google-plus"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        <div class="container">
+            <div class="grid grid4">
+                <div class="topic">
+                    <?PHP echo $this->translator->numberFamilies; ?>
+                </div>
+                <div class="image">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $this->project->ProNumAffectFamiliesImage; ?>">
+                </div>
+                <div class="data">
+                    <?PHP echo $this->project->ProNumAffecFamilies; ?>
+                </div>
+            </div>
+            <div class="grid grid4">
+                <div class="topic">
+                    <?PHP echo $this->translator->numberMunicipalities; ?>
+                </div>
+                <div class="image">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $this->project->ProMunicipalitiesImage; ?>">
+                </div>
+                <div class="data">
+                    <?PHP echo $this->project->ProMunicipalities; ?>
+                </div>
+            </div>
+            <div class="grid grid4">
+                <div class="topic">
+                    <?PHP echo $this->translator->numberResources; ?>
+                </div>
+                <div class="image">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $this->project->ProResourcesTrainingImage; ?>">
+                </div>
+                <div class="data">
+                    <?PHP echo $this->project->ProResourcesTraining; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="resume">
+        <div class="container">
+            
+            <div class="subtitle">
+                <?PHP echo $this->translator->resume; ?>
+            </div>
+            <div class="content">
+                <?PHP echo $this->project->ProResume; ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery">
+        <div class="container">
+            <div class="subtitle">
+                <?PHP echo $this->translator->gallery; ?>
+            </div>
+            <div class="content">
+                <?PHP
+                $row = 1;
+                $items = 1;
+                foreach ($this->project->media as $media) {
+                    $class = "grid6";
+                    if ($row % 2 == 0) {
+                        $class = "grid4";
+                        if ($items % 3 == 0) {
+                            $row++;
+                            $items = 0;
+                        }
+                    } else {
+                        if ($items % 2 == 0) {
+                            $row++;
+                            $items = 0;
+                        }
+                    }
+                    $items++;
+                    ?>
+                    <div class="grid <?PHP echo $class; ?>">
+                        <?PHP
+                        if ($media->MedYoutube != "") {
+                            ?>
+                            <iframe border="0" frameborder="0" width="100%" height="290px" src="<?PHP echo $media->MedYoutube; ?>"></iframe>
+                            <?PHP
+                        } else {
+                            ?>
+                            <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $media->MedImage; ?>">
+                            <?PHP
+                        }
+                        ?>
+                    </div>
+                    <?PHP
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="result1 resultShow<?PHP echo strlen(trim($this->project->ProResults)); ?>">
+        <div class="container">
+            <div class="subtitle">
+                <?PHP echo $this->translator->results; ?>
+            </div>
+            <div class="content">
+                <div class="data">
+                    <?PHP echo $this->project->ProResults; ?>
+                </div>
+                <div class="image">
+                    <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $this->project->ProImgResults; ?>">
+                </div>
+            </div>
+        </div>
+    </div>
+
+     
+
+    <div class="allies">
+        <div class="container">
+            <div class="subtitle">
+                <?PHP echo $this->translator->allies; ?>
+            </div>
+            <div class="content">
+                <?PHP
+                foreach ($this->project->allies as $ally) {
+                    ?>
+                    <div class="ally grid grid2">
+                        <div class="image">
+                            <img src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo $ally->InvImage; ?>">
+                        </div>
+                        <div class="name">
+                            <?PHP echo $ally->InvName; ?>
+                        </div>
+                        <div class="description">
+                            <?PHP echo $ally->InvResume; ?>
+                        </div>
+                    </div>
+                    <?PHP
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+
+</div>
