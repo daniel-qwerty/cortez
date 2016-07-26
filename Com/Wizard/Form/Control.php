@@ -135,13 +135,14 @@ class Com_Wizard_Form_Control extends Com_Object {
      */
     public function render() {
         ?>
-        <div class="form-group form-group-sm">
-            <label for="<?PHP echo $this->name; ?>" class="col-lg-3 control-label"><?PHP echo ($this->required ? '(*) ' : ''); ?><?PHP echo $this->label; ?></label>
-            <div class="col-lg-9">
+
+        <div class="form-group">
+            <label for="<?PHP echo $this->name; ?>" class="col-sm-3 control-label"><?PHP echo ($this->required ? '(*) ' : ''); ?><?PHP echo $this->label; ?></label>
+
+            <div class="col-sm-9">
                 <?PHP $this->renderControl(); ?>
             </div>
         </div>
-
         <?PHP
     }
 
