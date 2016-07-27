@@ -14,7 +14,7 @@ class Users_Model_User extends Com_Module_Model {
         $db = new Entities_User();
         $db->UserTypId = $intType;
         $db->UserName = $strName;
-        $db->UserName = $image;
+        $db->UserImage = $image;
         $db->UserMail = $strMail;
         $db->UserLogin = $strLogin;
         $db->UserPassword = md5($strPassword);
@@ -25,6 +25,7 @@ class Users_Model_User extends Com_Module_Model {
     }
 
     public function doUpdate($intId, $strName, $strMail, $strLogin, $strPassword, $bolStatus, $intType,$image) {
+       
         $db = new Entities_User();
         $db->UserId = $intId;
         $db->UserTypId = $intType;
@@ -63,10 +64,12 @@ class Users_Model_User extends Com_Module_Model {
         $db->UserLogin = $user;
         $db->UserPassword = md5($password);
         $db->get();
+        echo($db);
         return $db;
     }
     
     public function getList() {
+         echo "getList";
         $text = new Entities_User();
         return $text->getAll($text->getList());
     }

@@ -66,28 +66,42 @@ class Com_Wizard_Form extends Com_Object {
     public function render() {
         $intId = date("YmdHis");
         ?>
-
-        <div class="panel panel-white <?PHP echo implode(" ", $this->cssClasses); ?>">
-            <div class="panel-heading clearfix">
-                <h4 class="panel-title"><?PHP echo $this->title; ?></h4>
+        <div class="panel panel-primary <?PHP echo implode(" ", $this->cssClasses); ?>">
+            <div class="panel-heading">
+                <h3 class="panel-title"><?PHP echo $this->title; ?></h3>
             </div>
             <div class="panel-body">
-                <form class="form-horizontal" method="post">
-                    <?PHP
-                    foreach ($this->lstControls as $objControl) {
-                        $objControl->render();
-                    }
+                <?PHP
+                if ($this->showTabs) {
                     ?>
-                    <div class="form-group">
-                        <div class="col-sm-offset-3 col-sm-10">
-                            <button id="saveForm" type="submit" class="btn btn-success">Sign in</button>
+                    <ul class="nav nav-tabs">
+                        <?PHP
+                        foreach ($this->tabs as $tab) {
+                            ?>
+                            <li role="presentation" class="<?PHP echo ($tab['active'] ? 'active' : ''); ?>"><a href="<?PHP echo $tab['href']; ?>"><?PHP echo $tab['label']; ?></a></li>
+                            <?PHP
+                        }
+                        ?>
+                    </ul>
+                    <br/>
+                    <?PHP
+                }
+                $this->toolBar->render();
+                ?>
+                <form method="POST" actions="<?PHP echo $this->action; ?>" id="F<?PHP echo $intId; ?>" enctype="multipart/form-data" class="form-horizontal">
+                    <fieldset>
+                        <?PHP
+                        foreach ($this->lstControls as $objControl) {
+                            $objControl->render();
+                        }
+                        ?>
+                        <div class="input-group btn-group" <?PHP echo ($this->showToolBar ? 'style="display:none;"' : ''); ?>>
+                            <input type="submit" class="btn btn-primary btn-sm"  id="saveForm" value="Guardar">
                         </div>
-                    </div>
-
+                    </fieldset>
                 </form>
             </div>
         </div>
-
         <?PHP
     }
 
