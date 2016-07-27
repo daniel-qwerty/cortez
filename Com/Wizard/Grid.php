@@ -138,8 +138,7 @@ class Com_Wizard_Grid extends Com_Object
                         </div>
                         <div class="clearfix"></div>
                     </div
-                    <div class="col-md-12">
-                        <div class="panel-body">
+
                             <div class="table-responsive">
                                 <?PHP
                                 $intTotalNumberRegistries = Com_Database_Connection::getInstance()->getNumberRegistries();
@@ -249,8 +248,7 @@ class Com_Wizard_Grid extends Com_Object
                                 }
                                 ?>
                             </div>
-                        </div>
-                    </div>
+
                 </form>
             </div>
         </div>

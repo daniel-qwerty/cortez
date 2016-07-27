@@ -66,11 +66,17 @@ class Com_Wizard_Form extends Com_Object {
     public function render() {
         $intId = date("YmdHis");
         ?>
-        <div class="panel panel-primary <?PHP echo implode(" ", $this->cssClasses); ?>">
+        <div class="panel panel-info <?PHP echo implode(" ", $this->cssClasses); ?>">
             <div class="panel-heading">
                 <h3 class="panel-title"><?PHP echo $this->title; ?></h3>
+                <div class="panel-control">
+                    <?PHP
+                    $this->toolBar->render();
+                    ?>
+                </div>
             </div>
             <div class="panel-body">
+                <br/>
                 <?PHP
                 if ($this->showTabs) {
                     ?>
@@ -86,7 +92,7 @@ class Com_Wizard_Form extends Com_Object {
                     <br/>
                     <?PHP
                 }
-                $this->toolBar->render();
+
                 ?>
                 <form method="POST" actions="<?PHP echo $this->action; ?>" id="F<?PHP echo $intId; ?>" enctype="multipart/form-data" class="form-horizontal">
                     <fieldset>
