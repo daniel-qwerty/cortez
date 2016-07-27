@@ -15,7 +15,12 @@ class Com_Helper_Title extends Com_Object {
 
     public function render() {
         ?>
-        <h2><?PHP echo $this->title; ?></h2>
+        <div class="page-title">
+            <h3><?= $this->title; ?></h3>
+            <div class="page-breadcrumb">
+                <?php Com_Helper_BreadCrumbs::getInstance()->render(); ?>
+            </div>
+        </div>
         <?PHP
     }
 
