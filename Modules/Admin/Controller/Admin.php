@@ -56,17 +56,28 @@ class Admin_Controller_Admin extends Com_Module_Controller {
                 }
             }
             
-            Users_Model_User::getInstance()->doUpdate(get('intUserId'), get('Name'), get('Mail'), get('Login'), get('Password'), 1, $image);
+            Users_Model_User::getInstance()->doUpdate(get('userId'), get('Name'), get('Mail'), get('Login'), get('Password'), get('Status'), get('Type'), $image);
+            //$this->redirect(Com_Helper_Url::getInstance()->urlBase . '/Admin/Users');
         }
 
-        $entity = Users_Model_User::getInstance()->get(get('intUserId'));
+        $entity = Users_Model_User::getInstance()->get(get('userId'));
+        
+                
+                set('userFullName', $entity->UserName, "SESSION");
+                set('userName', $entity->UserLogin, "SESSION");
+                set('userEmail', $entity->UserMail, "SESSION");
+                if($image!= ""){
+                    set('userPhoto', $image, "SESSION");
+                }
+                
 
         $this->assign('Name', $entity->UserName);
         $this->assign('Image', $entity->UserImage);
         $this->assign('Mail', $entity->UserMail);
         $this->assign('Login', $entity->UserLogin);
         $this->assign('Password', $entity->UserPassword);
-        $this->assign('Estado', $entity->UserEstado);
+        
+        
     }
 
 }

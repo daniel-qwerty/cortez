@@ -68,7 +68,7 @@ class Users_Controller_Admin extends Admin_Controller_Admin {
         $this->assign('Image', $entity->UserImage);
         $this->assign('Mail', $entity->UserMail);
         $this->assign('Login', $entity->UserLogin);
-        $this->assign('Password', $entity->UserPassword);
+        $this->assign('Password',$entity->UserPassword);
         $this->assign('Estado', $entity->UserEstado);
         $this->assign('Type', $entity->UserTypId);
         $this->assign('Types', Users_Model_Type::getInstance()->getList());
