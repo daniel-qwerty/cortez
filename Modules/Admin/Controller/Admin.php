@@ -12,9 +12,8 @@ class Admin_Controller_Admin extends Com_Module_Controller {
         $this->assign("country", get('userCountry'));
 
         Com_Helper_BreadCrumbs::getInstance()->add("Inicio", '/Admin');
-        
     }
-    
+
     public function Adm() {
         if (get("userId") > 0) {
             $this->setLayout("Admin/Admin");
@@ -25,7 +24,6 @@ class Admin_Controller_Admin extends Com_Module_Controller {
         $this->assign("country", get('userCountry'));
 
         Com_Helper_BreadCrumbs::getInstance()->add("Inicio", '/Admin');
-        
     }
 
     public function Close() {
@@ -42,9 +40,9 @@ class Admin_Controller_Admin extends Com_Module_Controller {
         Com_Helper_Title::getInstance()->title = "Mi Cuenta";
 
         Com_Helper_BreadCrumbs::getInstance()->add("Mi Cuenta", "/Admin/Admin/Account");
-           
+
         if ($this->isPost()) {
-            
+
             $image = "";
             if (Com_File_Handler::getInstance()->setFile(get("Image"))->hasErrors()) {
                 Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "El Archivo Seleccionado no pudo ser guardado por favor Intente Nuevamente");
@@ -55,29 +53,26 @@ class Admin_Controller_Admin extends Com_Module_Controller {
                     $image = Com_File_Handler::getInstance()->getFileName();
                 }
             }
-            
+
             Users_Model_User::getInstance()->doUpdate(get('userId'), get('Name'), get('Mail'), get('Login'), get('Password'), get('Status'), get('Type'), $image);
-            //$this->redirect(Com_Helper_Url::getInstance()->urlBase . '/Admin/Users');
         }
 
         $entity = Users_Model_User::getInstance()->get(get('userId'));
-        
-                
-                set('userFullName', $entity->UserName, "SESSION");
-                set('userName', $entity->UserLogin, "SESSION");
-                set('userEmail', $entity->UserMail, "SESSION");
-                if($image!= ""){
-                    set('userPhoto', $image, "SESSION");
-                }
-                
+
+
+        set('userFullName', $entity->UserName, "SESSION");
+        set('userName', $entity->UserLogin, "SESSION");
+        set('userEmail', $entity->UserMail, "SESSION");
+        if ($image != "") {
+            set('userPhoto', $image, "SESSION");
+        }
+
 
         $this->assign('Name', $entity->UserName);
         $this->assign('Image', $entity->UserImage);
         $this->assign('Mail', $entity->UserMail);
         $this->assign('Login', $entity->UserLogin);
         $this->assign('Password', $entity->UserPassword);
-        
-        
     }
 
 }
