@@ -41,9 +41,9 @@ class Com_Wizard_ToolBar extends Com_Object {
                         <a <?PHP
                         echo ($lstIcon['href'] != "" ? 'href="' . $lstIcon['href'] . '"' : "");
                         echo ($lstIcon['action'] != "" ? 'onclick="' . $lstIcon['action'] . '"' : "");
-                        ?> class="btn btn-success btn-addon m-b-sm">
+                        ?>
+                            data-toggle="tooltip" data-placement="top" title="<?PHP echo $lstIcon['label']; ?>" class="">
                             <i class="<?PHP echo $lstIcon['image']; ?>"></i>
-                            <span><?PHP echo $lstIcon['label']; ?></span>
                         </a>
                         <?PHP
                     }
