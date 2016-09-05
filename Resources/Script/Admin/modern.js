@@ -4,34 +4,34 @@ $( document ).ready(function() {
     $('.show-search').click(function(){
         $('.search-form').css('margin-top', '0');
     });
-    
+
     $('.close-search').click(function(){
         $('.search-form').css('margin-top', '-60px');
     });
-    
-    
+
+
     // Fullscreen
     function toggleFullScreen() {
-        if ((document.fullScreenElement && document.fullScreenElement !== null) ||  
+        if ((document.fullScreenElement && document.fullScreenElement !== null) ||
             (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-            if (document.documentElement.requestFullScreen) {  
-                document.documentElement.requestFullScreen();  
-            } else if (document.documentElement.mozRequestFullScreen) {  
-                document.documentElement.mozRequestFullScreen(); 
+            if (document.documentElement.requestFullScreen) {
+                document.documentElement.requestFullScreen();
+            } else if (document.documentElement.mozRequestFullScreen) {
+                document.documentElement.mozRequestFullScreen();
             } else if (document.documentElement.webkitRequestFullScreen) {
-                document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
-            }  
-        } else {  
-            if (document.cancelFullScreen) {  
-                document.cancelFullScreen();  
-            } else if (document.mozCancelFullScreen) {  
-                document.mozCancelFullScreen();  
-            } else if (document.webkitCancelFullScreen) {  
-                document.webkitCancelFullScreen();  
-            }  
-        }  
+                document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+            }
+        } else {
+            if (document.cancelFullScreen) {
+                document.cancelFullScreen();
+            } else if (document.mozCancelFullScreen) {
+                document.mozCancelFullScreen();
+            } else if (document.webkitCancelFullScreen) {
+                document.webkitCancelFullScreen();
+            }
+        }
     }
-    
+
     $('.toggle-fullscreen').click(function(){
         toggleFullScreen();
     });
@@ -39,21 +39,21 @@ $( document ).ready(function() {
     
     // Waves
     Waves.displayEffect();
-    
+
     // tooltips
     $( '[data-toggle~="tooltip"]' ).tooltip({
         container: 'body'
     });
-    
+
     // Switchery
     var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-    
+
     elems.forEach(function(html) {
         var switchery = new Switchery(html, { color: '#23B7E5' });
     });
-    
+
     // Element Blocking
-    function blockUI(item) {    
+    function blockUI(item) {
         $(item).block({
             message: '<img src="assets/images/reload.gif" width="20px" alt="">',
             css: {
@@ -70,33 +70,33 @@ $( document ).ready(function() {
             }
         });
     }
-    
+
     function unblockUI(item) {
         $(item).unblock();
-    }  
+    }
     
     // Panel Control
     $('.panel-collapse').click(function(){
         $(this).closest(".panel").children('.panel-body').slideToggle('fast');
     });
-    
-    $('.panel-reload').click(function() { 
+
+    $('.panel-reload').click(function() {
         var el = $(this).closest(".panel").children('.panel-body');
         blockUI(el);
         window.setTimeout(function () {
             unblockUI(el);
         }, 1000);
-    
-    }); 
-    
+
+    });
+
     $('.panel-remove').click(function(){
         $(this).closest(".panel").hide();
     });
-    
+
     // Push Menu
     $('.push-sidebar').click(function(){
         var hidden = $('.sidebar');
-        
+
         if (hidden.hasClass('visible')){
             hidden.removeClass('visible');
             $('.page-inner').removeClass('sidebar-visible');
@@ -107,16 +107,16 @@ $( document ).ready(function() {
     });
     
     // sortable
-    $(".sortable").sortable({
-        connectWith: '.sortable',
-        items: '.panel',
-        helper: 'original',
-        revert: true,
-        placeholder: 'panel-placeholder',
-        forcePlaceholderSize: true,
-        opacity: 0.95,
-        cursor: 'move'
-    });
+    //$(".sortable").sortable({
+    //    connectWith: '.sortable',
+    //    items: '.panel',
+    //    helper: 'original',
+    //    revert: true,
+    //    placeholder: 'panel-placeholder',
+    //    forcePlaceholderSize: true,
+    //    opacity: 0.95,
+    //    cursor: 'move'
+    //});
     
     // Uniform
     var checkBox = $("input[type=checkbox]:not(.switchery), input[type=radio]:not(.no-uniform)");

@@ -1,0 +1,112 @@
+<article>
+            <section class="section">
+                <div class="background-media" data-0-top-bottom="background-position: 50% -120px" data-start="background-position: 50% 0px" style="background-image: url(<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $this->room->TypeImage; ?>); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
+                </div>
+                <div class="background-overlay grid-overlay-0" style="background-color: rgba(0,0,0,0.2);"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <div class="divider-wrapper">
+                                <div class="visible-xs element-height-50"></div>
+                                <div class="visible-sm element-height-100"></div>
+                                <div class="visible-md element-height-200"></div>
+                                <div class="visible-lg element-height-200"></div>
+                            </div>
+                            <h1 class="text-center element-bottom-20 text-light os-animation super" data-os-animation="fadeIn" data-os-animation-delay="0.1s">
+                        <?php echo $this->room->TypeName; ?>
+                    </h1>
+                            <div class="figure element-bottom-100 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.3s"> <span class="figure-image">
+                             <!-- <img alt="decor-big-white.png" src="<?PHP //echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/decor-big-white.png"> -->
+                        </span> </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <div class="background-overlay"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h2 class="text-center element-top-60 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.1s">
+                                <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleComodidades')->TxtDescription; ?>
+                    </h2>
+                            <div class="figure element-bottom-20 block text-center os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.2s"> <span class="figure-image">
+                            <img alt="decor-small-gold.png" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/decor-small-gold.png">
+                        </span> </div>
+                            <div class="col-text-1 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.3s">
+                                <p><?php echo $this->room->TypeDescription; ?></p>
+                            </div>
+                            <ul class="skills-list element-top-20 element-bottom-20 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.4s">
+                                <?php 
+                                $arreglo = explode(',', $this->room->TypeAmenities);
+                                for($j=0;$j<count($arreglo);$j++)
+                                    echo '<li>'.$arreglo[$j].'</li>';
+                                ?>
+                                
+                            </ul>
+                        </div>
+                        <div class="col-md-9">
+                            <?php Room_Widget_Gallery::getInstance()->setLan($this->lan)->setRoom($this->room->TypeId)->render(); ?>                           
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <div class="background-media" style="background-image: url(<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $this->room->TypeImage; ?>); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;"> </div>
+                <div class="background-overlay grid-overlay-0" style="background-color: rgba(0,0,0,0.3);"></div>
+                <div class="container container-vertical-middle">
+                    <div class="row vertical-middle">
+                        <div class="col-md-12 text-center">
+                            <div class="divider-wrapper">
+                                <div class="visible-xs element-height-40"></div>
+                                <div class="visible-sm element-height-40"></div>
+                                <div class="visible-md element-height-40"></div>
+                                <div class="visible-lg element-height-40"></div>
+                            </div>
+                            <form action="contact_mailer_hotel.php" class="contact-form">
+                                <div class="row vertical-middle">
+                                    <div class="col-md-3 text-light">
+                                        <div class="form-group  text-left">
+                                            <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtLlegada')->TxtDescription; ?></label>
+                                            <div class="date-wrapper">
+                                                <input type="text" name="datepickerin" size="40" class="form-control datepicker" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneLlegada')->TxtDescription; ?>" required> </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 text-light">
+                                        <div class="form-group text-left">
+                                            <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSalida')->TxtDescription; ?></label>
+                                            <div class="date-wrapper">
+                                                <div class="date-wrapper">
+                                                    <input type="text" name="datepickerout" size="40" class="form-control datepicker" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneSalida')->TxtDescription; ?>" required> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 text-light">
+                                        <div class="form-group text-left">
+                                            <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtTipoHabitacion')->TxtDescription; ?></label>
+                                            <br>
+                                            <select name="type">
+                                                 <?PHP Room_Widget_List::getInstance()->setLan($this->lan)->render();?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group text-center">
+                                            <label>&nbsp;</label>
+                                            <br>
+                                            <input class="btn btn-primary" type="submit" value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnReserve')->TxtDescription; ?>"> </div>
+                                    </div>
+                                </div>
+                                <div class="messages"></div>
+                            </form>
+                            <div class="divider-wrapper">
+                                <div class="visible-xs element-height-40"></div>
+                                <div class="visible-sm element-height-40"></div>
+                                <div class="visible-md element-height-40"></div>
+                                <div class="visible-lg element-height-40"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>

@@ -2,8 +2,8 @@
 
 /**
  * avaManager
- * avaManager 
- * 
+ * avaManager
+ *
  * Description of order
  *
  * @author aortuno
@@ -13,7 +13,8 @@
  * @subpackage View
  * @name order
  */
-function hasChilds($parentId, $lstModules) {
+function hasChilds($parentId, $lstModules)
+{
     foreach ($lstModules as $objModule) {
         if ($objModule->MenParentId == $parentId) {
             return true;
@@ -22,7 +23,8 @@ function hasChilds($parentId, $lstModules) {
     return false;
 }
 
-function renderItems($parentId, $lstModules) {
+function renderItems($parentId, $lstModules)
+{
     if (hasChilds($parentId, $lstModules)) {
         ?>
         <ul class="sortable">
@@ -32,17 +34,19 @@ function renderItems($parentId, $lstModules) {
                     ?>
                     <li>
                         <span class="glyphicon glyphicon-resize-vertical handle" title="Arrastre para mover"></span>
-                        <div><?PHP echo $objModule->MenAlias; ?><input type="hidden" name="Order[]" value="<?PHP echo $objModule->MenId; ?>"></div>
+
+                        <div><?PHP echo $objModule->MenAlias; ?><input type="hidden" name="Order[]"
+                                                                       value="<?PHP echo $objModule->MenId; ?>"></div>
                         <?PHP
                         renderItems($objModule->MenId, $lstModules);
                         ?>
                     </li>
-                    <?PHP
+                <?PHP
                 }
             }
             ?>
         </ul>
-        <?PHP
+    <?PHP
     }
 }
 
@@ -55,6 +59,11 @@ $objToolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "
 <div class="panel panel-primary">
     <div class="panel-heading">
         <div class="panel-title">Ordenar Men&uacute;</div>
+        <div class="panel-control">
+            <?PHP
+            $objToolBar->render();
+            ?>
+        </div>
     </div>
     <div class="panel-body">
         <div class="formulario">
@@ -66,15 +75,15 @@ $objToolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "
                         $active = true;
                     }
                     ?>
-                    <li class="<?PHP echo ($active ? "active" : ""); ?>" role="presentation"><a href="<?PHP echo Com_Helper_Url::getInstance()->urlBase . "/Admin/Menu/Order/lan/" . $language->LanId; ?>"><?PHP echo $language->LanName; ?></a></li>
-                    <?PHP
+                    <li class="<?PHP echo($active ? "active" : ""); ?>" role="presentation"><a
+                            href="<?PHP echo Com_Helper_Url::getInstance()->urlBase . "/Admin/Menu/Order/lan/" . $language->LanId; ?>"><?PHP echo $language->LanName; ?></a>
+                    </li>
+                <?PHP
                 }
                 ?>
             </ul>
             <br/>
-            <?PHP
-            $objToolBar->render();
-            ?>
+
             <form method="POST">
                 <div class="title"><i>Arrastre para cambiar el orden de los modulos en el menu</i><br/></div>
                 <?PHP
@@ -93,61 +102,61 @@ $objToolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . "
 
 <style type="text/css">
 
-    .formulario .title{
-        font-size:18px;
-        padding:10px 1%;
+    .formulario .title {
+        font-size: 18px;
+        padding: 10px 1%;
     }
 
-    .formulario{
-        float:left;
-        display:block;
-        position:relative;
-        width:100%;
+    .formulario {
+        float: left;
+        display: block;
+        position: relative;
+        width: 100%;
     }
 
-    form{
-        width:100%;
+    form {
+        width: 100%;
     }
 
-    form ul.sortable{
-        border:1px solid #CCC;
-        padding:2%;
-        margin:0px;
-        float:left;
-        display:block;
-        position:relative;
-        clear:both;
-        width:100%;
+    form ul.sortable {
+        border: 1px solid #CCC;
+        padding: 2%;
+        margin: 0px;
+        float: left;
+        display: block;
+        position: relative;
+        clear: both;
+        width: 100%;
         background-color: #FFF;
     }
 
-    form ul.sortable li{
+    form ul.sortable li {
         background-color: #DFE5DD;
-        margin:10px 0px;
-        padding:7px 1%;
-        float:left;
-        display:block;
-        position:relative;
-        clear:both;
-        width:100%;
+        margin: 10px 0px;
+        padding: 7px 1%;
+        float: left;
+        display: block;
+        position: relative;
+        clear: both;
+        width: 100%;
     }
 
-    form ul.sortable li span{
-        cursor:move;
-        float:left;
-        display:block;
-        position:relative;
-        margin:8px;
-        font-size:26px;
-        width:26px;
-        height:26px;
+    form ul.sortable li span {
+        cursor: move;
+        float: left;
+        display: block;
+        position: relative;
+        margin: 8px;
+        font-size: 26px;
+        width: 26px;
+        height: 26px;
     }
 
-    form ul.sortable li div{
-        float:left;
-        display:block;
-        position:relative;
-        margin:10px;
+    form ul.sortable li div {
+        float: left;
+        display: block;
+        position: relative;
+        margin: 10px;
         font-size: 16px;
     }
 </style>

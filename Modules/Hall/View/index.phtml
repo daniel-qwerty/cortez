@@ -1,0 +1,23 @@
+<?PHP
+
+$db = new Entities_Hall();
+$grid = new Com_Wizard_Grid();
+$grid->title = "Salones de Eventos";
+$grid->setIdField("HallId");
+$grid->setLanField("HallLanId");
+$grid->setQuery($db->getListWithLanguages());
+$grid->setAlias(array("LanName" => "Idioma", "HallName" => "Tipo", "HallStatus" => "Estado"));
+$grid->setFilters(array("HallName" => get('HallName')));
+
+$toolBar = new Com_Wizard_ToolBar();
+$toolBar->add("plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/Hall/Add');
+$toolBar->add("search", "Filtrar", null, "showHide('.filters')");
+$toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Admin');
+$grid->setToolBar($toolBar);
+
+$grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Hall/Edit/lan/_LANGUAGE_/id/_ID_');
+$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/Hall/Delete/id/_ID_' . "':'';");
+
+$grid->customField("HallStatus", array("value" => array('1' => 'Habilitado', '0' => 'Bloqueado')));
+
+$grid->render();

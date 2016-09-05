@@ -34,7 +34,7 @@ class Menu_Widget_MenuFooter extends Com_Object {
         $actualUrl = Com_Helper_Url::getInstance()->urlBase . '/' . get("QUERY_STRING");
         ?>
 
-        <ul id="menu-footer">
+        
             <?PHP
             foreach ($list as $item) :
                 $url = Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, $item->MenUrl);
@@ -43,9 +43,10 @@ class Menu_Widget_MenuFooter extends Com_Object {
                     $active = true;
                 }
                 ?>
-            <li><a href="<?PHP echo $url; ?>"><?PHP echo $item->MenAlias; ?></a></li>
+                <a href="<?PHP echo $url; ?>"><?PHP echo $item->MenAlias; ?></a> <br>
+            
             <?PHP endforeach;            ?>
-        </ul>
+       
 
         <?PHP
     }

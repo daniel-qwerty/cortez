@@ -99,36 +99,48 @@ $(document).ready(function () {
         }
     });
 
-
-    CKEDITOR.disableAutoInline = true;
-
-    CKEDITOR.replaceClass = 'ckeditor';
-
-    $('.ckeditor').each(function () {
-
-        var roxyFileman = "http://heifer-bolivia.org/cms/Resources/Script/Admin/ckeditor/fileman/index.html";
-
-        CKEDITOR.replace($(this).attr('id'), {
-            "language": "es",
-            "resize_enabled": false,
-            "toolbarCanCollapse": false,
-            "height": "450px",
-            "width": "100%",
-            "toolbar": [["Source", "Maximize"],
-                ["Cut", "Copy", "Paste", "PasteText", "PasteAsPlainText", "PasteFromWord", "-", "Undo", "Redo", "RemoveFormat"],
-                ["Bold", "Italic", "Underline", "Strike", "NumberedList", "BulletedList", "TextColor", "BGColor"],
-                ["Font", "FontSize", "Format"],
-                ["JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock", "Outdent", "Indent"],
-                ["Link", "Unlink", "-", "Image", "Code", "Table"]],
-            "filebrowserBrowseUrl": roxyFileman,
-            "filebrowserImageBrowseUrl": roxyFileman + "?type=image",
-            "removeDialogTabs": 'link:upload;image:upload'
-        });
+    $('.counter').counterUp({
+        delay: 10,
+        time: 1000
     });
 
+    setTimeout(function() {
+        toastr.options = {
+            closeButton: true,
+            progressBar: true,
+            showMethod: 'fadeIn',
+            hideMethod: 'fadeOut',
+            timeOut: 5000
+        };
+        toastr.success('Checkout settings menu on left!', 'Welcome to Modern!');
+    }, 1800);
 
-
-
+    //CKEDITOR.disableAutoInline = true;
+    //
+    //CKEDITOR.replaceClass = 'ckeditor';
+    //
+    //$('.ckeditor').each(function () {
+    //
+    //    var roxyFileman = "http://heifer-bolivia.org/cms/Resources/Script/Admin/ckeditor/fileman/index.html";
+    //
+    //    CKEDITOR.replace($(this).attr('id'), {
+    //        "language": "es",
+    //        "resize_enabled": false,
+    //        "toolbarCanCollapse": false,
+    //        "height": "450px",
+    //        "width": "100%",
+    //        "toolbar": [["Source", "Maximize"],
+    //            ["Cut", "Copy", "Paste", "PasteText", "PasteAsPlainText", "PasteFromWord", "-", "Undo", "Redo", "RemoveFormat"],
+    //            ["Bold", "Italic", "Underline", "Strike", "NumberedList", "BulletedList", "TextColor", "BGColor"],
+    //            ["Font", "FontSize", "Format"],
+    //            ["JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock", "Outdent", "Indent"],
+    //            ["Link", "Unlink", "-", "Image", "Code", "Table"]],
+    //        "filebrowserBrowseUrl": roxyFileman,
+    //        "filebrowserImageBrowseUrl": roxyFileman + "?type=image",
+    //        "removeDialogTabs": 'link:upload;image:upload'
+    //    });
+    //});
+    $(".live-tile").liveTile();
 });
 
 function showHide(filter) {
