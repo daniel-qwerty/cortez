@@ -32,49 +32,50 @@ class Menu_Widget_Menu extends Com_Object {
 
         $list = Menu_Model_Menu::getInstance()->getMenuList($this->lan->LanId, $this->parent);
         $actualUrl = Com_Helper_Url::getInstance()->urlBase . '/' . get("QUERY_STRING");
-
         ?>
 
         <?PHP
-        foreach ($list as $item) {
+        foreach ($list as $item) :
+            $sublist = Menu_Model_Menu::getInstance()->getMenuList($this->lan->LanId, $item->MenId);
             $url = Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, $item->MenUrl);
             $active = false;
             if ($actualUrl == $url) {
                 $active = true;
             }
-            ?>
 
-            <li class="menu-item menu-item-type-post_type menu-item-object-page ">
-                <a class="page-scroll" href="<?PHP echo $item->MenUrl; ?>">
-                    <?PHP echo $item->MenAlias; ?>
-                </a>
-            </li>
+            if (count($sublist) == 0):
+                ?>
+                <li class="menu-item <?= ($active) ? 'active' : '' ?> "> 
+                    <a href="<?= Com_Helper_Url::getInstance()->urlBase . '/' . $this->lan->LanCode . '/' . $item->MenUrl; ?>"><?PHP echo $item->MenAlias; ?></a> 
+                </li>
+                <?PHP
+            else:
+                ?>
+                <li class="menu-item  dropdown"> 
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="/#"><?PHP echo $item->MenAlias; ?></a>
+                    <ul class="dropdown-menu dropdown-menu-left">
+                        <?php
+                        foreach ($sublist as $subitem):
+                            $sw = substr($subitem->MenUrl, strlen($subitem->MenUrl) - 1, strlen($subitem->MenUrl));
+                            ?>
 
-            <?PHP
-        }
-    }
-    
-    public function render2() {
+                            <li class="menu-item"> 
+                                <a href="<?= Com_Helper_Url::getInstance()->urlBase . '/' . $this->lan->LanCode . '/' . $subitem->MenUrl; ?>"><?PHP echo $subitem->MenAlias; ?></a>  
+                            </li>
 
-        $list = Menu_Model_Menu::getInstance()->getMenuList($this->lan->LanId, $this->parent);
-        $actualUrl = Com_Helper_Url::getInstance()->urlBase . '/' . get("QUERY_STRING");
+                        <?php endforeach;
+                        ?>
+
+                    </ul>
+                </li>
+
+
+            <?php
+            endif;
+        endforeach
         ?>
 
         <?PHP
-        foreach ($list as $item) {
-            $url = Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, $item->MenUrl);
-            $active = false;
-            if ($actualUrl == $url) {
-                $active = true;
-            }
-            ?>
-            
-
-            <li class="menu-item menu-item-type-post_type menu-item-object-page "><a class="page-scroll" href="<?PHP echo Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, 'page/index.html' . $item->MenUrl); ?>"><?PHP echo $item->MenAlias; ?></a></li>
-
-            <?PHP
-        }
     }
-
 }
 ?>

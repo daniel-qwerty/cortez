@@ -8,7 +8,7 @@ class Entities_Media extends Com_Database_Entity_Language {
 
     public $MedId;
     public $MedLanId;
-    public $MedSpoId;
+    public $MedRoomId;
     public $MedImage;
     public $MedFooter;
     public $MedYoutube;

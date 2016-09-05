@@ -51,7 +51,7 @@ class Com_Helper_Menu extends Com_Object {
                 $hasChilds=$this->hasChilds($lstItem["Module"]);
                 $result.='<li class="droplink" >
                             <a class="waves-effect waves-button" href="' . ($lstItem["Url"] != "" ? $urlBase . $lstItem["Url"] : "#") .'">' . 
-                        ' <span class="menu-icon glyphicon glyphicon-envelope"></span>'.
+                        ' <span class="menu-icon glyphicon glyphicon-'.$lstItem["Icon"].'"></span>'.
                         '<p>'.$lstItem["Text"].'</p>'.'</a>
                             ' . $this->getChilds($lstItem["Module"]) . ' <span class="arrow"></span>
                          </li>';

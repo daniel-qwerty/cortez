@@ -17,10 +17,7 @@ class Admin_Controller_Index extends Com_Module_Controller {
                 set('userType', $obj->UserTypId, "SESSION");
                 set('userPhoto', $obj->UserImage, "SESSION");
 
-                //$ip = "190.186.194.41";
-                //$ip = "201.83.41.11";
-                //$ip="201.213.255.252";
-                //$ip = "213.28.99.0";
+               
                 $ip = get('REMOTE_ADDR');
                 if ($ip != "::1") {
                     //Get geo Data
