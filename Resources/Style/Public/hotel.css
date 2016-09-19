@@ -645,6 +645,17 @@ button.mfp-arrow {
 .go-top i {
   color: #ffffff;
 }
+.show-form-res {
+  background: #0d51a0 !important;
+  color:#FFF;
+}
+.show-form-res:hover {
+  background: #0d51a0 !important;
+  color:#FFF;
+}
+.show-form-res i {
+  color: #ffffff;
+}
 
 .carousel-control {
   color: #ffffff !important;

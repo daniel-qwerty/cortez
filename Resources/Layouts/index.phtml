@@ -98,13 +98,13 @@
     </div>
 </div>
 <div id="aux" style="
-        opacity: 0;
     position: fixed;
     width: 100%;
-    top: 80px;
-    z-index: 999999999999;
-    background: rgba(0,0,0,0.4);
+    bottom: 0px;
+    z-index: 2147483647;
+    background: rgba(0, 0, 0, 0.8);
     transition: 0.6s;
+    transform:translate(0,100%);
     ">
 
 
@@ -175,7 +175,8 @@
                             <div class="visible-md element-height-200"></div>
                             <div class="visible-lg element-height-200"></div>
                         </div>
-                        <h1 class="text-center element-bottom-20 text-light os-animation hyper" data-os-animation="fadeIn" data-os-animation-delay="0.1s">
+                        <h1 class="text-center element-bottom-20 text-light os-animation hyper"
+                            data-os-animation="fadeIn" data-os-animation-delay="0.1s">
                             <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleHome')->TxtDescription; ?>
                         </h1>
                         <h1 class="text-center element-top-20 element-bottom-20 text-light os-animation bigger regular"
@@ -470,6 +471,7 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&amp;sensor=false"></script>
 </div>
+<a class="show-form-res go-top-square" href="javascript:void(0)"> <i class="fa fa-suitcase"></i> Reserve ahora! </a>
 <a class="go-top go-top-square" href="javascript:void(0)"> <i class="fa fa-angle-up"></i> </a>
 <script type="text/javascript">
     var oxyThemeData = {
@@ -531,13 +533,13 @@ echo Com_Helper_Script::getInstance();
 </script>
 <script>
     $(window).scroll(function () {
-        console.log($(document).scrollTop());
-        if ($(document).scrollTop() < $('#about').height() + $('#formulario').height()) {
-            $('#aux').css('opacity', 0);
-        }
-        else {
-            $('#aux').css('opacity', 1);
-        }
+//        console.log($(document).scrollTop());
+//        if ($(document).scrollTop() < $('#about').height() + $('#formulario').height()) {
+            $('#aux').css('transform', 'translate(0,100%)');
+//        }
+//        else {
+//            $('#aux').css('transform', 'none');
+//        }
     });
 </script>
 

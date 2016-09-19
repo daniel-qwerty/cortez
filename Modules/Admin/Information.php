@@ -1,17 +1,18 @@
 <?PHP
 
-class Admin_Information extends Com_Module_Information {
+class Admin_Information extends Com_Module_Information
+{
 
-    public function init() {
-        
+    public function init()
+    {
+
         $obj = get('userType');
-        if($obj == 1){
-            
-        }
-       // Com_Helper_Menu::getInstance()->add("Dashboard", "/Admin/Admin", "Dashboard", "th-large",null);
-       // Com_Helper_Menu::getInstance()->add("Statistics", "/Admin/Statistics", "Estad&iacute;sticas", "stats",null);
+        if ($obj == 1) {
 
-        
+        }
+        // Com_Helper_Menu::getInstance()->add("Dashboard", "/Admin/Admin", "Dashboard", "th-large",null);
+        // Com_Helper_Menu::getInstance()->add("Statistics", "/Admin/Statistics", "Estad&iacute;sticas", "stats",null);
+
         /**
          * Menu Contenido
          */
@@ -23,15 +24,15 @@ class Admin_Information extends Com_Module_Information {
 
         //Com_Helper_Menu::getInstance()->add("News", "/Admin/News", "Noticias", "Noticias", "Content");
         //Com_Helper_Menu::getInstance()->add("SlidesShows", "/Admin/SlideShows", "SlideShow", "slideShow", "Content");
-        
+
         Com_Helper_Menu::getInstance()->add("Habitaciones", "/Admin/Room", "Habitaciones", "Habitaciones", "Content");
         Com_Helper_Menu::getInstance()->add("Salones", "/Admin/Hall", "Salones", "Salones", "Content");
         Com_Helper_Menu::getInstance()->add("Servicios", "/Admin/Services", "Servicios", "Servicios", "Content");
         Com_Helper_Menu::getInstance()->add("Promociones", "/Admin/Promo", "Promociones", "Promociones", "Content");
         Com_Helper_Menu::getInstance()->add("Opiniones", "/Admin/Reviews", "Opiniones", "Opiniones", "Content");
         Com_Helper_Menu::getInstance()->add("Imagenes", "/Admin/Images", "Imagenes", "Imagenes", "Content");
-        
-        
+
+
         /**
          * Menu Administracion
          */
@@ -40,8 +41,8 @@ class Admin_Information extends Com_Module_Information {
         Com_Helper_Menu::getInstance()->add("Users", "/Admin/Users", "Usuarios", "users", "Administration");
         Com_Helper_Menu::getInstance()->add("Languages", "/Admin/Language", "Idiomas", "languages", "Administration");
         Com_Helper_Menu::getInstance()->add("Configurations", "/Admin/Configurations", "Configuraciones", "configurations", "Administration");
-       
-        
+
+
     }
 
 }
