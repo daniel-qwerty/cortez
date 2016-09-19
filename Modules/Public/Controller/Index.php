@@ -37,6 +37,8 @@ class Public_Controller_Index extends Com_Module_Controller_Language {
             $this->country = get("publicCountry");
         }
 
+        Tracking_Model_Tracking::getInstance()->doInsert($_SERVER['REMOTE_ADDR'],Com_Helper_Url::getInstance()->getUrl(),isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '',$_SERVER['PHP_SELF'],date("Y-m-d"),date("H:i:s"),$_SERVER['HTTP_USER_AGENT']);
+
         Statistics_Model_Visit::getInstance()->doInsert(get('REMOTE_ADDR'), date("Y-m-d"), date("H:i:s"), Com_Helper_Url::getInstance()->getUrl(), $this->lan->LanId, $this->country->CouId);
         //validate Search
         if ($this->isPost()) {
@@ -58,6 +60,8 @@ class Public_Controller_Index extends Com_Module_Controller_Language {
             Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_WARNING, "No existen paginas registradas");
             $this->redirect(Com_Helper_Url::getInstance()->urlBase . '/Admin');
         }
+
+
     }
 
     public function Search() {

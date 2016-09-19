@@ -23,6 +23,7 @@ class Room_Model_RoomType extends Com_Module_Model {
             $db->TypeResume = $obj->Resume;
             $db->TypeDescription = $obj->Description;
             $db->TypeAmenities = $obj->Amenities;
+            $db->TypeServices = $obj->Services;
             $db->TypeImage = $fileName;
             $db->TypeStatus = $obj->Status;
             $db->action = ACTION_INSERT;
@@ -42,6 +43,7 @@ class Room_Model_RoomType extends Com_Module_Model {
         $db->TypeResume = $obj->Resume;
         $db->TypeDescription = $obj->Description;
         $db->TypeAmenities = $obj->Amenities;
+        $db->TypeServices = $obj->Services;
         if ($fileName != "") {
             $db->TypeImage = $fileName;
         }

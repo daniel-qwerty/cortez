@@ -19,6 +19,8 @@ class Room_Controller_Index extends Public_Controller_Index
         $this->assign("room", $room);
         // $this->assign("blog", $blog);
         // $this->assign("user", $user);
+
+        Tracking_Model_Tracking::getInstance()->doInsert($_SERVER['REMOTE_ADDR'],Com_Helper_Url::getInstance()->getUrl(),isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '',$_SERVER['PHP_SELF'],date("Y-m-d"),date("H:i:s"),$_SERVER['HTTP_USER_AGENT']);
     }
 
     public function Lista()

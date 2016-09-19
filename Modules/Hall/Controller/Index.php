@@ -10,10 +10,7 @@ class Hall_Controller_Index extends Public_Controller_Index
         $url = get('REQUEST_URI');
         $url = explode("/", $url);
         $url = $url[count($url) - 1];
-
-        
         $hall = Hall_Model_Hall::getInstance()->get($url, $this->lan->LanId);
-       // print_r($room);        exit();
         $this->assign("hall", $hall);        
     }
 

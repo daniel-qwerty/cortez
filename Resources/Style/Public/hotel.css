@@ -21,7 +21,7 @@
 }
 
 body {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "CenturyGothic", sans-serif;
   font-weight: 400;
 }
@@ -876,13 +876,13 @@ i {
 }
 
 blockquote p {
-  font-family: "Playfair Display";
+  font-family: "Giorgio";
   font-style: italic;
   height: 90px;
   overflow: hidden;
 }
 blockquote small, blockquote footer {
-  font-family: "Open Sans";
+  font-family: "Giorgio";
   color: #959494;
 }
 blockquote cite {
@@ -1111,7 +1111,7 @@ input[type="button"] {
   background-color: rgba(0, 0, 0, 0.17);
   text-transform: uppercase;
   color: #51575b;
-  font-family: "Playfair Display";
+  font-family: "CenturyGothic";
 }
 
 .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
@@ -2494,7 +2494,7 @@ textarea.woocommerce-invalid {
 }
 
 .shipping_calculator {
-  font-family: "Playfair Display";
+  font-family: "CenturyGothic";
   font-weight: 700;
 }
 
@@ -2523,7 +2523,7 @@ textarea.woocommerce-invalid {
   border-color: rgba(0, 0, 0, 0.17);
 }
 .product_list_widget li a, .widget_product_categories li a, .widget_product_categories .children a, .widget_layered_nav li a {
-  font-family: "Playfair Display";
+  font-family: "CenturyGothic";
   color: #0d51a0;
   font-weight: 700;
   text-transform: none;
@@ -2803,7 +2803,7 @@ h6.text-light,
 }
 
 .type-hall{
-  height: 117px;
+  height: auto;
   width: 100%;
   object-fit: cover;
 }

@@ -1,3 +1,4 @@
+
 <article>
             <section class="section">
                 <div class="background-media" data-0-top-bottom="background-position: 50% -120px" data-start="background-position: 50% 0px" style="background-image: url(<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $this->room->TypeImage; ?>); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;">
@@ -36,14 +37,14 @@
                             <div class="col-text-1 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.3s">
                                 <p><?php echo $this->room->TypeDescription; ?></p>
                             </div>
-                            <ul class="skills-list element-top-20 element-bottom-20 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.4s">
+                           <!-- <ul class="skills-list element-top-20 element-bottom-20 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.4s">
                                 <?php 
-                                $arreglo = explode(',', $this->room->TypeAmenities);
+                                /*$arreglo = explode(',', $this->room->TypeAmenities);
                                 for($j=0;$j<count($arreglo);$j++)
-                                    echo '<li>'.$arreglo[$j].'</li>';
+                                    echo '<li>'.$arreglo[$j].'</li>';*/
                                 ?>
                                 
-                            </ul>
+                            </ul> -->
                         </div>
                         <div class="col-md-9">
                             <?php Room_Widget_Gallery::getInstance()->setLan($this->lan)->setRoom($this->room->TypeId)->render(); ?>                           

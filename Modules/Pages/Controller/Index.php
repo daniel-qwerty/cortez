@@ -3,11 +3,14 @@
 class Pages_Controller_Index extends Public_Controller_Index {
 
     public function Page() {
+        Tracking_Model_Tracking::getInstance()->doInsert($_SERVER['REMOTE_ADDR'],Com_Helper_Url::getInstance()->getUrl(),isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '',$_SERVER['PHP_SELF'],date("Y-m-d"),date("H:i:s"),$_SERVER['HTTP_USER_AGENT']);
         $url = get('REQUEST_URI');
         $url = explode("/", $url);
         $url = $url[count($url) - 1];
         $page = Pages_Model_Pages::getInstance()->getByUrl($url, $this->lan->LanId);
         $menu = Menu_Model_Menu::getInstance()->getByUrl("page/" . $page->PagUrl, $this->lan->LanId);
+
+
 
         $this->assign('page', $page);
         $this->assign('menu', $menu);

@@ -33,10 +33,20 @@ $control->label = "Description";
 $control->default = $this->Description;
 $form->add($control);
 
-$control = new Com_Wizard_Form_Control_Editor();
+$control = new Com_Wizard_Form_Control_Text();
 $control->name = "Amenities";
 $control->label = "Amenities";
 $control->default = $this->Amenities;
+$control->rows = 3;
+$control->addParameter("style ", "height:120px;");
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Text();
+$control->name = "Services";
+$control->label = "Servicios";
+$control->default = $this->Services;
+$control->rows = 3;
+$control->addParameter("style ", "height:120px;");
 $form->add($control);
 
 $control = new Com_Wizard_Form_Control_File();

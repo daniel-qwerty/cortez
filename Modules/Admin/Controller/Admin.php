@@ -63,8 +63,8 @@ class Admin_Controller_Admin extends Com_Module_Controller {
         set('userFullName', $entity->UserName, "SESSION");
         set('userName', $entity->UserLogin, "SESSION");
         set('userEmail', $entity->UserMail, "SESSION");
-        if ($image != "") {
-            set('userPhoto', $image, "SESSION");
+        if ($entity->UserImage != "") {
+            set('userPhoto', $entity->UserImage, "SESSION");
         }
 
 
@@ -73,6 +73,7 @@ class Admin_Controller_Admin extends Com_Module_Controller {
         $this->assign('Mail', $entity->UserMail);
         $this->assign('Login', $entity->UserLogin);
         $this->assign('Password', $entity->UserPassword);
+        $this->assign('Image', $entity->UserImage);
     }
 
 }
