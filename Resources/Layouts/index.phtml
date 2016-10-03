@@ -70,6 +70,11 @@
 </head>
 
 <body class="transparent-header pace-on pace-dot">
+
+<?php /** FORMULARIO FLOTANTE DE RESERVAS **/ Pages_Widget_Reservation::getInstance()->setLan($this->lan)->render();?>
+
+
+<?php Pages_Widget_Reservation::getInstance()->render();?>
 <div class="pace-overlay"></div>
 <div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky text-none"
      id="masthead">
@@ -77,8 +82,9 @@
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button">
                 <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="/hotel-index.html"> <img alt="Lambda Theme - Hotel"
-                                                                   src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png">
+            <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->urlBase ?>"> <img
+                    alt="Lambda Theme - Hotel"
+                    src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png">
             </a>
         </div>
         <div class="nav-container">
@@ -94,69 +100,6 @@
                     </div>
                 </div>
             </nav>
-        </div>
-    </div>
-</div>
-<div id="aux" style="
-    position: fixed;
-    width: 100%;
-    bottom: 0px;
-    z-index: 2147483647;
-    background: rgba(0, 0, 0, 0.8);
-    transition: 0.6s;
-    transform:translate(0,100%);
-    ">
-
-
-    <div class="container container-vertical-middle">
-        <div class="row vertical-middle">
-            <div class="col-md-12 text-center">
-
-                <form action="contact_mailer_hotel.php" class="contact-form">
-                    <div class="row vertical-middle">
-                        <div class="col-md-3 text-light">
-                            <div class="form-group  text-left">
-                                <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtLlegada')->TxtDescription; ?></label>
-                                <div class="date-wrapper">
-                                    <input type="text" name="datepickerin" size="40" class="form-control datepicker"
-                                           placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneLlegada')->TxtDescription; ?>"
-                                           required></div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 text-light">
-                            <div class="form-group text-left">
-                                <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSalida')->TxtDescription; ?></label>
-                                <div class="date-wrapper">
-                                    <div class="date-wrapper">
-                                        <input type="text" name="datepickerout" size="40"
-                                               class="form-control datepicker"
-                                               placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneSalida')->TxtDescription; ?>"
-                                               required></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 text-light">
-                            <div class="form-group text-left">
-                                <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtTipoHabitacion')->TxtDescription; ?></label>
-                                <br>
-                                <select name="type">
-                                    <?PHP Room_Widget_List::getInstance()->setLan($this->lan)->render(); ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group text-center">
-                                <label>&nbsp;</label>
-                                <br>
-                                <input class="btn btn-primary" type="submit"
-                                       value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnReserve')->TxtDescription; ?>">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="messages"></div>
-                </form>
-
-            </div>
         </div>
     </div>
 </div>
@@ -285,7 +228,7 @@
             <div class="background-overlay grid-overlay-0" style="background-color: rgba(86,154,167,0);"></div>
             <div class="container-fullwidth container-vertical-middle">
                 <div class="row vertical-middle">
-                    <div class="col-md-6" style="background:rgba(255, 255, 255, 0.95);">
+                    <div class="col-md-6" style="background:rgba(255, 255, 255, 0.75);">
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8 text-center">
@@ -324,14 +267,8 @@
             <div class="container-fullwidth container-vertical-middle">
                 <div class="row vertical-middle">
                     <div class="col-md-6">
-                        <div class="divider-wrapper">
-                            <div class="visible-xs element-height-200"></div>
-                            <div class="visible-sm element-height-200"></div>
-                            <div class="visible-md element-height-200"></div>
-                            <div class="visible-lg element-height-200"></div>
-                        </div>
                     </div>
-                    <div class="col-md-6" style="background:rgba(255, 255, 255, 0.95);">
+                    <div class="col-md-6" style="background:rgba(255, 255, 255, 0.75);">
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8 text-center">
@@ -369,7 +306,7 @@
             <div class="background-overlay grid-overlay-0" style="background-color: rgba(86,154,167,0);"></div>
             <div class="container-fullwidth container-vertical-middle">
                 <div class="row vertical-middle">
-                    <div class="col-md-6" style="background:rgba(255, 255, 255, 0.95);">
+                    <div class="col-md-6" style="background:rgba(255, 255, 255, 0.75);">
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8 text-center">
@@ -471,8 +408,7 @@
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&amp;sensor=false"></script>
 </div>
-<a class="show-form-res go-top-square" href="javascript:void(0)"> <i class="fa fa-suitcase"></i> Reserve ahora! </a>
-<a class="go-top go-top-square" href="javascript:void(0)"> <i class="fa fa-angle-up"></i> </a>
+
 <script type="text/javascript">
     var oxyThemeData = {
         navbarHeight: 90,
@@ -533,13 +469,7 @@ echo Com_Helper_Script::getInstance();
 </script>
 <script>
     $(window).scroll(function () {
-//        console.log($(document).scrollTop());
-//        if ($(document).scrollTop() < $('#about').height() + $('#formulario').height()) {
-            $('#aux').css('transform', 'translate(0,100%)');
-//        }
-//        else {
-//            $('#aux').css('transform', 'none');
-//        }
+        $('#aux').css('transform', 'translate(0,100%)');
     });
 </script>
 

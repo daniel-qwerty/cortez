@@ -36,15 +36,21 @@ class Hall_Widget_Gallery extends Com_Object
 
     public function render()
     {
-        $list = hall_Model_Media::getInstance()->getListByProject($this->hallId, $this->lan->LanId);
+        $list = Hall_Model_Media::getInstance()->getListByProject($this->hallId, $this->lan->LanId);
         //print_r($list);
         foreach ($list as $item) {
             ?>
-            <div class="figure element-top-60 element-bottom-20 os-animation" data-os-animation="fadeInRight" data-os-animation-delay="10s">
-                <a class="figure-image magnific" href="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $item->MedImage; ?>" target="_self"> <img alt="<?php echo $item->MedImage; ?>" src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $item->MedImage; ?>"> </a>
+            <div class="figure element-top-60 element-bottom-20 os-animation" data-os-animation="fadeInRight"
+                 data-os-animation-delay="10s">
+                <a class="figure-image magnific"
+                   href="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $item->MedImage; ?>"
+                   target="_self">
+                    <img alt="<?php echo $item->MedImage; ?>"
+                         src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $item->MedImage; ?>">
+                </a>
             </div>
-            
-        <?php
+
+            <?php
         }
     }
 

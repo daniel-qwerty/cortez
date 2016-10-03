@@ -45,7 +45,7 @@ class Services_Widget_Services extends Com_Object {
                 <div class="background-overlay grid-overlay-0" style="background-color: rgba(86,154,167,0);"></div>
                 <div class="container-fullwidth container-vertical-middle">
                     <div class="row vertical-middle">
-                        <div class="col-md-6" style="background:rgba(255, 255, 255, 0.95);">
+                        <div class="col-md-6" style="background:rgba(255, 255, 255, 0.75);">
                             <div class="row">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-8 text-center">
@@ -77,14 +77,9 @@ class Services_Widget_Services extends Com_Object {
                 <div class="container-fullwidth container-vertical-middle">
                     <div class="row vertical-middle">
                         <div class="col-md-6">
-                            <div class="divider-wrapper">
-                                <div class="visible-xs element-height-200"></div>
-                                <div class="visible-sm element-height-200"></div>
-                                <div class="visible-md element-height-200"></div>
-                                <div class="visible-lg element-height-200"></div>
-                            </div>
+
                         </div>
-                        <div class="col-md-6 text-center" style="background:rgba(255, 255, 255, 0.95);">
+                        <div class="col-md-6 text-center" style="background:rgba(255, 255, 255, 0.75);">
                             <div class="row">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-8 text-center">

@@ -1,165 +1,178 @@
 <!doctype html>
 <html class="no-js" lang="">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-        <title> Hotel</title>
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel='stylesheet' id='open-sans-css' href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1' type='text/css' media='all' />
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700,800%7CPlayfair+Display:400,400italic,700,900&amp;subset=greek,latin,latin" rel="stylesheet" type="text/css">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title> Hotel</title>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel='stylesheet' id='open-sans-css'
+          href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1'
+          type='text/css' media='all'/>
+    <link
+        href="//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700,800%7CPlayfair+Display:400,400italic,700,900&amp;subset=greek,latin,latin"
+        rel="stylesheet" type="text/css">
 
 
-        <!-- Fav and Touch Icons -->
-        <meta name="msapplication-TileColor" content="#d9534f">
-        <meta name="msapplication-TileImage"
-              content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/ms-icon-144x144.png">
-        <meta name="msapplication-config"
-              content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public//favicons/browserconfig.xml">
-        <meta name="theme-color" content="#ffffff">
-        <link rel="apple-touch-icon" sizes="57x57"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-180x180.png">
-        <link rel="icon" type="image/png"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-32x32.png"
-              sizes="32x32">
-        <link rel="icon" type="image/png"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/android-192x192.png"
-              sizes="192x192">
-        <link rel="icon" type="image/png"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-96x96.png"
-              sizes="96x96">
-        <link rel="icon" type="image/png"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-16x16.png"
-              sizes="16x16">
-        <link rel="manifest" href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/manifest.json">
-        <link rel="shortcut icon"
-              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon.ico"
-              type="image/x-icon"/>
+    <!-- Fav and Touch Icons -->
+    <meta name="msapplication-TileColor" content="#d9534f">
+    <meta name="msapplication-TileImage"
+          content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/ms-icon-144x144.png">
+    <meta name="msapplication-config"
+          content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public//favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="apple-touch-icon" sizes="57x57"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-32x32.png"
+          sizes="32x32">
+    <link rel="icon" type="image/png"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/android-192x192.png"
+          sizes="192x192">
+    <link rel="icon" type="image/png"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-96x96.png"
+          sizes="96x96">
+    <link rel="icon" type="image/png"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-16x16.png"
+          sizes="16x16">
+    <link rel="manifest" href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/manifest.json">
+    <link rel="shortcut icon"
+          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon.ico"
+          type="image/x-icon"/>
 
-        <?PHP
-        Com_Helper_Style::getInstance()
-                ->addFile("Public/extras.min.css")
-                ->addFile("Public/bootstrap.css")
-                ->addFile("Public/font-awesome.min.css")
-                ->addFile("Public/fonts.css")
-                ->addFile("Public/theme.css")
-                ->addFile("Public/hotel.css")
-        ;
-        echo Com_Helper_Style::getInstance();
-        ?>
-    </head>
-
-    <body class="transparent-header pace-on pace-dot">
-        <div class="pace-overlay"></div>
-        <div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky text-none" id="masthead">
-            <div class="container">
-                <div class="navbar-header">
-                    <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                    <a class="navbar-brand" href="/hotel-index.html"> <img alt="Lambda Theme - Hotel" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png"> </a>
-                </div>
-                <div class="nav-container">
-                    <nav class="collapse navbar-collapse main-navbar logo-navbar navbar-right">
-                        <div class="menu-container">
-                            <ul class="nav navbar-nav" id="menu-main">
-                                <?PHP Menu_Widget_Menu::getInstance()->setLan($this->lan)->setParent(1)->render(); ?>
-                            </ul>
-                        </div>
-                        <div class="menu-sidebar">
-                            <div class="sidebar-widget widget_social">
-                                <?PHP Pages_Widget_SocialIcons::getInstance()->render(); ?>
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    <div id="content" role="main">
-         <?PHP
-            $this->getContent();
-            ?>
-        <footer id="footer">
-            <?PHP Pages_Widget_Contacto::getInstance()->setLan($this->lan)->render(); ?>
-        </footer>
-    </div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&amp;sensor=false"></script>
-  
-    <a class="go-top go-top-square" href="javascript:void(0)"> <i class="fa fa-angle-up"></i> </a>
-    <script type="text/javascript">
-        var oxyThemeData = {
-            navbarHeight: 90,
-            navbarScrolled: 80,
-            navbarScrolledPoint: 100,
-            menuClose: 'off',
-            scrollFinishedMessage: 'No more items to load.',
-            hoverMenu:
-                    {
-                        hoverActive: false,
-                        hoverDelay: 200,
-                        hoverFadeDelay: 200
-                    },
-            siteLoader: 'on'
-        };
-    </script>
-
-
-    <?php
-    Com_Helper_Script::getInstance()
-            ->addFile("Public/theme.js")
-            ->addFile("Public/contact.js")
-            ->addFile("Public/map.js");
-    echo Com_Helper_Script::getInstance();
+    <?PHP
+    Com_Helper_Style::getInstance()
+        ->addFile("Public/extras.min.css")
+        ->addFile("Public/bootstrap.css")
+        ->addFile("Public/font-awesome.min.css")
+        ->addFile("Public/fonts.css")
+        ->addFile("Public/theme.css")
+        ->addFile("Public/hotel.css");
+    echo Com_Helper_Style::getInstance();
     ?>
+</head>
 
-    <script>
-        window.map = {
-            map_type: 'ROADMAP',
-            map_zoom: 17,
-            map_style: 'blackwhite',
-            map_scrollable: 'on',
-            marker: 'show',
-            label: ['Hotel Cortez'],
-            address: '',
-            latlng: ['-17.771060, -63.184124'],
-            center_latlng: '',
-            markerURL: '<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/marker.png',
-            auto_center: true
+<body class="transparent-header pace-on pace-dot">
+<?php /** FORMULARIO FLOTANTE DE RESERVAS **/ Pages_Widget_Reservation::getInstance()->setLan($this->lan)->render();?>
+<div class="pace-overlay"></div>
+<div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky text-none"
+     id="masthead">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+            <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->urlBase ?>"> <img
+                    alt="Lambda Theme - Hotel"
+                    src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png"> </a>
+        </div>
+        <div class="nav-container">
+            <nav class="collapse navbar-collapse main-navbar logo-navbar navbar-right">
+                <div class="menu-container">
+                    <ul class="nav navbar-nav" id="menu-main">
+                        <?PHP Menu_Widget_Menu::getInstance()->setLan($this->lan)->setParent(1)->render(); ?>
+                    </ul>
+                </div>
+                <div class="menu-sidebar">
+                    <div class="sidebar-widget widget_social">
+                        <?PHP Pages_Widget_SocialIcons::getInstance()->render(); ?>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+<div id="content" role="main">
+    <?PHP
+    $this->getContent();
+    ?>
+    <footer id="footer">
+        <?PHP Pages_Widget_Contacto::getInstance()->setLan($this->lan)->render(); ?>
+    </footer>
+</div>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&amp;sensor=false"></script>
+
+<a class="go-top go-top-square" href="javascript:void(0)"> <i class="fa fa-angle-up"></i> </a>
+<script type="text/javascript">
+    var oxyThemeData = {
+        navbarHeight: 90,
+        navbarScrolled: 80,
+        navbarScrolledPoint: 100,
+        menuClose: 'off',
+        scrollFinishedMessage: 'No more items to load.',
+        hoverMenu: {
+            hoverActive: false,
+            hoverDelay: 200,
+            hoverFadeDelay: 200
+        },
+        siteLoader: 'on'
+    };
+</script>
+
+
+<?php
+Com_Helper_Script::getInstance()
+    ->addFile("Public/theme.js")
+    ->addFile("Public/contact.js")
+    ->addFile("Public/map.js");
+echo Com_Helper_Script::getInstance();
+?>
+
+<script>
+    window.map = {
+        map_type: 'ROADMAP',
+        map_zoom: 17,
+        map_style: 'blackwhite',
+        map_scrollable: 'on',
+        marker: 'show',
+        label: ['Hotel Cortez'],
+        address: '',
+        latlng: ['-17.771060, -63.184124'],
+        center_latlng: '',
+        markerURL: '<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/marker.png',
+        auto_center: true
+    };
+</script>
+<!-- Smartsupp Live Chat script -->
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '7297473a650eaeeecd1c8851f4eee1f1def96bb7';
+    window.smartsupp || (function (d) {
+        var s, c, o = smartsupp = function () {
+            o._.push(arguments)
         };
-    </script>
-    <!-- Smartsupp Live Chat script -->
-    <script type="text/javascript">
-        var _smartsupp = _smartsupp || {};
-        _smartsupp.key = '7297473a650eaeeecd1c8851f4eee1f1def96bb7';
-        window.smartsupp || (function (d) {
-            var s, c, o = smartsupp = function () {
-                o._.push(arguments)
-            };
-            o._ = [];
-            s = d.getElementsByTagName('script')[0];
-            c = d.createElement('script');
-            c.type = 'text/javascript';
-            c.charset = 'utf-8';
-            c.async = true;
-            c.src = '//www.smartsuppchat.com/loader.js?';
-            s.parentNode.insertBefore(c, s);
-        })(document);
-    </script>
+        o._ = [];
+        s = d.getElementsByTagName('script')[0];
+        c = d.createElement('script');
+        c.type = 'text/javascript';
+        c.charset = 'utf-8';
+        c.async = true;
+        c.src = '//www.smartsuppchat.com/loader.js?';
+        s.parentNode.insertBefore(c, s);
+    })(document);
+</script>
+<script>
+    $(window).scroll(function () {
+        $('#aux').css('transform', 'translate(0,100%)');
+    });
+</script>
 </body>
 
 </html>

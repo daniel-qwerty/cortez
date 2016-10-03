@@ -15,9 +15,5 @@ class Entities_Hall extends Com_Database_Entity_Language
     public $HallAmenities;
     public $HallStatus;
     public $HallType;
-    public $HallBaquete;
-    public $HallCocktail;
-    public $HallTeatro;
-    public $HallAula;
-    public $HallU;
+    public $HallCapacity;
 }
