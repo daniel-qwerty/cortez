@@ -67,12 +67,13 @@
 </head>
 
 <body class="transparent-header pace-on pace-dot">
+<?php /** FORMULARIO FLOTANTE DE RESERVAS **/ Pages_Widget_Reservation::getInstance()->setLan($this->lan)->render();?>
     <div class="pace-overlay"></div>
     <div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky text-none" id="masthead">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                <a class="navbar-brand" href="/hotel-index.html"> <img alt="Lambda Theme - Hotel" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png"> </a>
+                <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->urlBase?>"> <img alt="Lambda Theme - Hotel" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png"> </a>
             </div>
             <div class="nav-container">
                 <nav class="collapse navbar-collapse main-navbar logo-navbar navbar-right">
@@ -92,7 +93,7 @@
     </div>
     <div id="content" role="main">
         <article>
-            <section class="section">
+            <section class="section portada">
                 <div class="background-media" style="background-image: url(<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'bannerContacto')->ImgFile; ?>); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 70%;"> </div>
                 <div class="background-overlay" style="background-color: rgba(0,0,0,0.3);"></div>
                 <div class="container">
@@ -140,7 +141,7 @@
                                         <div class="form-group form-icon-group"> <i class="fa fa-envelope"></i>
                                             <input class="form-control" id="email" name="email" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'placeholderEmail')->TxtDescription; ?>" type="email" required=""> </div>
                                         <div class="form-group form-icon-group"> <i class="fa fa-pencil"></i>
-                                            <textarea class="form-control" id="message" name="message" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'placeholderMensaje')->TxtDescription; ?>" rows="10" required=""></textarea>
+                                            <textarea class="form-control" id="message" name="message" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'placeholderMensaje')->TxtDescription; ?>" rows="5" required=""></textarea>
                                         </div>
                                         <div class="text-center">
                                             <input type="submit" value="Send email" class="btn btn-primary"> </div>
@@ -152,7 +153,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 text-center" style="background:rgba(255, 255, 255, 0.95);">
-                            <div class="google-map" data-os-animation="none" data-os-animation-delay="0s" id="map" style="height:600px"></div>
+                            <div class="google-map" data-os-animation="none" data-os-animation-delay="0s" id="map" style="height:500px"></div>
                         </div>
                     </div>
                 </div>
@@ -169,7 +170,7 @@
                                 <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleReviews')->TxtDescription; ?>
                     </h2>
                             <div class="figure os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.2s"> <span class="figure-image">
-                            <img alt="decor-small-white.png" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/decor-small-white.png">
+                            <img alt="decor-sma -white.png" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/decor-small-white.png">
                         </span> </div>
                             <div class="element-top-20 element-bottom-100 text-center text-light os-animation flexslider feature-slider" data-flex-animation="slide" data-flex-controls="show" data-flex-controls-position="outside" data-flex-controlsalign="center"
                             data-flex-directions="hide" data-flex-slideshow="true" data-flex-speed="7000" data-os-animation="fadeIn" data-os-animation-delay="0.3s" id="flexslider-985">
@@ -220,9 +221,9 @@
             map_type: 'ROADMAP',
             map_zoom: 17,
             map_style: 'blackwhite',
-            map_scrollable: 'on',
+            map_scrollable: 'off',
             scrollwheel: false,
-            draggable: true,
+            draggable: false,
             marker: 'show',
             label: ['Hotel Cortez'],
             address: '',
@@ -243,6 +244,12 @@ window.smartsupp||(function(d) {
 	c.src='//www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
 })(document);
 </script>
+    <script>
+        $(window).scroll(function () {
+            $('#aux').css('transform', 'translate(0,100%)');
+        });
+    </script>
 </body>
 
 </html>
+

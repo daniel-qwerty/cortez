@@ -22,8 +22,19 @@ class Hall_Controller_Admin extends Admin_Controller_Admin {
                     $fileName = Com_File_Handler::getInstance()->getFileName();
                 }
             }
+
+            $capacity = "";
+            if (Com_File_Handler::getInstance()->setFile(get("Capacity"))->hasErrors()) {
+                Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "El Archivo Seleccionado no pudo ser guardado por favor Intente Nuevamente");
+            } else {
+                if (!(Com_File_Handler::getInstance()->saveFile("Resources/Uploads/Image/"))) {
+                    Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "El Archivo Seleccionado no pudo ser guardado por favor Intente Nuevamente");
+                } else {
+                    $capacity = Com_File_Handler::getInstance()->getFileName();
+                }
+            }
             
-            $id = Hall_Model_Hall::getInstance()->doInsert($this->getPostObject(), $languages, $fileName);
+            $id = Hall_Model_Hall::getInstance()->doInsert($this->getPostObject(), $languages, $fileName, $capacity);
             $this->redirect(Com_Helper_Url::getInstance()->urlBase . '/Admin/Hall/Edit/id/' . $id);
         }
         $this->assign('Name');
@@ -33,11 +44,7 @@ class Hall_Controller_Admin extends Admin_Controller_Admin {
         $this->assign('Image');
         $this->assign('Status');
         $this->assign('Type');
-        $this->assign('Cocktail');
-        $this->assign('Banquete');
-        $this->assign('Aula');
-        $this->assign('U');
-        $this->assign('Teatro');
+        $this->assign('Capacity');
         $this->assign("languages", $languages);
         $this->assign("Language", (get('lan') != "" ? get('lan') : $languages[0]->LanId));
     }
@@ -58,7 +65,18 @@ class Hall_Controller_Admin extends Admin_Controller_Admin {
                     $fileName = Com_File_Handler::getInstance()->getFileName();
                 }
             }
-            Hall_Model_Hall::getInstance()->doUpdate(get('id'), $this->getPostObject(), $fileName);
+
+            $capacity = "";
+            if (Com_File_Handler::getInstance()->setFile(get("Capacity"))->hasErrors()) {
+                Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "El Archivo Seleccionado no pudo ser guardado por favor Intente Nuevamente");
+            } else {
+                if (!(Com_File_Handler::getInstance()->saveFile("Resources/Uploads/Image/"))) {
+                    Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "El Archivo Seleccionado no pudo ser guardado por favor Intente Nuevamente");
+                } else {
+                    $capacity = Com_File_Handler::getInstance()->getFileName();
+                }
+            }
+            Hall_Model_Hall::getInstance()->doUpdate(get('id'), $this->getPostObject(), $fileName, $capacity);
             $this->redirect(Com_Helper_Url::getInstance()->urlBase . '/Admin/Hall/Edit/lan/' . $language . '/id/' . get('id'));
         }
 
@@ -73,11 +91,8 @@ class Hall_Controller_Admin extends Admin_Controller_Admin {
         $this->assign('Image', $entity->HallImage);
         $this->assign('Status', $entity->HallStatus);
         $this->assign('Type', $entity->HallType);
-        $this->assign('Cocktail', $entity->HallCocktail);
-        $this->assign('Banquete', $entity->HallBaquete);
-        $this->assign('Aula', $entity->HallAula);
-        $this->assign('U', $entity->HallU);
-        $this->assign('Teatro', $entity->HallTeatro);
+        $this->assign('Capacity', $entity->HallCapacity);
+
 
         $this->assign("languages", $languages);
     }

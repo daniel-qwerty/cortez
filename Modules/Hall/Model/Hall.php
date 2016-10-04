@@ -10,7 +10,7 @@ class Hall_Model_Hall extends Com_Module_Model {
         return self::_getInstance(__CLASS__);
     }
 
-    public function doInsert(Com_Object $obj, $languages, $fileName) {
+    public function doInsert(Com_Object $obj, $languages, $fileName,$capacity) {
 
         $db = new Entities_Hall();
 
@@ -26,11 +26,7 @@ class Hall_Model_Hall extends Com_Module_Model {
             $db->HallImage = $fileName;
             $db->HallStatus = $obj->Status;
             $db->HallType = $obj->Type;
-            $db->HallBaquete = $obj->Banquete;
-            $db->HallTeatro = $obj->Teatro;
-            $db->HallAula = $obj->Aula;
-            $db->HallU = $obj->U;
-            $db->HallCocktail = $obj->Cocktail;
+            $db->HallCapacity = $capacity;
 
             $db->action = ACTION_INSERT;
             $db->save();
@@ -41,7 +37,7 @@ class Hall_Model_Hall extends Com_Module_Model {
         return $id;
     }
 
-    public function doUpdate($intId, Com_Object $obj, $fileName) {
+    public function doUpdate($intId, Com_Object $obj, $fileName, $capacity) {
         $db = new Entities_Hall();
         $db->HallId = $intId;
         $db->HallLanId = $obj->Language;
@@ -52,14 +48,13 @@ class Hall_Model_Hall extends Com_Module_Model {
         if ($fileName != "") {
             $db->HallImage = $fileName;
         }
+        if ($capacity != "") {
+            $db->HallCapacity = $capacity;
+        }
         
         $db->HallStatus = $obj->Status;
         $db->HallType = $obj->Type;
-        $db->HallBaquete = $obj->Banquete;
-        $db->HallTeatro = $obj->Teatro;
-        $db->HallAula = $obj->Aula;
-        $db->HallU = $obj->U;
-        $db->HallCocktail = $obj->Cocktail;
+
         $db->action = ACTION_UPDATE;
         $db->save();
         Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "Registro Actualizado");
@@ -96,7 +91,7 @@ class Hall_Model_Hall extends Com_Module_Model {
     
     public function getListByLan($lanId) {
         $text = new Entities_Hall();
-        return $text->getAll($text->getList()->where("HallLanId={$lanId} and HallStatus = 1"));
+        return $text->getAll($text->getList()->where("HallLanId={$lanId} and HallStatus = 1 and HallType = 0"));
     }
     
     public function getListByLanBanner($lanId) {

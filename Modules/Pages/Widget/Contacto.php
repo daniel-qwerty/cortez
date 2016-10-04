@@ -63,7 +63,7 @@ class Pages_Widget_Contacto extends Com_Object
                             </div>
                         </div>
                         <div class="sidebar-widget">
-                            <ul class="unstyled inline social-icons social-simple">
+                            <!--<ul class="unstyled inline social-icons social-simple">
 
                                 <li>
                                     <a class="fa fa-paypal" data-iconcolor="#3b9999" href="#"></a>
@@ -77,7 +77,7 @@ class Pages_Widget_Contacto extends Com_Object
                                 <li>
                                     <a class="fa fa-credit-card" data-iconcolor="#3b9999" href="#"></a>
                                 </li>
-                            </ul>
+                            </ul>-->
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -101,19 +101,19 @@ class Pages_Widget_Contacto extends Com_Object
                         <div class="sidebar-widget">
                             <ul class="unstyled inline social-icons social-simple">
                                 <li>
-                                    <a class="fa fa-facebook" data-iconcolor="#3b5998" target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkFacebook')->LinUrl; ?>"></a>
+                                    <a target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkFacebook')->LinUrl; ?>"><img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/fb.png"></a>
                                 </li>
                                 <li>
-                                    <a class="fa fa-linkedin" data-iconcolor="#ea4c89" target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkLinkedin')->LinUrl; ?>"></a>
+                                    <a target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkLinkedin')->LinUrl; ?>"><img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/in.png"></a>
                                 </li>
                                 <li>
-                                    <a class="fa fa-twitter" data-iconcolor="#00acee" target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkTwitter')->LinUrl; ?>"></a>
+                                    <a target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkTwitter')->LinUrl; ?>"><img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/tw.png"></a>
                                 </li>
                                 <li>
-                                    <a class="fa fa-instagram" data-iconcolor="#E45135" target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkInstagram')->LinUrl; ?>"></a>
+                                    <a target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkInstagram')->LinUrl; ?>"><img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/instagram.png"></a>
                                 </li>
                                 <li>
-                                    <a class="fa fa-youtube" data-iconcolor="#c4302b" target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkYoutube')->LinUrl; ?>"></a>
+                                    <a target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkYoutube')->LinUrl; ?>"><img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/youtube.png"></a>
                                 </li>
                             </ul>
                         </div>

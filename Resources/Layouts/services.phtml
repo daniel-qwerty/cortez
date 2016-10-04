@@ -70,6 +70,7 @@
 </head>
 
 <body class="transparent-header pace-on pace-dot">
+<?php /** FORMULARIO FLOTANTE DE RESERVAS **/ Pages_Widget_Reservation::getInstance()->setLan($this->lan)->render();?>
 <div class="pace-overlay"></div>
 <div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky text-none"
      id="masthead">
@@ -77,7 +78,7 @@
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button">
                 <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="/hotel-index.html"> <img alt="Lambda Theme - Hotel"
+            <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->urlBase?>"> <img alt="Lambda Theme - Hotel"
                                                                    src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png">
             </a>
         </div>
@@ -99,9 +100,9 @@
 </div>
 <div id="content" role="main">
     <article>
-        <section class="section">
+        <section class="section portada">
             <div class="background-media"
-                 style="background-image: url(<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/spa-notinclude1.jpg); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 50%;"></div>
+                 style="background-image: url(<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'bannerServicios')->ImgFile; ?>); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 50%;"></div>
             <div class="background-overlay grid-overlay-0" style="background-color: rgba(0,0,0,0.4);"></div>
             <div class="container">
                 <div class="row">
@@ -116,10 +117,7 @@
                             data-os-animation="fadeIn" data-os-animation-delay="0.1s">
                             <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleServicios')->TxtDescription; ?>
                         </h1>
-                        <h1 class="text-center element-top-20 element-bottom-20 text-light os-animation bigger regular"
-                            data-os-animation="fadeIn" data-os-animation-delay="0.2s">
-                            <em><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'subtitleServicios')->TxtDescription; ?></em>
-                        </h1>
+
                         <div class="figure os-animation" data-os-animation="fadeIn"
                              data-os-animation-delay="0.3s"> <span class="figure-image">
                             <!-- <img alt="decor-big-white.png" src="<?PHP //echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/decor-big-white.png"> -->
@@ -202,6 +200,11 @@ echo Com_Helper_Script::getInstance();
         c.src = '//www.smartsuppchat.com/loader.js?';
         s.parentNode.insertBefore(c, s);
     })(document);
+</script>
+<script>
+    $(window).scroll(function () {
+        $('#aux').css('transform', 'translate(0,100%)');
+    });
 </script>
 
 </body>

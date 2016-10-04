@@ -2827,3 +2827,11 @@ h6.text-light,
     width: 100px;
     margin: 5px;
 }
+/*adiciones*/
+
+.carrusel-reservas .carrusel-item{
+  padding: 20px;
+}
+.carrusel-reservas .carrusel-item  img{
+  width: 100%;
+}

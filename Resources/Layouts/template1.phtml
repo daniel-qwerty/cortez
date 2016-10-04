@@ -68,12 +68,13 @@
 </head>
 
 <body class="transparent-header pace-on pace-dot">
+<?php /** FORMULARIO FLOTANTE DE RESERVAS **/ Pages_Widget_Reservation::getInstance()->setLan($this->lan)->render();?>
     <div class="pace-overlay"></div>
     <div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky text-none" id="masthead">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                <a class="navbar-brand" href="/hotel-index.html"> <img alt="Lambda Theme - Hotel" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png"> </a>
+                <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->urlBase?>"> <img alt="Lambda Theme - Hotel" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png"> </a>
             </div>
             <div class="nav-container">
                 <nav class="collapse navbar-collapse main-navbar logo-navbar navbar-right">
@@ -244,6 +245,11 @@ window.smartsupp||(function(d) {
 	c.src='//www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
 })(document);
 </script>
+    <script>
+        $(window).scroll(function () {
+            $('#aux').css('transform', 'translate(0,100%)');
+        });
+    </script>
 </body>
 
 </html>

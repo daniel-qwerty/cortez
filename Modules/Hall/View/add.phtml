@@ -46,44 +46,11 @@ $control->default = $this->Image;
 $control->isImage = true;
 $form->add($control);
 
-$control = new Com_Wizard_Form_Control();
-$control->name = "Cocktail";
-$control->label = "Cap. Cocktail";
-$control->default = $this->Cocktail;
-$control->required = true;
-$control->length = 50;
-$form->add($control);
-
-$control = new Com_Wizard_Form_Control();
-$control->name = "Teatro";
-$control->label = "Cap. Teatro";
-$control->default = $this->Teatro;
-$control->required = true;
-$control->length = 50;
-$form->add($control);
-
-$control = new Com_Wizard_Form_Control();
-$control->name = "Aula";
-$control->label = "Cap. Aula";
-$control->default = $this->Aula;
-$control->required = true;
-$control->length = 50;
-$form->add($control);
-
-$control = new Com_Wizard_Form_Control();
-$control->name = "U";
-$control->label = "Cap. U";
-$control->default = $this->U;
-$control->required = true;
-$control->length = 50;
-$form->add($control);
-
-$control = new Com_Wizard_Form_Control();
-$control->name = "Banquete";
-$control->label = "Cap. Banquete";
-$control->default = $this->Banquete;
-$control->required = true;
-$control->length = 50;
+$control = new Com_Wizard_Form_Control_File();
+$control->name = "Capacity";
+$control->label = "Capacidad";
+$control->default = $this->Capacity;
+$control->isImage = true;
 $form->add($control);
 
 $control = new Com_Wizard_Form_Control_Select();
