@@ -260,6 +260,7 @@ input[type="color"],
 
 #masthead .dropdown-menu {
     min-width: 220px;
+        padding-left: 15px;
 }
 
 @media (min-width: 992px) {
@@ -1806,10 +1807,11 @@ input[type="button"] {
 
     .menu .open .dropdown-menu > li > a {
         border-radius: 0;
+        color: black;
     }
 
     .menu .open .dropdown-menu > li > a:hover, .menu .open .dropdown-menu > li > a:focus, .menu .open .dropdown-menu > li.active > a {
-        color: #b5975d;
+        color: #0d51a0;
     }
 
     .dropdown-submenu > a:after {
@@ -3195,4 +3197,8 @@ h6.text-light,
 
 .carrusel-reservas .carrusel-item img {
     width: 100%;
+}
+
+.portada{
+        height: 100vh;
 }
