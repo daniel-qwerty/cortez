@@ -260,7 +260,6 @@ input[type="color"],
 
 #masthead .dropdown-menu {
     min-width: 220px;
-        padding-left: 15px;
 }
 
 @media (min-width: 992px) {
@@ -1807,11 +1806,10 @@ input[type="button"] {
 
     .menu .open .dropdown-menu > li > a {
         border-radius: 0;
-        color: black;
     }
 
     .menu .open .dropdown-menu > li > a:hover, .menu .open .dropdown-menu > li > a:focus, .menu .open .dropdown-menu > li.active > a {
-        color: #0d51a0;
+        color: #b5975d;
     }
 
     .dropdown-submenu > a:after {
@@ -3198,7 +3196,12 @@ h6.text-light,
 .carrusel-reservas .carrusel-item img {
     width: 100%;
 }
-
-.portada{
-        height: 100vh;
+.section.portada{
+    height: 100vh;
+}
+.portada-center{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    left: 50%;
 }
