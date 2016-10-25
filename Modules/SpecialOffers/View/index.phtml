@@ -1,0 +1,25 @@
+<?PHP
+
+$db = new Entities_SpecialOffers();
+$grid = new Com_Wizard_Grid();
+
+$grid->title = "Listado de Ofertas";
+$grid->setIdField("SpeId");
+$grid->setLanField("SpeLanId");
+$grid->setQuery($db->getListWithLanguages());
+$grid->setAlias(array("LanName" => "Idioma", "SpeName" => "Name", "SpeDescription" => "Descripcion","SpeStatus" => "Estado"));
+$grid->setFilters(array("SpeName" => get('SpeName')));
+
+$toolBar = new Com_Wizard_ToolBar();
+$toolBar->add("plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/SpecialOffers/Add/');
+$toolBar->add("search", "Filtrar", null, "showHide('.filters')");
+$toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Admin');
+$grid->setToolBar($toolBar);
+
+$grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/SpecialOffers/Edit/lan/_LANGUAGE_/id/_ID_');
+$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/SpecialOffers/Delete/id/_ID_' . "':'';");
+
+$grid->customField("Spestatus", array("value" => array('1' => 'Habilitado', '0' => 'Bloqueado')));
+
+
+$grid->render();

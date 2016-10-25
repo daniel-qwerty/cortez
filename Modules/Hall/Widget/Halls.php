@@ -39,8 +39,7 @@ class Hall_Widget_Halls extends Com_Object
                                             src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $obj->HallImage; ?>">
                         <div class="figure-overlay">
                             <div class="figure-overlay-container">
-                                <div class="figure-caption"><img class=""
-                                                                 src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $obj->HallCapacity; ?>">
+                                <div class="figure-caption"> +
                                 </div>
                             </div>
                         </div>
@@ -52,6 +51,8 @@ class Hall_Widget_Halls extends Com_Object
                                target="_self">
                                 <?php echo $obj->HallName; ?>
                             </a>
+                            <img class=""
+                                                                 src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $obj->HallCapacity; ?>">
                         </h3>
                     </div>
                 </div>
