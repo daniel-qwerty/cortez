@@ -85,7 +85,12 @@ class Room_Model_RoomType extends Com_Module_Model {
     
     public function getListByLan($lanId) {
         $text = new Entities_RoomType();
-        return $text->getAll($text->getList()->where("TypeLanId={$lanId} and TypeStatus = 1"));
+        return $text->getAll($text->getList()->where("TypeLanId={$lanId} and TypeStatus = 1 and TypeName <> 'Suite Superior'"));
+    }
+    
+    public function getListByRoom($lanId,$room) {
+        $text = new Entities_RoomType();
+        return $text->getAll($text->getList()->where("TypeLanId={$lanId} and TypeStatus = 1 and TypeName = '{$room}'"));
     }
 
 }

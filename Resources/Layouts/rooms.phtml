@@ -120,14 +120,14 @@
                 <section class="section">
                     <div class="background-media"></div>
                     <div class="container">
+                        <div class="row" style="padding-top: 25px;">
+                             <?PHP Room_Widget_Important::getInstance()->setLan($this->lan)->render(); ?>
+                            </div>
                         <div class="row">
+                            
+                        </div> 
                             <div class="col-md-12">
-                                <div class="divider-wrapper">
-                                    <div class="visible-xs element-height-80"></div>
-                                    <div class="visible-sm element-height-80"></div>
-                                    <div class="visible-md element-height-80"></div>
-                                    <div class="visible-lg element-height-80"></div>
-                                </div>
+                                
                                 <div class="portfolio-container element-top-20 element-bottom-20">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -136,7 +136,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="portfolio masonry no-transition" data-col-lg="3" data-col-md="3" data-col-sm="3" data-col-xs="1" data-layout="fitRows" data-padding="15">
+                                    <div class="portfolio masonry no-transition" data-col-lg="2" data-col-md="2" data-col-sm="2" data-col-xs="1" data-layout="fitRows" data-padding="15">
                                         <?PHP Room_Widget_Rooms::getInstance()->setLan($this->lan)->render();?>
                                     </div>
                                 </div>
