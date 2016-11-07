@@ -937,7 +937,7 @@ a.show-form-res:focus,a.show-form-res:hover,a.show-form-res{
 
 #content {
     background: #ffffff;
-    color: #51575b;
+    color: black;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -1354,7 +1354,7 @@ input[type="button"] {
 }
 
 .menu .dropdown-menu > li > a {
-    color: #094ca3;
+    color: #fff;
     
 }
 
@@ -1363,7 +1363,7 @@ input[type="button"] {
 }
 
 .menu .dropdown-menu > li > a:hover, .menu .dropdown-menu > .active > a, .menu .dropdown-menu > .active > a:hover, .menu .dropdown-menu > .active > a:focus {
-    color: #908e8e;
+    color: #fff;
     background: transparent;
 }
 

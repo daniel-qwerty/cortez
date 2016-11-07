@@ -36,6 +36,7 @@ class Services_Model_Service extends Com_Module_Model {
         $db = new Entities_Services();
         $db->SerId = $intId;
         $db->SerLanId = $obj->Language;
+        $db->SerTitle = $obj->Title;
         $db->SerDescription = $obj->Description;        
         $db->SerStatus = $obj->Status;      
         if ($image != "") {

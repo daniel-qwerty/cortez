@@ -3,9 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title> Hotel</title>
+    <title><?php echo Configurations_Helper_Configuration::getInstance()->getKey("PAGE_TITLE"); ?></title>
+    <meta name="description" content="<?php echo Configurations_Helper_Configuration::getInstance()->getKey("PAGE_DESCRIPTION"); ?>">
+    <meta name=”robots” content=”Index,Follow”>
+    <meta name=”google” content=”nositelinkssearchbox”>
+    <meta name="Author" content="Qwerty Bolivia">
+    
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel='stylesheet' id='open-sans-css'
           href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1'

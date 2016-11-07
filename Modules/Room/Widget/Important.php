@@ -25,7 +25,8 @@ class Room_Widget_Important extends Com_Object {
             <div class="masonry-item portfolio-item filter-rooms" data-title="<?php echo $obj->TypeName; ?>">
                 <div class="figure portfolio-os-animation image-filter-onhover fade-in text-left figcaption-middle normalwidth" data-os-animation="fadeIn" data-os-animation-delay="0.1s">
                     <a class="figure-image" href="<?PHP echo Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode, "room/" .$obj->TypeId); ?>" target="_self">
-                        <img alt="<?php echo $obj->TypeName; ?>" class="normalwidth ajustImage" src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $obj->TypeImage; ?>">
+                        <img alt="<?php echo $obj->TypeName; ?>" class="normalwidth ajustImage" src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $obj->TypeImage; ?>"
+                             style="height: 370px;">
                         <div class="figure-overlay">
                             <div class="figure-overlay-container">
                                 <div class="figure-caption"> <i class="fa fa-plus"></i> </div>
