@@ -75,11 +75,7 @@
     </head>
 
     <body class="transparent-header pace-on pace-dot">
-        <div class="lang" style="position:fixed; top: 50%; right: 10px; z-index: 10">
-            <a href="#" style="float:left; clear: both; display: block;"    ><img style="height:25px; margin-bottom: 5px;" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/fb.png"></a>
-            <a href="#" style="float:left;clear: both; display: block;"  ><img style="height:25px; margin-bottom: 5px;" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/instagram.png"></a>
-            <a href="#" style="float:left;clear: both; display: block;"  ><img style="height:25px; margin-bottom: 5px;" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/tripadvisor.png"></a>
-        </div>
+        
         <?php /** FORMULARIO FLOTANTE DE RESERVAS * */ Pages_Widget_Reservation::getInstance()->setLan($this->lan)->render(); ?>
 
 
