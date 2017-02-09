@@ -38,13 +38,13 @@ class Pages_Widget_Reservation extends Com_Object
             <div class="container container-vertical-middle">
                 <div class="row vertical-middle">
                     <div class="col-md-12 text-center">
-                        <form action="contact_mailer_hotel.php" class="contact-form">
+                        <form name="formReservas" id="formReserva"   class="contact-form">
                             <div class="row vertical-middle">
                                 <div class="col-md-3 text-light">
                                     <div class="form-group  text-left">
                                         <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtLlegada')->TxtDescription; ?></label>
                                         <div class="date-wrapper">
-                                            <input type="text" name="datepickerin" size="40"
+                                            <input type="text" id="checkin" name="datepickerin" size="40"
                                                    class="form-control datepicker"
                                                    placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneLlegada')->TxtDescription; ?>"
                                                    required></div>
@@ -55,7 +55,7 @@ class Pages_Widget_Reservation extends Com_Object
                                         <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSalida')->TxtDescription; ?></label>
                                         <div class="date-wrapper">
                                             <div class="date-wrapper">
-                                                <input type="text" name="datepickerout" size="40"
+                                                <input type="text" id="checkout" name="datepickerout" size="40"
                                                        class="form-control datepicker"
                                                        placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneSalida')->TxtDescription; ?>"
                                                        required></div>
@@ -66,7 +66,7 @@ class Pages_Widget_Reservation extends Com_Object
                                     <div class="form-group text-left">
                                         <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtTipoHabitacion')->TxtDescription; ?></label>
                                         <br>
-                                        <select name="type">
+                                        <select name="type" id="tipo">
                                             <?PHP Room_Widget_List::getInstance()->setLan($this->lan)->render(); ?>
                                         </select>
                                     </div>
@@ -75,7 +75,7 @@ class Pages_Widget_Reservation extends Com_Object
                                     <div class="form-group text-center">
                                         <label>&nbsp;</label>
                                         <br>
-                                        <input class="btn btn-primary" type="submit"
+                                        <input onclick="sendReserva();" class="btn btn-primary" type="submit"
                                                value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnReserve')->TxtDescription; ?>">
                                     </div>
                                 </div>

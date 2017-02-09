@@ -94,6 +94,11 @@ class Hall_Model_Hall extends Com_Module_Model {
         return $text->getAll($text->getList()->where("HallLanId={$lanId} and HallStatus = 1 and HallType = 0"));
     }
     
+    public function getListForm($lanId) {
+        $text = new Entities_Hall();
+        return $text->getAll($text->getList()->where("HallLanId={$lanId} and HallStatus = 1"));
+    }
+    
     public function getListByLanBanner($lanId) {
         $text = new Entities_Hall();
         return $text->getAll($text->getList()->where("HallLanId={$lanId} and HallStatus = 1 and HallType = 1"));

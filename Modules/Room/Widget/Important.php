@@ -19,7 +19,7 @@ class Room_Widget_Important extends Com_Object {
 
     public function render() {
 
-        $list = Room_Model_RoomType::getInstance()->getListByRoom($this->lan->LanId,"Suite Superior");
+        $list = Room_Model_RoomType::getInstance()->getByImportant($this->lan->LanId,"1");
         foreach ($list as $obj) {
             ?>
             <div class="masonry-item portfolio-item filter-rooms" data-title="<?php echo $obj->TypeName; ?>">

@@ -1918,7 +1918,7 @@
 
       // toolbar
       toolbar: [
-        ['style', ['style']],
+      //  ['style', ['style']],
         ['font', ['bold', 'italic', 'underline', 'clear']],
         ['fontname', ['fontname']],
         ['color', ['color']],

@@ -80,7 +80,7 @@
                 </a>
             </div>
             <div class="logo-box">
-                <a href="index.html" class="logo-text"><span>CMS</span></a>
+                <a href="index.html" class="logo-text"><span>CMQ</span></a>
             </div>
             <!-- Logo Box -->
             <div class="search-button">
@@ -95,7 +95,7 @@
                                class="waves-effect waves-button waves-classic sidebar-toggle"><i class="fa fa-bars"></i></a>
                         </li>
                         <li>
-                            <a href="#cd-nav" class="waves-effect waves-button waves-classic cd-nav-trigger"><i
+                            <a href="#cd-nav" class="waves-effect waves-button waves-classic cd-nav-trigger hidden"><i
                                     class="fa fa-diamond"></i></a>
                         </li>
                         <li>
@@ -163,8 +163,7 @@
                 </div>
             </div>
             <ul class="menu accordion-menu">
-                <a class="waves-effect waves-button" href="<?php echo Com_Helper_Url::getInstance()->urlBase.'/Admin/Admin'; ?>"> <span class="menu-icon glyphicon glyphicon-th-large"></span><p>Dashboard</p></a>
-                <a class="waves-effect waves-button" href="<?php echo Com_Helper_Url::getInstance()->urlBase.'/Admin/Statistics'; ?>"> <span class="menu-icon glyphicon glyphicon-stats"></span><p>Estadísticas</p></a>
+                
                 <?PHP
                 echo Com_Helper_Menu::getInstance();
                 ?>
@@ -190,13 +189,13 @@
         </div>
         <!-- Main Wrapper -->
         <div class="page-footer">
-            <p class="no-s">2015 &copy; Modern by Steelcoders.</p>
+            <p class="no-s"><?= date('Y');?> &copy; Qwerty Bolivia.</p>
         </div>
     </div>
     <!-- Page Inner -->
 </main>
 <!-- Page Content -->
-<nav class="cd-nav-container" id="cd-nav">
+<nav class="cd-nav-container hidden" id="cd-nav">
     <header>
         <h3>Navigation</h3>
         <a href="#0" class="cd-close-nav">Close</a>

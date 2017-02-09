@@ -32,6 +32,7 @@ class Room_Controller_Admin extends Admin_Controller_Admin {
         $this->assign('Amenities');
         $this->assign('Services');
         $this->assign('Image');
+        $this->assign('Important');
         $this->assign('Status');
         $this->assign("languages", $languages);
         $this->assign("Language", (get('lan') != "" ? get('lan') : $languages[0]->LanId));
@@ -67,6 +68,7 @@ class Room_Controller_Admin extends Admin_Controller_Admin {
         $this->assign('Amenities', $entity->TypeAmenities);
         $this->assign('Services', $entity->TypeServices);
         $this->assign('Image', $entity->TypeImage);
+        $this->assign('Important', $entity->TypeImportant);
         $this->assign('Status', $entity->TypeStatus);
 
         $this->assign("languages", $languages);

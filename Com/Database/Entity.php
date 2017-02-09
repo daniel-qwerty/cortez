@@ -180,7 +180,7 @@ class Com_Database_Entity extends Com_Object {
                                             ('{$values}')";
        
 
-                                            
+                                       
         $result = false;
         Com_Database_Connection::getInstance()->execute($sqlQuery);
         $keyField = $this->keyField;

@@ -86,16 +86,14 @@
                                 <div class="form-group text-left">
                                     <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtTipoHabitacion')->TxtDescription; ?></label>
                                     <br>
-                                    <select name="type">
-                                        <?PHP Room_Widget_List::getInstance()->setLan($this->lan)->render(); ?>
-                                    </select>
+                                    <input type="text" name="Habitacion" readonly="yes" size="40" class="form-control " value="<?php echo $this->room->TypeName; ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group text-center">
                                     <label>&nbsp;</label>
                                     <br>
-                                    <input class="btn btn-primary" type="submit" value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnReserve')->TxtDescription; ?>"> </div>
+                                    <input class="btn btn-primary" type="submit" value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnDisponibilidad')->TxtDescription; ?>"> </div>
                             </div>
                         </div>
                         <div class="messages"></div>

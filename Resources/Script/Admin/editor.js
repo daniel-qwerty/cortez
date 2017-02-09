@@ -779,17 +779,17 @@
 
       // toolbar
       toolbar: [
-        ['style', ['style']],
-        ['font', ['bold', 'italic', 'underline', 'superscript', 'subscript', 'strikethrough', 'clear']],
-        ['fontname', ['fontname']],
+       // ['style', ['style']],
+        ['font', ['bold', 'italic', 'underline' /*,'superscript', 'subscript'*/, 'strikethrough', 'clear']],
+        //['fontname', ['fontname']],
         // ['fontsize', ['fontsize']], // Still buggy
-        ['color', ['color']],
+        //['color', ['color']],
         ['para', ['ul', 'ol', 'paragraph']],
-        ['height', ['height']],
-        ['table', ['table']],
-        ['insert', ['link', 'picture', 'video', 'hr']],
+       // ['height', ['height']],
+       // ['table', ['table']],
+        ['insert', ['link', 'picture'/*, 'video', 'hr'*/]],
         ['view', ['fullscreen', 'codeview']],
-        ['help', ['help']]
+        //['help', ['help']]
       ],
 
       // air mode: inline editor
@@ -807,7 +807,7 @@
       //   ['help', ['help']]
       // ],
       airPopover: [
-        ['color', ['color']],
+        //['color', ['color']],
         ['font', ['bold', 'underline', 'clear']],
         ['para', ['ul', 'paragraph']],
         ['table', ['table']],
@@ -815,7 +815,7 @@
       ],
 
       // style tag
-      styleTags: ['p', 'blockquote', 'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      //styleTags: ['p', 'blockquote', 'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
 
       // default fontName
       defaultFontName: 'Helvetica Neue',

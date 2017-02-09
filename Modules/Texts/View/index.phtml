@@ -7,7 +7,7 @@ $grid->setIdField("TxtId");
 $grid->setLanField("TxtLanId");
 $grid->setQuery($db->getListWithLanguages());
 $grid->setAlias(array("LanName" => "Idioma", "TxtAlias" => "Alias", "TxtDescription" => "Description", "TxtStatus" => "Estado"));
-$grid->setFilters(array("TxtAlias" => get('TxtAlias')));
+$grid->setFilters(array("TxtAlias" => get('TxtAlias'),"TxtDescription" => get('TxtDescription')));
 
 $toolBar = new Com_Wizard_ToolBar();
 $toolBar->add("plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/Texts/Add');

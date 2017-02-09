@@ -979,7 +979,7 @@ i {
 blockquote p {
     font-family: "Giorgio";
     font-style: italic;
-    height: 90px;
+    
     overflow: hidden;
 }
 
@@ -993,6 +993,10 @@ blockquote cite {
 }
 
 blockquote:before {
+    color: rgba(81, 87, 91, 0.2);
+}
+
+blockquote:after {
     color: rgba(81, 87, 91, 0.2);
 }
 
@@ -1803,7 +1807,7 @@ input[type="button"] {
     }
 
     .menu .open .dropdown-menu {
-        background: rgba(255, 255, 255, 0.88);
+        background: #0d51a0;
         border-radius: 0;
         box-shadow: none;
     }
@@ -1846,7 +1850,7 @@ input[type="button"] {
     }
 
     .transparent-header .navbar-collapse {
-        background: rgba(255, 255, 255, 0.95) !important;
+        background: rgba(255, 255, 255, 0.70) !important;
     }
 
     .menu-sidebar {
@@ -2183,7 +2187,9 @@ input[type="button"] {
 }
 
 .pace-dot .pace-progress-inner {
-    background: #0d51a0;
+    
+    background-image: url(../../Image/Public/hotel/loading.png);
+    background-size: cover;
 }
 
 .pace-minimal .pace .pace-progress {

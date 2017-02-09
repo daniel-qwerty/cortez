@@ -46,7 +46,7 @@ class Hall_Widget_BannerHall extends Com_Object {
                                    target="_self">
                                        <?php echo $obj->HallName; ?>
                                 </a>
-                                <img class=""
+                                <img class="" style="width: 50%;"
                                      src="<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?php echo $obj->HallCapacity; ?>">
                             </h3>
                         </div>

@@ -10,6 +10,7 @@ class Entities_SpecialOffers extends Com_Database_Entity_Language {
     public $SpeName;
     public $SpeDescription;
     public $SpeStatus;
+    public $SpeImage;
     
 
 }

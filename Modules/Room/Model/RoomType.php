@@ -26,6 +26,7 @@ class Room_Model_RoomType extends Com_Module_Model {
             $db->TypeServices = $obj->Services;
             $db->TypeImage = $fileName;
             $db->TypeStatus = $obj->Status;
+            $db->TypeImportant = $obj->Important;
             $db->action = ACTION_INSERT;
             $db->save();
         }
@@ -44,6 +45,7 @@ class Room_Model_RoomType extends Com_Module_Model {
         $db->TypeDescription = $obj->Description;
         $db->TypeAmenities = $obj->Amenities;
         $db->TypeServices = $obj->Services;
+        $db->TypeImportant = $obj->Important;
         if ($fileName != "") {
             $db->TypeImage = $fileName;
         }
@@ -77,6 +79,13 @@ class Room_Model_RoomType extends Com_Module_Model {
         $db->get();
         return $db;
     }
+    
+    public function getByImportant($lanId, $strAlias) {
+        
+        $text = new Entities_RoomType();
+        return $text->getAll($text->getList()->where("TypeLanId={$lanId} and TypeStatus = 1 and TypeImportant = 1"));
+    
+    }
 
     public function getList() {
         $text = new Entities_RoomType();
@@ -85,12 +94,22 @@ class Room_Model_RoomType extends Com_Module_Model {
     
     public function getListByLan($lanId) {
         $text = new Entities_RoomType();
-        return $text->getAll($text->getList()->where("TypeLanId={$lanId} and TypeStatus = 1 and TypeName <> 'Suite Superior'"));
+        return $text->getAll($text->getList()->where("TypeLanId={$lanId} and TypeStatus = 1 and TypeImportant <> '1'"));
+    }
+    
+    public function getListByForm($lanId) {
+        $text = new Entities_RoomType();
+        return $text->getAll($text->getList()->where("TypeLanId={$lanId} and TypeStatus = 1"));
     }
     
     public function getListByRoom($lanId,$room) {
         $text = new Entities_RoomType();
         return $text->getAll($text->getList()->where("TypeLanId={$lanId} and TypeStatus = 1 and TypeName = '{$room}'"));
+    }
+    
+    public function getListByLanService($lanId) {
+        $text = new Entities_RoomType();
+        return $text->getAll($text->getList()->where("TypeLanId={$lanId} and TypeStatus = 1"));
     }
 
 }

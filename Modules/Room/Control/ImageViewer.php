@@ -13,7 +13,7 @@ class Room_Control_ImageViewer extends Com_Wizard_Form_Control_ImageViewer {
                 <input type="hidden" name="<?PHP echo $this->name ?>Id[]" value="<?PHP echo $obj->MedId; ?>"/>
                 <textarea name="<?PHP echo $this->name ?>Video[]" class="form-control" placeholder="Video de YouTube o Vimeo"><?PHP echo $obj->MedYoutube; ?></textarea>
                 <input type="text" name="<?PHP echo $this->name ?>Footer[]" value="<?PHP echo $obj->MedFooter; ?>" class="form-control"/>
-                <a type="text" href="<?PHP echo Com_Helper_Url::getInstance()->urlBase; ?>/Admin/Projects/DeleteMedia/lan/<?PHP echo $obj->MedLanId; ?>/id/<?PHP echo $obj->MedRoomId; ?>/media/<?PHP echo $obj->MedId; ?>" class="browser form-control">Elminar</a>
+                <a type="text" href="<?PHP echo Com_Helper_Url::getInstance()->urlBase; ?>/Admin/Room/DeleteMedia/lan/<?PHP echo $obj->MedLanId; ?>/id/<?PHP echo $obj->MedRoomId; ?>/media/<?PHP echo $obj->MedId; ?>" class="browser form-control">Elminar</a>
             </li>
             <?PHP
         }

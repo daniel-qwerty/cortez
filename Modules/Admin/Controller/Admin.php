@@ -10,6 +10,11 @@ class Admin_Controller_Admin extends Com_Module_Controller {
         }
 
         $this->assign("country", get('userCountry'));
+        
+        $mensajes = Contact_Model_Contact::getInstance()->getListByLan(30);
+        $this->assign("mensajes", $mensajes);
+        $solicitud = Request_Model_Request::getInstance()->getListByLan(30);
+        $this->assign("solicitud", $solicitud);
 
         Com_Helper_BreadCrumbs::getInstance()->add("Inicio", '/Admin');
     }

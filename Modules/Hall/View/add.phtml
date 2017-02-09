@@ -21,19 +21,19 @@ $control->required = true;
 $control->length = 50;
 $form->add($control);
 
-$control = new Com_Wizard_Form_Control_Editor();
+$control = new Com_Wizard_Form_Control_Hidden();
 $control->name = "Resume";
 $control->label = "Resumen";
 $control->default = $this->Resume;
 $form->add($control);
 
-$control = new Com_Wizard_Form_Control_Editor();
+$control = new Com_Wizard_Form_Control_Hidden();
 $control->name = "Description";
 $control->label = "Description";
 $control->default = $this->Description;
 $form->add($control);
 
-$control = new Com_Wizard_Form_Control_Editor();
+$control = new Com_Wizard_Form_Control_Hidden();
 $control->name = "Amenities";
 $control->label = "Amenities";
 $control->default = $this->Amenities;

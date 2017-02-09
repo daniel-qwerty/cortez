@@ -61,23 +61,13 @@ class Pages_Widget_Contacto extends Com_Object
                                 <br>
                                 <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtEmail')->TxtDescription; ?>
                             </div>
+                            
                         </div>
                         <div class="sidebar-widget">
-                            <!--<ul class="unstyled inline social-icons social-simple">
-
-                                <li>
-                                    <a class="fa fa-paypal" data-iconcolor="#3b9999" href="#"></a>
-                                </li>
-                                <li>
-                                    <a class="fa fa-bank" data-iconcolor="#3b9999" href="#"></a>
-                                </li>
-                                <li>
-                                    <a class="fa fa-cc-mastercard" data-iconcolor="#3b9999" href="#"></a>
-                                </li>
-                                <li>
-                                    <a class="fa fa-credit-card" data-iconcolor="#3b9999" href="#"></a>
-                                </li>
-                            </ul>-->
+                            <ul class="unstyled inline social-icons social-simple">
+                                <?PHP Links_Widget_Icons::getInstance()->setLimit(7)->render(); ?>
+                               
+                            </ul>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -96,27 +86,15 @@ class Pages_Widget_Contacto extends Com_Object
                                 </address>
 
                             </div>
+                            <a class="btn btn-link btn-mini text-light text-center  element-top-10 element-bottom-10 os-animation" 
+                                   data-os-animation="fadeIn" data-os-animation-delay="0.5s"
+                                   href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkGoogleMaps')->LinUrl; ?>"
+                                   target="_blank">
+                                       <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnVerMapa')->TxtDescription; ?>
+                                </a>
                         </div>
                         <br>
-                        <div class="sidebar-widget">
-                            <ul class="unstyled inline social-icons social-simple">
-                                <li>
-                                    <a target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkFacebook')->LinUrl; ?>"><img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/fb.png"></a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkLinkedin')->LinUrl; ?>"><img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/in.png"></a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkTwitter')->LinUrl; ?>"><img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/tw.png"></a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkInstagram')->LinUrl; ?>"><img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/instagram.png"></a>
-                                </li>
-                                <li>
-                                    <a target="_blank" href="<?PHP echo Links_Helper_Link::getInstance()->get('LinkYoutube')->LinUrl; ?>"><img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/youtube.png"></a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -124,18 +102,11 @@ class Pages_Widget_Contacto extends Com_Object
         <section class="section subfooter">
             <div class="container">
                 <div class="row element-top-10 element-bottom-10 footer-columns-2">
-                    <div class="col-sm-6">
-                        <div class="sidebar-widget">
-                            <div> © 2015 Lambda Hotel. All Rights Reserved</div>
+                    <div class="col-sm-12 hidden-sm hidden-xs">
+                        <div class="sidebar-widget" style="text-align:center">
+                            <div> © <?= date('Y');?> Hotel Cortez. Todos los derechos reservados.</div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="sidebar-widget widget_nav_menu">
-                            <div class="menu-footer-container">
-
-                            </div>
-                        </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </section>

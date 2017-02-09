@@ -9,5 +9,6 @@ class Entities_Links extends Com_Database_Entity{
     public $LinName;
     public $LinUrl;
     public $LinStatus;
+    public $LinImage;
    
 }

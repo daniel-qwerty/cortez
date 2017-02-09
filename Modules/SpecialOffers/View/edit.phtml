@@ -36,6 +36,14 @@ $control->length = 50;
 $control->rows = 3;
 $form->add($control);
 
+$control = new Com_Wizard_Form_Control_File();
+$control->name = "Image";
+$control->label = "Image";
+$control->default = $this->Image;
+$control->required = TRUE;
+$control->isImage = true;
+$form->add($control);
+
 $control = new Com_Wizard_Form_Control_Select();
 $control->name = "Status";
 $control->label = "Estado";
@@ -44,5 +52,7 @@ $control->required = true;
 $control->addItem('1', 'Habilitado');
 $control->addItem('0', 'Bloqueado');
 $form->add($control);
+
+
 
 $form->render();

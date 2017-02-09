@@ -2,16 +2,16 @@
 <html class="no-js" lang="">
 
     <head>
-        <meta charset="utf-8">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-        <title> Hotel</title>
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel='stylesheet' id='open-sans-css' href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1' type='text/css' media='all' />
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700,800%7CPlayfair+Display:400,400italic,700,900&amp;subset=greek,latin,latin" rel="stylesheet" type="text/css">
+        <?php Seo_Widget_Seo::getInstance()->setLan($this->lan)->setPage("Habitaciones")->render(); ?>
+
+        <link rel='stylesheet' id='open-sans-css'
+              href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1'
+              type='text/css' media='all'/>
+        <link
+            href="//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700,800%7CPlayfair+Display:400,400italic,700,900&amp;subset=greek,latin,latin"
+            rel="stylesheet" type="text/css">
 
 
-        <!-- Fav and Touch Icons -->
         <meta name="msapplication-TileColor" content="#d9534f">
         <meta name="msapplication-TileImage"
               content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/ms-icon-144x144.png">
@@ -67,13 +67,13 @@
     </head>
 
     <body class="transparent-header pace-on pace-dot">
-    <?php /** FORMULARIO FLOTANTE DE RESERVAS **/ Pages_Widget_Reservation::getInstance()->setLan($this->lan)->render();?>
+        <?php /** FORMULARIO FLOTANTE DE RESERVAS * */ Pages_Widget_Reservation::getInstance()->setLan($this->lan)->render(); ?>
         <div class="pace-overlay"></div>
         <div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky text-none" id="masthead">
             <div class="container">
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                    <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->urlBase?>"> <img alt="Lambda Theme - Hotel" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png"> </a>
+                    <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->urlBase ?>"> <img alt="Lambda Theme - Hotel" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png"> </a>
                 </div>
                 <div class="nav-container">
                     <nav class="collapse navbar-collapse main-navbar logo-navbar navbar-right">
@@ -84,7 +84,7 @@
                         </div>
                         <div class="menu-sidebar">
                             <div class="sidebar-widget widget_social">
-                                <?PHP Pages_Widget_SocialIcons::getInstance()->render(); ?>
+                                <?PHP //Pages_Widget_SocialIcons::getInstance()->render(); ?>
                             </div>
                         </div>
                     </nav>
@@ -111,8 +111,75 @@
                                     <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleHabitaciones')->TxtDescription; ?>
                                 </h1>
                                 <div class="figure element-bottom-100 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.3s"> <span class="figure-image">
-                                        <!-- <img alt="decor-big-white.png" src="<?PHP //echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/decor-big-white.png"> -->
+                                        <!-- <img alt="decor-big-white.png" src="<?PHP //echo Com_Helper_Url::getInstance()->getImage();  ?>/Public/hotel/decor-big-white.png"> -->
                                     </span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="section" id="formulario">
+                    <div class="background-media"
+                         style="background-image: url(<?= Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'bannerBlurHabitaciones')->ImgFile; ?>); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;"></div>
+                    <div class="background-overlay grid-overlay-0" style="background-color: rgba(0,0,0,0.3);"></div>
+                    <div class="container container-vertical-middle">
+                        <div class="row vertical-middle">
+                            <div class="col-md-12 text-center">
+                                <div class="divider-wrapper">
+                                    <div class="visible-xs element-height-40"></div>
+                                    <div class="visible-sm element-height-40"></div>
+                                    <div class="visible-md element-height-40"></div>
+                                    <div class="visible-lg element-height-40"></div>
+                                </div>
+                                <form action="contact_mailer_hotel.php" class="contact-form">
+                                    <div class="row vertical-middle">
+                                        <div class="col-md-3 text-light">
+                                            <div class="form-group  text-left">
+                                                <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtLlegada')->TxtDescription; ?></label>
+                                                <div class="date-wrapper">
+                                                    <input type="text" name="datepickerin" size="40"
+                                                           class="form-control datepicker"
+                                                           placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneLlegada')->TxtDescription; ?>"
+                                                           required></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 text-light">
+                                            <div class="form-group text-left">
+                                                <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSalida')->TxtDescription; ?></label>
+                                                <div class="date-wrapper">
+                                                    <div class="date-wrapper">
+                                                        <input type="text" name="datepickerout" size="40"
+                                                               class="form-control datepicker"
+                                                               placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneSalida')->TxtDescription; ?>"
+                                                               required></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 text-light">
+                                            <div class="form-group text-left">
+                                                <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtTipoHabitacion')->TxtDescription; ?></label>
+                                                <br>
+                                                <select name="type">
+                                                    <?PHP Room_Widget_List::getInstance()->setLan($this->lan)->render(); ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group text-center">
+                                                <label>&nbsp;</label>
+                                                <br>
+                                                <input class="btn btn-primary" type="submit"
+                                                       value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnReserve')->TxtDescription; ?>">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="messages"></div>
+                                </form>
+                                <div class="divider-wrapper">
+                                    <div class="visible-xs element-height-40"></div>
+                                    <div class="visible-sm element-height-40"></div>
+                                    <div class="visible-md element-height-40"></div>
+                                    <div class="visible-lg element-height-40"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -120,34 +187,35 @@
                 <section class="section">
                     <div class="background-media"></div>
                     <div class="container">
-                        <div class="row" style="padding-top: 25px;">
-                             <?PHP Room_Widget_Important::getInstance()->setLan($this->lan)->render(); ?>
-                            </div>
+
                         <div class="row">
-                            
+
                         </div> 
-                            <div class="col-md-12">
-                                
-                                <div class="portfolio-container element-top-20 element-bottom-20">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="portfolio-header clearfix">
-                                                <div class="portfolio-filters pull-right"> </div>
-                                            </div>
+                        <div class="col-md-12">
+
+                            <div class="portfolio-container element-top-20 element-bottom-20">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="portfolio-header clearfix">
+                                            <div class="portfolio-filters pull-right"> </div>
                                         </div>
                                     </div>
-                                    <div class="portfolio masonry no-transition" data-col-lg="2" data-col-md="2" data-col-sm="2" data-col-xs="1" data-layout="fitRows" data-padding="15">
-                                        <?PHP Room_Widget_Rooms::getInstance()->setLan($this->lan)->render();?>
-                                    </div>
                                 </div>
-                                <div class="divider-wrapper">
-                                    <div class="visible-xs element-height-80"></div>
-                                    <div class="visible-sm element-height-80"></div>
-                                    <div class="visible-md element-height-80"></div>
-                                    <div class="visible-lg element-height-80"></div>
+
+                                <?PHP Room_Widget_Important::getInstance()->setLan($this->lan)->render(); ?>
+
+                                <div class="portfolio masonry no-transition" data-col-lg="2" data-col-md="2" data-col-sm="2" data-col-xs="1" data-layout="fitRows" data-padding="15">
+                                    <?PHP Room_Widget_Rooms::getInstance()->setLan($this->lan)->render(); ?>
                                 </div>
                             </div>
+                            <div class="divider-wrapper">
+                                <div class="visible-xs element-height-80"></div>
+                                <div class="visible-sm element-height-80"></div>
+                                <div class="visible-md element-height-80"></div>
+                                <div class="visible-lg element-height-80"></div>
+                            </div>
                         </div>
+                    </div>
                     </div>
                 </section>
             </article>
@@ -156,73 +224,73 @@
             </footer>
         </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&amp;sensor=false"></script>
-  
-    <a class="go-top go-top-square" href="javascript:void(0)"> <i class="fa fa-angle-up"></i> </a>
-    <script type="text/javascript">
-        var oxyThemeData = {
-            navbarHeight: 90,
-            navbarScrolled: 80,
-            navbarScrolledPoint: 100,
-            menuClose: 'off',
-            scrollFinishedMessage: 'No more items to load.',
-            hoverMenu:
-                    {
-                        hoverActive: false,
-                        hoverDelay: 200,
-                        hoverFadeDelay: 200
-                    },
-            siteLoader: 'on'
-        };
-    </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&amp;sensor=false"></script>
 
-
-    <?php
-    Com_Helper_Script::getInstance()
-            ->addFile("Public/theme.js")
-            ->addFile("Public/contact.js")
-            ->addFile("Public/map.js");
-    echo Com_Helper_Script::getInstance();
-    ?>
-
-    <script>
-        window.map = {
-            map_type: 'ROADMAP',
-            map_zoom: 17,
-            map_style: 'blackwhite',
-            map_scrollable: 'on',
-            marker: 'show',
-            label: ['Hotel Cortez'],
-            address: '',
-            latlng: ['-17.771060, -63.184124'],
-            center_latlng: '',
-            markerURL: '<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/marker.png',
-            auto_center: true
-        };
-    </script>
-    <!-- Smartsupp Live Chat script -->
-    <script type="text/javascript">
-        var _smartsupp = _smartsupp || {};
-        _smartsupp.key = '7297473a650eaeeecd1c8851f4eee1f1def96bb7';
-        window.smartsupp || (function (d) {
-            var s, c, o = smartsupp = function () {
-                o._.push(arguments)
+        <a class="go-top go-top-square" href="javascript:void(0)"> <i class="fa fa-angle-up"></i> </a>
+        <script type="text/javascript">
+            var oxyThemeData = {
+                navbarHeight: 90,
+                navbarScrolled: 80,
+                navbarScrolledPoint: 100,
+                menuClose: 'off',
+                scrollFinishedMessage: 'No more items to load.',
+                hoverMenu:
+                        {
+                            hoverActive: false,
+                            hoverDelay: 200,
+                            hoverFadeDelay: 200
+                        },
+                siteLoader: 'on'
             };
-            o._ = [];
-            s = d.getElementsByTagName('script')[0];
-            c = d.createElement('script');
-            c.type = 'text/javascript';
-            c.charset = 'utf-8';
-            c.async = true;
-            c.src = '//www.smartsuppchat.com/loader.js?';
-            s.parentNode.insertBefore(c, s);
-        })(document);
-    </script>
+        </script>
+
+
+        <?php
+        Com_Helper_Script::getInstance()
+                ->addFile("Public/theme.js")
+                ->addFile("Public/contact.js")
+                ->addFile("Public/map.js");
+        echo Com_Helper_Script::getInstance();
+        ?>
+
+        <script>
+            window.map = {
+                map_type: 'ROADMAP',
+                map_zoom: 17,
+                map_style: 'blackwhite',
+                map_scrollable: 'on',
+                marker: 'show',
+                label: ['Hotel Cortez'],
+                address: '',
+                latlng: ['-17.771060, -63.184124'],
+                center_latlng: '',
+                markerURL: '<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/marker.png',
+                auto_center: true
+            };
+        </script>
+        <!-- Smartsupp Live Chat script -->
+        <script type="text/javascript">
+            var _smartsupp = _smartsupp || {};
+            _smartsupp.key = '7297473a650eaeeecd1c8851f4eee1f1def96bb7';
+            window.smartsupp || (function (d) {
+                var s, c, o = smartsupp = function () {
+                    o._.push(arguments)
+                };
+                o._ = [];
+                s = d.getElementsByTagName('script')[0];
+                c = d.createElement('script');
+                c.type = 'text/javascript';
+                c.charset = 'utf-8';
+                c.async = true;
+                c.src = '//www.smartsuppchat.com/loader.js?';
+                s.parentNode.insertBefore(c, s);
+            })(document);
+        </script>
         <script>
             $(window).scroll(function () {
                 $('#aux').css('transform', 'translate(0,100%)');
             });
         </script>
-</body>
+    </body>
 
 </html>

@@ -1,0 +1,26 @@
+<?PHP
+
+$db = new Entities_Request();
+$grid = new Com_Wizard_Grid();
+$grid->title = "Listado Solicitud";
+$grid->setIdField("ReqId");
+$grid->setLanField("ReqLanId");
+$grid->setQuery($db->getListWithLanguages());
+$grid->setAlias(array("LanName" => "Idioma", "ReqDate" => "Fecha", "ReqType" => "Tipo", "ReqEmail" => "Email", "ReqStatus" => "Estado"));
+$grid->setFilters(array("ReqName" => get('ReqName')));
+
+$toolBar = new Com_Wizard_ToolBar();
+$toolBar->add("plus", "Nuevo", Com_Helper_Url::getInstance()->urlBase . '/Admin/Request/Add');
+$toolBar->add("list-alt", "Exportar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Request/Export');
+$toolBar->add("search", "Filtrar", null, "showHide('.filters')");
+$toolBar->add("log-out", "Volver", Com_Helper_Url::getInstance()->urlBase . '/Admin');
+$grid->setToolBar($toolBar);
+
+$grid->addAction("pencil", "Editar", Com_Helper_Url::getInstance()->urlBase . '/Admin/Request/Edit/lan/_LANGUAGE_/id/_ID_');
+$grid->addAction("trash", "Eliminar", null, "confirm('Esta seguro de eliminar el registro?')?location.href='" . Com_Helper_Url::getInstance()->urlBase . '/Admin/Request/Delete/id/_ID_' . "':'';");
+
+$grid->customField("ReqStatus", array("value" => array('1' => 'No leido', '0' => 'Leido')));
+
+$grid->customField("ReqDate", array("dateFormat" => "d/m/Y H:i:s"));
+
+$grid->render();

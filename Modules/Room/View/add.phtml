@@ -57,12 +57,22 @@ $control->isImage = true;
 $form->add($control);
 
 $control = new Com_Wizard_Form_Control_Select();
+$control->name = "Important";
+$control->label = "Destacado?";
+$control->default = $this->Status;
+$control->required = true;
+$control->addItem('1', 'Si');
+$control->addItem('0', 'No');
+
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_Select();
 $control->name = "Status";
 $control->label = "Estado";
 $control->default = $this->Status;
 $control->required = true;
-$control->addItem('1', 'Habilitado');
 $control->addItem('0', 'Bloqueado');
+$control->addItem('1', 'Habilitado');
 
 $form->add($control);
 

@@ -46,6 +46,7 @@ class Com_Helper_Menu extends Com_Object {
     private function get() {
         $result = "";
         $urlBase = Com_Helper_Url::getInstance()->urlBase;
+        
         foreach ($this->_lstItems as $lstItem) {
             if ($lstItem["ParentModule"] == "") {
                 $hasChilds=$this->hasChilds($lstItem["Module"]);

@@ -22,13 +22,21 @@ $control->required = true;
 $control->length = 50;
 $form->add($control);
 
+$control = new Com_Wizard_Form_Control_File();
+$control->name = "Image";
+$control->label = "Imagen";
+$control->default = $this->Image;
+$control->required = FALSE;
+$control->isImage = true;
+$form->add($control);
+
 $control = new Com_Wizard_Form_Control_Select();
 $control->name = "Status";
 $control->label = "Estado";
 $control->default = $this->Status;
 $control->required = true;
-$control->addItem('1', 'Leido');
-$control->addItem('0', 'No Leido');
+$control->addItem('1', 'Activo');
+$control->addItem('0', 'Inactivo');
 $form->add($control);
 
 $form->render();

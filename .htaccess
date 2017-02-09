@@ -10,3 +10,13 @@ RewriteCond %{REQUEST_FILENAME} -d
 
 RewriteRule ^.*$ - [NC,L]
 RewriteRule ^(.*)$ App.php?$1 [QSA,NC,L]
+
+# 1 MES
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|js|xml|txt|css)$">
+Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+# 1 SEMANA
+<FilesMatch "\.(html|htm|php)$">
+Header set Cache-Control "max-age=604800, public, must-revalidate"
+</FilesMatch>

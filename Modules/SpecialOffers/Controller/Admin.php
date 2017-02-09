@@ -26,12 +26,13 @@ class SpecialOffers_Controller_Admin extends Admin_Controller_Admin {
                 $imageFile = Com_File_Handler::getInstance()->getFileName();
             }
 
-            $id = SpecialOffers_Model_SpecialOffer::getInstance()->doInsert($this->getPostObject(), $languages);
+            $id = SpecialOffers_Model_SpecialOffer::getInstance()->doInsert($this->getPostObject(), $languages, $imageFile);
             $this->redirect(Com_Helper_Url::getInstance()->urlBase . '/Admin/SpecialOffers/Edit/id/' . $id);
         }
         $this->assign('Name');
         $this->assign('Description');
         $this->assign('Status');
+        $this->assign('Image');
 
         $this->assign("languages", $languages);
         $this->assign("Language", (get('lan') != "" ? get('lan') : $languages[0]->LanId));
@@ -51,7 +52,7 @@ class SpecialOffers_Controller_Admin extends Admin_Controller_Admin {
                 $imageFile = Com_File_Handler::getInstance()->getFileName();
             }
 
-            SpecialOffers_Model_SpecialOffer::getInstance()->doUpdate(get('id'), $this->getPostObject());
+            SpecialOffers_Model_SpecialOffer::getInstance()->doUpdate(get('id'), $this->getPostObject(), $imageFile);
             $this->redirect(Com_Helper_Url::getInstance()->urlBase . '/Admin/SpecialOffers/Edit/lan/' . $language . '/id/' . get('id'));
         }
 
@@ -63,6 +64,7 @@ class SpecialOffers_Controller_Admin extends Admin_Controller_Admin {
         $this->assign('Name', $entity->SpeName);
         $this->assign('Description', $entity->SpeDescription);
         $this->assign('Status', $entity->SpeStatus);
+        $this->assign('Image', $entity->SpeImage);
         $this->assign("languages", $languages);
     }
 

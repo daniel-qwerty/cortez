@@ -2,11 +2,8 @@
 <html class="no-js" lang="">
 
     <head>
-        <meta charset="utf-8">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-        <title> Hotel</title>
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <?php Seo_Widget_Seo::getInstance()->setLan($this->lan)->setPage("Reservas")->render(); ?>
+        
         <link rel='stylesheet' id='open-sans-css'
               href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1'
               type='text/css' media='all'/>
@@ -14,8 +11,7 @@
             href="//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700,800%7CPlayfair+Display:400,400italic,700,900&amp;subset=greek,latin,latin"
             rel="stylesheet" type="text/css">
 
-
-        <!-- Fav and Touch Icons -->
+        
         <meta name="msapplication-TileColor" content="#d9534f">
         <meta name="msapplication-TileImage"
               content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/ms-icon-144x144.png">
@@ -66,7 +62,8 @@
                 ->addFile("Public/theme.css")
                 ->addFile("Public/hotel.css")
                 ->addFile("Public/slick.css")
-                ->addFile("Public/slick-theme.css");
+                ->addFile("Public/slick-theme.css")
+                ->addFile("Public/sweetalert.css");
         echo Com_Helper_Style::getInstance();
         ?>
     </head>
@@ -93,7 +90,7 @@
                         </div>
                         <div class="menu-sidebar">
                             <div class="sidebar-widget widget_social">
-                                <?PHP Pages_Widget_SocialIcons::getInstance()->render(); ?>
+                                <?PHP //Pages_Widget_SocialIcons::getInstance()->render(); ?>
                             </div>
                         </div>
                     </nav>
@@ -141,7 +138,7 @@
                 </section>
                 <section class="section">
                     <div class="background-media"
-                         style="background-image: url(<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/bluredReservas.jpg); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;"></div>
+                         style="background-image: url(<?PHP echo Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'bannerBlurReservas')->ImgFile; ?>); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;"></div>
                     <div class="background-overlay grid-overlay-0" style="background-color: rgba(0,0,0,0.4);"></div>
                     <div class="container container-vertical-middle">
                         <div class="row vertical-middle">
@@ -156,33 +153,32 @@
                                     <div class="row vertical-middle">
                                         <div class="col-md-3 text-light">
                                             <div class="form-group  text-left">
-                                                <label>Check in Date:</label>
+                                                <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtLlegada')->TxtDescription; ?></label>
                                                 <div class="date-wrapper">
                                                     <input type="text" name="datepickerin" size="40"
-                                                           class="form-control datepicker" placeholder="Choose Check in date"
+                                                           class="form-control datepicker"
+                                                           placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneLlegada')->TxtDescription; ?>"
                                                            required></div>
                                             </div>
                                         </div>
                                         <div class="col-md-3 text-light">
                                             <div class="form-group text-left">
-                                                <label>Check out Date:</label>
+                                                <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSalida')->TxtDescription; ?></label>
                                                 <div class="date-wrapper">
                                                     <div class="date-wrapper">
                                                         <input type="text" name="datepickerout" size="40"
                                                                class="form-control datepicker"
-                                                               placeholder="Choose Check out date" required></div>
+                                                               placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneSalida')->TxtDescription; ?>"
+                                                               required></div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-3 text-light">
                                             <div class="form-group text-left">
-                                                <label>Room type:</label>
+                                                <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtTipoHabitacion')->TxtDescription; ?></label>
                                                 <br>
                                                 <select name="type">
-                                                    <option value="Single Room"> Single Room</option>
-                                                    <option value="Double Room"> Double Room</option>
-                                                    <option value="Triple Room"> Triple Room</option>
-                                                    <option value="Suite"> Suite</option>
+                                                    <?PHP Room_Widget_List::getInstance()->setLan($this->lan)->render(); ?>
                                                 </select>
                                             </div>
                                         </div>
@@ -190,7 +186,9 @@
                                             <div class="form-group text-center">
                                                 <label>&nbsp;</label>
                                                 <br>
-                                                <input class="btn btn-primary" type="submit" value="Book Your Room Now"></div>
+                                                <input class="btn btn-primary" type="submit"
+                                                       value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnReserve')->TxtDescription; ?>">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="messages"></div>
@@ -228,8 +226,7 @@
                                             </span></div>
                                         <ul class="pricing-item-list element-top-20 element-bottom-100" data-os-animation="none"
                                             data-os-animation-delay="0s">
-
-                                            <?php SpecialOffers_Widget_List::getInstance()->setLan($this->lan)->setLimit(4)->render(); ?>                                    
+                                            <?php SpecialOffers_Widget_List::getInstance()->setLan($this->lan)->setLimit(10)->render(); ?>                                   
 
                                         </ul>
                                     </div>
@@ -240,18 +237,7 @@
                             <div class="col-md-6 text-center" style="padding: 0px">
 
                                 <div class="carrusel-reservas">
-                                    <div class="carrusel-item">
-                                        <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/promo1.jpg"
-                                             alt="">
-                                    </div>
-                                    <div class="carrusel-item">
-                                        <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/promo2.jpg"
-                                             alt="">
-                                    </div>
-                                    <div class="carrusel-item">
-                                        <img src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/promo3.jpg"
-                                             alt="">
-                                    </div>
+                                    <?php SpecialOffers_Widget_Images::getInstance()->setLan($this->lan)->setLimit(10)->render(); ?>   
                                 </div>
                             </div>
                         </div>
@@ -288,7 +274,8 @@
                 ->addFile("Public/theme.js")
                 ->addFile("Public/contact.js")
                 ->addFile("Public/slick.js")
-                ->addFile("Public/map.js");
+                ->addFile("Public/map.js")
+                ->addFile("Public/sweetalert.min.js");
         echo Com_Helper_Script::getInstance();
         ?>
 

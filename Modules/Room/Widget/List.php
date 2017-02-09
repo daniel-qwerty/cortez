@@ -25,7 +25,7 @@ class Room_Widget_List extends Com_Object
     public function render()
     {
         
-        $list = Room_Model_RoomType::getInstance()->getListByLan($this->lan->LanId);
+        $list = Room_Model_RoomType::getInstance()->getListByForm($this->lan->LanId);
         foreach ($list as $obj) { ?>
 
                 <option value="<?php echo $obj->TypeId;  ?>"> <?php echo $obj->TypeName;?> </option>

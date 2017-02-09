@@ -1,17 +1,9 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="EN">
 
-    <head>
-        <meta charset="utf-8">
+    <head>        
+        <?php Seo_Widget_Seo::getInstance()->setLan($this->lan)->setPage("Inicio")->render(); ?>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-        <title><?php echo Configurations_Helper_Configuration::getInstance()->getKey("PAGE_TITLE"); ?></title>
-        <meta name="description" content="<?php echo Configurations_Helper_Configuration::getInstance()->getKey("PAGE_DESCRIPTION"); ?>">
-        <meta name=”robots” content=”Index,Follow”>
-        <meta name=”google” content=”nositelinkssearchbox”>
-        <meta name="Author" content="Qwerty Bolivia">
-
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <link rel='stylesheet' id='open-sans-css'
               href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1'
               type='text/css' media='all'/>
@@ -20,7 +12,6 @@
             rel="stylesheet" type="text/css">
 
 
-        <!-- Fav and Touch Icons -->
         <meta name="msapplication-TileColor" content="#d9534f">
         <meta name="msapplication-TileImage"
               content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/ms-icon-144x144.png">
@@ -69,17 +60,14 @@
                 ->addFile("Public/font-awesome.min.css")
                 ->addFile("Public/fonts.css")
                 ->addFile("Public/theme.css")
+                ->addFile("Public/sweetalert.css")
                 ->addFile("Public/hotel.css");
         echo Com_Helper_Style::getInstance();
         ?>
     </head>
 
     <body class="transparent-header pace-on pace-dot">
-        <div class="lang" style="position:fixed; top: 50%; right: 10px; z-index: 10">
-            <a href="#" style="float:left; clear: both; display: block;"    ><img style="height:25px; margin-bottom: 5px;" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/fb.png"></a>
-            <a href="#" style="float:left;clear: both; display: block;"  ><img style="height:25px; margin-bottom: 5px;" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/instagram.png"></a>
-            <a href="#" style="float:left;clear: both; display: block;"  ><img style="height:25px; margin-bottom: 5px;" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/tripadvisor.png"></a>
-        </div>
+
         <?php /** FORMULARIO FLOTANTE DE RESERVAS * */ Pages_Widget_Reservation::getInstance()->setLan($this->lan)->render(); ?>
 
 
@@ -91,7 +79,7 @@
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button">
                         <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-                    <a class="navbar-brand" style="clear:both" href="<?= Com_Helper_Url::getInstance()->urlBase ?>"> <img
+                    <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->urlBase ?>"> <img
                             alt="Lambda Theme - Hotel"
                             src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png">
                     </a>
@@ -107,7 +95,7 @@
                         <div class="menu-sidebar">
 
                             <div class="sidebar-widget widget_social">
-                                <?PHP Pages_Widget_SocialIcons::getInstance()->render(); ?>
+                                <?PHP //Pages_Widget_SocialIcons::getInstance()->render(); ?>
                             </div>
                         </div>
                     </nav>
@@ -167,7 +155,7 @@
                 </section>
                 <section class="section" id="formulario">
                     <div class="background-media"
-                         style="background-image: url(<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/bluredHome.jpg); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;"></div>
+                         style="background-image: url(<?= Com_Helper_Url::getInstance()->getUploads(); ?>/Image/<?PHP echo Images_Helper_Image::getInstance()->get($this->lan, 'bannerBlurHome')->ImgFile; ?>); background-repeat:no-repeat; background-size:cover; background-attachment:fixed; background-position: 50% 0%;"></div>
                     <div class="background-overlay grid-overlay-0" style="background-color: rgba(0,0,0,0.3);"></div>
                     <div class="container container-vertical-middle">
                         <div class="row vertical-middle">
@@ -184,7 +172,7 @@
                                             <div class="form-group  text-left">
                                                 <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtLlegada')->TxtDescription; ?></label>
                                                 <div class="date-wrapper">
-                                                    <input type="text" name="datepickerin" size="40"
+                                                    <input type="text" id="checkin2" name="datepickerin" size="40"
                                                            class="form-control datepicker"
                                                            placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneLlegada')->TxtDescription; ?>"
                                                            required></div>
@@ -195,7 +183,7 @@
                                                 <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSalida')->TxtDescription; ?></label>
                                                 <div class="date-wrapper">
                                                     <div class="date-wrapper">
-                                                        <input type="text" name="datepickerout" size="40"
+                                                        <input type="text" id="checkout2" name="datepickerout" size="40"
                                                                class="form-control datepicker"
                                                                placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneSalida')->TxtDescription; ?>"
                                                                required></div>
@@ -206,7 +194,7 @@
                                             <div class="form-group text-left">
                                                 <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtTipoHabitacion')->TxtDescription; ?></label>
                                                 <br>
-                                                <select name="type">
+                                                <select name="type" id="tipo2">
                                                     <?PHP Room_Widget_List::getInstance()->setLan($this->lan)->render(); ?>
                                                 </select>
                                             </div>
@@ -215,7 +203,7 @@
                                             <div class="form-group text-center">
                                                 <label>&nbsp;</label>
                                                 <br>
-                                                <input class="btn btn-primary" type="submit"
+                                                <input onclick="sendReserva2();" class="btn btn-primary" type="submit"
                                                        value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnReserve')->TxtDescription; ?>">
                                             </div>
                                         </div>
@@ -239,11 +227,11 @@
                     </div>
                     <div class="background-overlay grid-overlay-0" style="background-color: rgba(86,154,167,0);"></div>
                     <div class="container-fullwidth container-vertical-middle">
-                        <div class="row vertical-middle">
+                        <div class="row ">
                             <div class="col-md-6" style="background:rgba(255, 255, 255, 0.75);">
                                 <div class="row">
-                                    <div class="col-md-2"></div>
-                                    <div class="col-md-8 text-center">
+
+                                    <div class="col-md-8 col-md-offset-2 text-center">
                                         <h2 class="element-top-100 os-animation big" data-os-animation="fadeIn"
                                             data-os-animation-delay="0.1s">
                                                 <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleHabitaciones')->TxtDescription; ?>
@@ -263,10 +251,10 @@
                                            target="_self">
                                                <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtVerMas')->TxtDescription; ?>
                                         </a></div>
-                                    <div class="col-md-2"></div>
+
                                 </div>
                             </div>
-                            <div class="col-md-6 text-center"></div>
+
                         </div>
                     </div>
                 </section>
@@ -277,10 +265,9 @@
                     </div>
                     <div class="background-overlay grid-overlay-0" style="background-color: rgba(86,154,167,0);"></div>
                     <div class="container-fullwidth container-vertical-middle">
-                        <div class="row vertical-middle">
-                            <div class="col-md-6">
-                            </div>
-                            <div class="col-md-6" style="background:rgba(255, 255, 255, 0.75);">
+                        <div class="row ">
+
+                            <div class="col-md-6 col-md-offset-6" style="background:rgba(255, 255, 255, 0.75);">
                                 <div class="row">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-8 text-center">
@@ -378,7 +365,7 @@
                                     data-flex-directions="hide" data-flex-slideshow="true" data-flex-speed="7000"
                                     data-os-animation="fadeIn" data-os-animation-delay="0.3s" id="flexslider-116">
                                     <ul class="slides">
-                                        <?PHP Reviews_Widget_Reviews::getInstance()->setLimit(5)->render(); ?>
+                                        <?PHP Reviews_Widget_Reviews::getInstance()->setLimit(15)->render(); ?>
                                     </ul>
                                 </div>
                             </div>
@@ -401,10 +388,10 @@
                 <?PHP //echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleNuestraUbicacion')->TxtDescription; ?>
                                                 </h2>
                                                 <div class="figure os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.2s"> <span class="figure-image">
-                                                        <img alt="decor-small-gold.png" src="<?PHP // echo Com_Helper_Url::getInstance()->getImage();  ?>/Public/hotel/decor-small-gold.png">
+                                                        <img alt="decor-small-gold.png" src="<?PHP // echo Com_Helper_Url::getInstance()->getImage();   ?>/Public/hotel/decor-small-gold.png">
                                                     </span> </div>
                                                 <div class="col-text-1 element-top-20 element-bottom-100 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.3s">
-                                                    <p><?PHP //echo Texts_Helper_Text::getInstance()->get($this->lan, 'contentNuestraUbicacion')->TxtDescription;  ?></p>
+                                                    <p><?PHP //echo Texts_Helper_Text::getInstance()->get($this->lan, 'contentNuestraUbicacion')->TxtDescription;   ?></p>
                                                 </div>
                                             </div>
                                             <div class="col-md-2"></div>
@@ -422,19 +409,19 @@
         </div>
 
         <script type="text/javascript">
-            var oxyThemeData = {
-                navbarHeight: 90,
-                navbarScrolled: 80,
-                navbarScrolledPoint: 100,
-                menuClose: 'off',
-                scrollFinishedMessage: 'No more items to load.',
-                hoverMenu: {
-                    hoverActive: false,
-                    hoverDelay: 200,
-                    hoverFadeDelay: 200
-                },
-                siteLoader: 'on'
-            };
+                                            var oxyThemeData = {
+                                                navbarHeight: 90,
+                                                navbarScrolled: 80,
+                                                navbarScrolledPoint: 100,
+                                                menuClose: 'off',
+                                                scrollFinishedMessage: 'No more items to load.',
+                                                hoverMenu: {
+                                                    hoverActive: false,
+                                                    hoverDelay: 200,
+                                                    hoverFadeDelay: 200
+                                                },
+                                                siteLoader: 'on'
+                                            };
         </script>
 
 
@@ -442,6 +429,7 @@
         Com_Helper_Script::getInstance()
                 ->addFile("Public/theme.js")
                 ->addFile("Public/contact.js")
+                ->addFile("Public/sweetalert-dev.js")
                 ->addFile("Public/map.js");
         echo Com_Helper_Script::getInstance();
         ?>

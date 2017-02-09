@@ -44,21 +44,21 @@ class Polices_Widget_Polices extends Com_Object {
                 </div>
                 <div class="background-overlay grid-overlay-0" style="background-color: rgba(86,154,167,0);"></div>
                 <div class="container-fullwidth container-vertical-middle">
-                    <div class="row vertical-middle">
+                    <div class="row">
                         <div class="col-md-6" style="background:rgba(255, 255, 255, 0.75);">
                             <div class="row">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8 text-center">
+                                
+                                <div class="col-md-8 col-md-offset-2 text-center">
                                     
                                     
                                     <div class="col-text-1 element-top-20 element-bottom-100 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.3s">
                                         <p><?= $item->SerDescription?></p>
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
+                                
                             </div>
                         </div>
-                        <div class="col-md-6 text-center"></div>
+                       
                     </div>
                 </div>
             </section>
@@ -71,21 +71,19 @@ class Polices_Widget_Polices extends Com_Object {
                 </div>
                 <div class="background-overlay grid-overlay-0" style="background-color: rgba(86,154,167,0);"></div>
                 <div class="container-fullwidth container-vertical-middle">
-                    <div class="row vertical-middle">
-                        <div class="col-md-6">
-
-                        </div>
-                        <div class="col-md-6 text-center" style="background:rgba(255, 255, 255, 0.75);">
+                    <div class="row">
+                        
+                        <div class="col-md-6 col-md-offset-6 text-center" style="background:rgba(255, 255, 255, 0.75);">
                             <div class="row">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8 text-center">
+                               
+                                <div class="col-md-8 col-md-offset-2 text-center">
                                    
                                     
                                     <div class="col-text-1 element-top-20 element-bottom-100 os-animation" data-os-animation="fadeIn" data-os-animation-delay="0.3s">
                                         <p><?= $item->SerDescription?></p>
                                     </div>
                                 </div>
-                                <div class="col-md-2"></div>
+                               
                             </div>
                         </div>
                     </div>

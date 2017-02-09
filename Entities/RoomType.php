@@ -14,4 +14,5 @@ class Entities_RoomType extends Com_Database_Entity_Language {
     public $TypeAmenities;
     public $TypeServices;
     public $TypeStatus;
+    public $TypeImportant;
 }

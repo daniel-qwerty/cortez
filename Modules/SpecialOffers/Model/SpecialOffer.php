@@ -10,7 +10,7 @@ class SpecialOffers_Model_SpecialOffer extends Com_Module_Model {
         return self::_getInstance(__CLASS__);
     }
 
-    public function doInsert(Com_Object $obj, $languages) {
+    public function doInsert(Com_Object $obj, $languages, $image) {
 
         $db = new Entities_SpecialOffers();
 
@@ -21,7 +21,8 @@ class SpecialOffers_Model_SpecialOffer extends Com_Module_Model {
             $db->SpeLanId = $language->LanId;
             $db->SpeName = $obj->Name;
             $db->SpeDescription = $obj->Description;
-            $db->SpeStatus = $obj->Stutu<           
+            $db->SpeStatus = $obj->Status;  
+            $db->SpeImage = $image; 
             $db->action = ACTION_INSERT;
             $db->save();
         }
@@ -31,13 +32,16 @@ class SpecialOffers_Model_SpecialOffer extends Com_Module_Model {
         return $id;
     }
 
-    public function doUpdate($intId, Com_Object $obj) {
+    public function doUpdate($intId, Com_Object $obj, $image) {
         $db = new Entities_SpecialOffers();
         $db->SpeId = $intId;
         $db->SpeLanId = $obj->Language;
         $db->SpeName = $obj->Name;
         $db->SpeDescription = $obj->Description;
-        $db->SpeStatus = $obj->Stutu<
+        $db->SpeStatus = $obj->Status;
+         if ($image != "") {
+            $db->SpeImage = $image;
+        }
         $db->action = ACTION_UPDATE;
         $db->save();
         Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "Registro Actualizado");

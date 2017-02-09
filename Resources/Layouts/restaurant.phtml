@@ -3,60 +3,56 @@
 <html class="no-js" lang="">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <title> Hotel</title>
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel='stylesheet' id='open-sans-css'
-          href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1'
-          type='text/css' media='all'/>
-    <link
-        href="//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700,800%7CPlayfair+Display:400,400italic,700,900&amp;subset=greek,latin,latin"
-        rel="stylesheet" type="text/css">
+        <?php Seo_Widget_Seo::getInstance()->setLan($this->lan)->setPage("Restaurantes")->render(); ?>
+        
+        <link rel='stylesheet' id='open-sans-css'
+              href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1'
+              type='text/css' media='all'/>
+        <link
+            href="//fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,700,800%7CPlayfair+Display:400,400italic,700,900&amp;subset=greek,latin,latin"
+            rel="stylesheet" type="text/css">
 
-
-    <!-- Fav and Touch Icons -->
-    <meta name="msapplication-TileColor" content="#d9534f">
-    <meta name="msapplication-TileImage"
-          content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/ms-icon-144x144.png">
-    <meta name="msapplication-config"
-          content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public//favicons/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="apple-touch-icon" sizes="57x57"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-32x32.png"
-          sizes="32x32">
-    <link rel="icon" type="image/png"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/android-192x192.png"
-          sizes="192x192">
-    <link rel="icon" type="image/png"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-96x96.png"
-          sizes="96x96">
-    <link rel="icon" type="image/png"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-16x16.png"
-          sizes="16x16">
-    <link rel="manifest" href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/manifest.json">
-    <link rel="shortcut icon"
-          href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon.ico"
-          type="image/x-icon"/>
+        
+        <meta name="msapplication-TileColor" content="#d9534f">
+        <meta name="msapplication-TileImage"
+              content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/ms-icon-144x144.png">
+        <meta name="msapplication-config"
+              content="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public//favicons/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+        <link rel="apple-touch-icon" sizes="57x57"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/apple-icon-180x180.png">
+        <link rel="icon" type="image/png"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-32x32.png"
+              sizes="32x32">
+        <link rel="icon" type="image/png"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/android-192x192.png"
+              sizes="192x192">
+        <link rel="icon" type="image/png"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-96x96.png"
+              sizes="96x96">
+        <link rel="icon" type="image/png"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon-16x16.png"
+              sizes="16x16">
+        <link rel="manifest" href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/manifest.json">
+        <link rel="shortcut icon"
+              href="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/favicons/favicon.ico"
+              type="image/x-icon"/>
 
     <?PHP
     Com_Helper_Style::getInstance()
@@ -92,7 +88,7 @@
                 </div>
                 <div class="menu-sidebar">
                     <div class="sidebar-widget widget_social">
-                        <?PHP Pages_Widget_SocialIcons::getInstance()->render(); ?>
+                        <?PHP //Pages_Widget_SocialIcons::getInstance()->render(); ?>
                     </div>
                 </div>
             </nav>
@@ -142,11 +138,11 @@
             </div>
             <div class="background-overlay grid-overlay-0" style="background-color: rgba(86,154,167,0);"></div>
             <div class="container-fullwidth container-vertical-middle">
-                <div class="row vertical-middle">
-                    <div class="col-md-6" style="background:rgba(255, 255, 255, 0.95);">
+                <div class="row ">
+                    <div class="col-md-6" style="background:rgba(255, 255, 255, 0.75);">
                         <div class="row">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-8 text-center">
+                            
+                            <div class="col-md-8 col-md-offset-2 text-center">
                                 <h2 class="element-top-100 os-animation big" data-os-animation="fadeIn"
                                     data-os-animation-delay="0.1s">
                                     <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleRestaurante1')->TxtDescription; ?>
@@ -161,17 +157,10 @@
                                     <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtRestaurante1')->TxtDescription; ?>
                                 </div>
                             </div>
-                            <div class="col-md-2"></div>
+                            
                         </div>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <div class="divider-wrapper">
-                            <div class="visible-xs element-height-200"></div>
-                            <div class="visible-sm element-height-200"></div>
-                            <div class="visible-md element-height-200"></div>
-                            <div class="visible-lg element-height-200"></div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -182,12 +171,12 @@
             </div>
             <div class="background-overlay grid-overlay-0" style="background-color: rgba(86,154,167,0);"></div>
             <div class="container-fullwidth container-vertical-middle">
-                <div class="row vertical-middle">
-                    <div class="col-md-6"></div>
-                    <div class="col-md-6 text-center" style="background:rgba(255, 255, 255, 0.95);">
+                <div class="row ">
+                    
+                    <div class="col-md-6 col-md-offset-6 text-center" style="background:rgba(255, 255, 255, 0.75);">
                         <div class="row">
-                            <div class="col-md-2"></div>
-                            <div class="col-md-8 text-center">
+                            
+                            <div class="col-md-8 col-md-offset-2 text-center">
                                 <h2 class="element-top-100 os-animation big" data-os-animation="fadeIn"
                                     data-os-animation-delay="0.1s">
                                     <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'titleRestaurante2')->TxtDescription; ?>
@@ -202,7 +191,7 @@
                                     <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtRestaurante2')->TxtDescription; ?>
                                 </div>
                             </div>
-                            <div class="col-md-2"></div>
+                           
                         </div>
                     </div>
                 </div>

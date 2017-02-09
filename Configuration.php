@@ -32,7 +32,7 @@ define("DATABASE_PREFIX", "");
 define("EMAIL_HOST", "mail.hobesoundequestrianfarms.com");
 define("EMAIL_PORT", "25");
 define("EMAIL_FROM", "no-reply");
-define("EMAIL_USERNAME", "info@hobesoundequestrianfarms.com");
+define("EMAIL_USERNAME", "daniel@qwerty.com.bo");
 define("EMAIL_PASSWORD", "qwerty.123.");
 define("EMAIL_AUTH", true);
 define("EMAIL_TYPE", "smtp");
