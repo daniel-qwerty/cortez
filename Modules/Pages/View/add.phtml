@@ -21,14 +21,6 @@ $control->length = 50;
 $control->required = true;
 $form->add($control);
 
-$control = new Com_Wizard_Form_Control_Text();
-$control->name = "MetaTags";
-$control->label = "MetaTags (SEO)";
-$control->default = $this->MetaTags;
-$control->required = true;
-$control->rows = 3;
-$control->addParameter("style ", "height:120px;");
-$form->add($control);
 
 $control = new Com_Wizard_Form_Control_Text();
 $control->name = "Description";
@@ -38,6 +30,31 @@ $control->required = true;
 $control->rows = 3;
 $control->addParameter("style ", "height:120px;");
 $form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "TitleContent";
+$control->label = "Titulo Contenido";
+$control->default = $this->TitleContent;
+$control->length = 50;
+$control->required = true;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "TextButton";
+$control->label = "Texto link ";
+$control->default = $this->TextButton;
+$control->length = 50;
+$control->required = false;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control();
+$control->name = "Link";
+$control->label = "Link ";
+$control->default = $this->Link;
+$control->length = 50;
+$control->required = false;
+$form->add($control);
+
 
 $control = new Com_Wizard_Form_Control_Editor();
 $control->name = "Content";
@@ -54,10 +71,19 @@ $control->addParameter("style ", "height:120px;");
 $form->add($control);
 
 $control = new Com_Wizard_Form_Control_File();
+$control->name = "Banner";
+$control->label = "Banner";
+$control->default = $this->Banner;
+$control->isImage = true;
+$control->required = false;
+$form->add($control);
+
+$control = new Com_Wizard_Form_Control_File();
 $control->name = "Image";
 $control->label = "Imagen";
 $control->default = $this->Image;
 $control->isImage = true;
+$control->required = true;
 $form->add($control);
 
 $control = new Com_Wizard_Form_Control_Select();
@@ -74,6 +100,7 @@ $control->name = "Layout";
 $control->label = "Plantilla";
 $control->default = $this->Layout;
 $control->required = true;
+$control->addItem('landing', 'LandingPage ');
 $control->addItem('page', 'P&aacute;gina');
 $control->addItem('contact', 'Contacto');
 $control->addItem('rooms', 'Habitaciones');
@@ -86,6 +113,7 @@ $control->addItem('template1', 'Plantilla 1');
 $control->addItem('history', 'Historia');
 $control->addItem('polices', 'Politicas generales');
 $control->addItem('index', 'Inicial');
+$control->addItem('footer', 'Footer');
 $form->add($control);
 
 $control = new Com_Wizard_Form_Control_Select();

@@ -81,7 +81,7 @@ class Links_Model_Links extends Com_Module_Model {
         $db->get();
         return $db;
     }
-    public function getIcons($lanId, $limit = 10) {
+    public function getIcons($limit = 10) {
         $text = new Entities_Links();
         return $text->getAll($text->getList()->where("LinStatus = 1 "));
     }

@@ -20,6 +20,7 @@ class Room_Model_RoomType extends Com_Module_Model {
             $db->TypeId = $id;
             $db->TypeLanId = $language->LanId;
             $db->TypeName = $obj->Name;
+            $db->TypeUrl = generateUrl($obj->Name);
             $db->TypeResume = $obj->Resume;
             $db->TypeDescription = $obj->Description;
             $db->TypeAmenities = $obj->Amenities;
@@ -41,6 +42,7 @@ class Room_Model_RoomType extends Com_Module_Model {
         $db->TypeId = $intId;
         $db->TypeLanId = $obj->Language;
         $db->TypeName = $obj->Name;
+        $db->TypeUrl = generateUrl($obj->Name);
         $db->TypeResume = $obj->Resume;
         $db->TypeDescription = $obj->Description;
         $db->TypeAmenities = $obj->Amenities;
@@ -67,6 +69,14 @@ class Room_Model_RoomType extends Com_Module_Model {
     public function get($intId, $lanId) {
         $db = new Entities_RoomType();
         $db->TypeId = $intId;
+        $db->TypeLanId = $lanId;
+        $db->get();
+        return $db;
+    }
+
+    public function getByUrl($url, $lanId) {
+        $db = new Entities_RoomType();
+        $db->TypeUrl = $url;
         $db->TypeLanId = $lanId;
         $db->get();
         return $db;

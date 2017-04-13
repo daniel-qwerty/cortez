@@ -71,7 +71,7 @@ class Services_Model_Service extends Com_Module_Model {
     
     public function getListService($lanId) {
         $db = new Entities_Services();
-        return $db->getAll($db->getList()->where("SerLanId={$lanId}"));
+        return $db->getAll($db->getList()->where("SerLanId={$lanId} and SerStatus = 1"));
     }
 
 }

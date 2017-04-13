@@ -76,7 +76,7 @@
             <div class="container">
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                    <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->urlBase ?>"> <img alt="Lambda Theme - Hotel" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png"> </a>
+                    <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode,''); ?>"> <img alt="Lambda Theme - Hotel" src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png"> </a>
                 </div>
                 <div class="nav-container">
                     <nav class="collapse navbar-collapse main-navbar logo-navbar navbar-right">
@@ -147,7 +147,7 @@
                                                 <textarea class="form-control" id="message" name="message" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'placeholderMensaje')->TxtDescription; ?>" rows="5" ></textarea>
                                             </div>
                                             <div class="text-center">
-                                                <input onclick="sendContact();" type="submit" value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnEnviarMensaje')->TxtDescription; ?>" class="btn btn-primary"> </div>
+                                                <input onclick="sendContact('<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'FormularioSinDatos')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'FormularioOk')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'FormularioValEmail')->TxtDescription; ?>');" type="submit" value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnEnviarMensaje')->TxtDescription; ?>" class="btn btn-primary"> </div>
                                             <div class="messages text-center"></div>
                                         </form>
 

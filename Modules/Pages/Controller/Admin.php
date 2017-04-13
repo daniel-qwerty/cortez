@@ -24,19 +24,34 @@ class Pages_Controller_Admin extends Admin_Controller_Admin {
                     $fileName = Com_File_Handler::getInstance()->getFileName();
                 }
             }
-            $id = Pages_Model_Pages::getInstance()->doInsert($this->getPostObject(), $languages, $fileName);
+
+            $banner = "";
+            if (Com_File_Handler::getInstance()->setFile(get("Banner"))->hasErrors()) {
+                Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "El Archivo Seleccionado no pudo ser guardado por favor Intente Nuevamente");
+            } else {
+                if (!(Com_File_Handler::getInstance()->saveFile("Resources/Uploads/Image/"))) {
+                    Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "El Archivo Seleccionado no pudo ser guardado por favor Intente Nuevamente");
+                } else {
+                    $banner = Com_File_Handler::getInstance()->getFileName();
+                }
+            }
+            $id = Pages_Model_Pages::getInstance()->doInsert($this->getPostObject(), $languages, $fileName,$banner);
             $this->redirect(Com_Helper_Url::getInstance()->urlBase . '/Admin/Pages/Edit/id/' . $id);
         }
 
         $this->assign('Name');
-        $this->assign('MetaTags');
+
         $this->assign('Description');
         $this->assign('Content');
         $this->assign('Aditional');
         $this->assign('Image');
+        $this->assign('Banner');
         $this->assign('Home');
         $this->assign('Layout');
         $this->assign('Status');
+        $this->assign('TitleContent');
+        $this->assign('TextButton');
+        $this->assign('Link');
         $this->assign("languages", $languages);
         $this->assign("Language", (get('lan') != "" ? get('lan') : $languages[0]->LanId));
     }
@@ -57,7 +72,19 @@ class Pages_Controller_Admin extends Admin_Controller_Admin {
                     $fileName = Com_File_Handler::getInstance()->getFileName();
                 }
             }
-            Pages_Model_Pages::getInstance()->doUpdate(get('id'), $this->getPostObject(), $fileName);
+
+            $banner = "";
+            if (Com_File_Handler::getInstance()->setFile(get("Banner"))->hasErrors()) {
+                Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "El Archivo Seleccionado no pudo ser guardado por favor Intente Nuevamente");
+            } else {
+                if (!(Com_File_Handler::getInstance()->saveFile("Resources/Uploads/Image/"))) {
+                    Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "El Archivo Seleccionado no pudo ser guardado por favor Intente Nuevamente");
+                } else {
+                    $banner = Com_File_Handler::getInstance()->getFileName();
+                }
+            }
+
+            Pages_Model_Pages::getInstance()->doUpdate(get('id'), $this->getPostObject(), $fileName,$banner);
             //$this->redirect(Com_Helper_Url::getInstance()->urlBase . '/Admin/Pages/Edit/lan/' . $language . '/id/' . get('id'));
         }
 
@@ -67,15 +94,18 @@ class Pages_Controller_Admin extends Admin_Controller_Admin {
         $this->assign("Language", $entity->PagLanId);
 
         $this->assign('Name', $entity->PagName);
-        $this->assign('MetaTags', $entity->PagMetaTags);
+
         $this->assign('Description', $entity->PagDescription);
         $this->assign('Content', $entity->PagContent);
         $this->assign('Aditional', $entity->PagAditional);
         $this->assign('Image', $entity->PagImage);
+        $this->assign('Banner', $entity->PagBanner);
         $this->assign('Home', $entity->PagHome);
         $this->assign('Layout', $entity->PagLayout);
         $this->assign('Status', $entity->PagStatus);
-
+        $this->assign('TitleContent', $entity->PagTitleContent);
+        $this->assign('TextButton', $entity->PagTextButton);
+        $this->assign('Link', $entity->PagLink);
         $this->assign("languages", $languages);
     }
 

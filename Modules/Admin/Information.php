@@ -39,6 +39,7 @@ class Admin_Information extends Com_Module_Information
         Com_Helper_Menu::getInstance()->add("Noticias", "/Admin/Promos", "Noticias", "Noticias", "Content");
         Com_Helper_Menu::getInstance()->add("Imagenes", "/Admin/Images", "Imagenes", "Imagenes", "Content");
         Com_Helper_Menu::getInstance()->add("Historia", "/Admin/History", "Historia", "Historia", "Content");
+        Com_Helper_Menu::getInstance()->add("Politicas", "/Admin/Polices", "Politicas", "Politicas", "Content");
         
         /**
          * Menu Motor de reservas

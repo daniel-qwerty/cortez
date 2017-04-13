@@ -10,7 +10,7 @@ class Pages_Model_Pages extends Com_Module_Model {
         return self::_getInstance(__CLASS__);
     }
 
-    public function doInsert(Com_Object $obj, $languages, $fileName) {
+    public function doInsert(Com_Object $obj, $languages, $fileName,$banner) {
 
         $db = new Entities_Page();
 
@@ -21,14 +21,18 @@ class Pages_Model_Pages extends Com_Module_Model {
             $db->PagLanId = $language->LanId;
             $db->PagName = $obj->Name;
             $db->PagUrl = generateUrl($obj->Name);
-            $db->PagMetaTags = $obj->MetaTags;
+            //$db->PagMetaTags = $obj->MetaTags;
             $db->PagDescription = $obj->Description;
             $db->PagContent = $obj->Content;
             $db->PagAditional = $obj->Aditional;
             $db->PagHome = $obj->Home;
             $db->PagLayout = $obj->Layout;
             $db->PagImage = $fileName;
+            $db->PagBanner = $banner;
             $db->PagStatus = $obj->Status;
+            $db->PagTitleContent = $obj->TitleContent;
+            $db->PagTextButton = $obj->TextButton;
+            $db->PagLink = $obj->Link;
             $db->action = ACTION_INSERT;
             $db->save();
         }
@@ -38,13 +42,13 @@ class Pages_Model_Pages extends Com_Module_Model {
         return $id;
     }
 
-    public function doUpdate($intId, Com_Object $obj, $fileName) {
+    public function doUpdate($intId, Com_Object $obj, $fileName, $banner) {
         $db = new Entities_Page();
         $db->PagId = $intId;
         $db->PagLanId = $obj->Language;
         $db->PagName = $obj->Name;
         $db->PagUrl = generateUrl($obj->Name);
-        $db->PagMetaTags = $obj->MetaTags;
+        //$db->PagMetaTags = $obj->MetaTags;
         $db->PagDescription = $obj->Description;
         $db->PagContent = $obj->Content;
         $db->PagAditional = $obj->Aditional;
@@ -53,7 +57,13 @@ class Pages_Model_Pages extends Com_Module_Model {
         if ($fileName != "") {
             $db->PagImage = $fileName;
         }
+        if ($banner != "") {
+            $db->PagBanner = $banner;
+        }
         $db->PagStatus = $obj->Status;
+        $db->PagTitleContent = $obj->TitleContent;
+        $db->PagTextButton = $obj->TextButton;
+        $db->PagLink = $obj->Link;
         $db->action = ACTION_UPDATE;
         $db->save();
         Com_Wizard_Messages::getInstance()->addMessage(MESSAGE_INFORMATION, "Registro Actualizado");

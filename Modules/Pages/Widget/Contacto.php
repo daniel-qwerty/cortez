@@ -29,7 +29,7 @@ class Pages_Widget_Contacto extends Com_Object
         <section class="section">
 
             <div class="container">
-                <div class="row element-top-60 element-bottom-60">
+                <div class="row element-top-20 element-bottom-20">
                     <div class="col-sm-4">
                         <div class="sidebar-widget">
                             <h3 class="sidebar-header">
@@ -60,6 +60,7 @@ class Pages_Widget_Contacto extends Com_Object
                                 - <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtPoBox')->TxtDescription; ?>
                                 <br>
                                 <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtEmail')->TxtDescription; ?>
+
                             </div>
                             
                         </div>
@@ -82,7 +83,7 @@ class Pages_Widget_Contacto extends Com_Object
                                 <address>
                                     <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtDireccion')->TxtDescription; ?>
                                     <br>
-                                    Santa Cruz de la Sierra - Bolivia.
+                                    <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtCiudadPais')->TxtDescription; ?>
                                 </address>
 
                             </div>
@@ -104,7 +105,7 @@ class Pages_Widget_Contacto extends Com_Object
                 <div class="row element-top-10 element-bottom-10 footer-columns-2">
                     <div class="col-sm-12 hidden-sm hidden-xs">
                         <div class="sidebar-widget" style="text-align:center">
-                            <div> © <?= date('Y');?> Hotel Cortez. Todos los derechos reservados.</div>
+                            <div> © <?= date('Y');?> <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtCopyRight')->TxtDescription; ?> </div>
                         </div>
                     </div>                    
                 </div>

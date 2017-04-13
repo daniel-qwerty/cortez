@@ -11,6 +11,8 @@ jQuery(document).ready(function ($) {
 
     $('.datepicker').datepicker();
 
+
+
     $.datepicker.setDefaults({
         onSelect: function (val, target) {
             var desde = $("#checkin").val();
@@ -23,9 +25,9 @@ jQuery(document).ready(function ($) {
             var today_date = getDate(t_date.getFullYear(), t_date.getMonth() + 1, t_date.getDate(), (target.id == "checkin") ? 0 : 1000 * 60 * 60 * 24);
 
             if (new_date < today_date) {
-                alert('seleccione una fecha posterior');
-                $("#checkout").val(hasta);
-                $("#checkin").val(desde);
+                //alert('seleccione una fecha posterior');
+                $("#checkout").val("");
+                $("#checkin").val("");
 
             } else {
                 if (target.id == "checkin") {
@@ -56,9 +58,9 @@ jQuery(document).ready(function ($) {
             var today_date2 = getDate(t_date2.getFullYear(), t_date2.getMonth() + 1, t_date2.getDate(), (target.id == "checkin") ? 0 : 1000 * 60 * 60 * 24);
 
             if (new_date2 < today_date2) {
-                alert('seleccione una fecha posterior');
-                $("#checkout2").val(hasta2);
-                $("#checkin2").val(desde2);
+                //alert('seleccione una fecha posterior');
+                $("#checkout2").val("");
+                $("#checkin2").val("");
 
             } else {
                 if (target.id == "checkin2") {
@@ -17542,13 +17544,13 @@ jQuery(document).ready(function ($) {
     }
 });
 
-function sendContact() {
+function sendContact(mensajeError,mensajeOk) {
     var name = $('#formContact #name').val();
     var message = $('#formContact #message').val();
     var email = $('#formContact #email').val();
 
     if (name === "" || email === "" || message === "") {
-        swal("", "Por favor revise los datos del formulario !!!", "warning");
+        swal("",mensajeError, "warning");
         console.log("Por favor revise los datos del formulario !!!");
     } else {
 
@@ -17562,7 +17564,7 @@ function sendContact() {
             }
         }).done(function (data) {
             console.log("Exito");
-            swal("", "Su mensaje fue enviado con exito", "success");
+            swal("", mensajeOk, "success");
             $('#formContact #name').val("");
             $('#formContact #message').val("");
             $('#formContact #email').val("");
@@ -17574,7 +17576,7 @@ function sendContact() {
     }
 }
 
-function sendRequest() {
+function sendRequest(mensajeError,mensajeOk) {
     var name = $('#formContact #name').val();
     var message = $('#formContact #message').val();
     var email = $('#formContact #email').val();
@@ -17583,7 +17585,7 @@ function sendRequest() {
     var item = $('#formContact #item').val();
 
     if (name === "" || email === "" || message === "") {
-        swal("", "Por favor revise los datos del formulario !!!", "warning");
+        swal("", mensajeError, "warning");
         console.log("Por favor revise los datos del formulario !!!");
     } else {
 
@@ -17600,7 +17602,7 @@ function sendRequest() {
             }
         }).done(function (data) {
             console.log("Exito");
-            swal("", "Su solicitud fue enviada con exito", "success");
+            swal("", mensajeOk, "success");
 
             $('#formContact #name').val("");
             $('#formContact #message').val("");
@@ -17616,14 +17618,16 @@ function sendRequest() {
     }
 }
 
-function sendReserva() {
+function sendReserva(mensaje,title,text,btnOk,btnOpciones) {
     var checkin = $('#formReserva #checkin').val();
     var checkout = $('#formReserva #checkout').val();
     var tipo = $('#formReserva #tipo').val();
 
 
+
+
     if (tipo === "" || checkin === "" || checkout === "") {
-        swal("", "Por favor revise los datos del formulario !!!", "warning");
+        //swal("", "Por favor revise los datos del formulario !!!", "warning");
         console.log("Por favor revise los datos del formulario !!!");
     } else {
 
@@ -17639,27 +17643,29 @@ function sendReserva() {
         }).done(function (data) {
             console.log(data);
             if (data === 'NO') {
-                swal("Lo Sentimos", "", "info");
+                swal(mensaje, "", "info");
                 swal({
-                    title: "Lo Sentimos",
-                    text: "No disponemos el tipo de habitación en las fechas seleccionadas",
+                    title: title,
+                    text: text,
                     type: "info",
                     showCancelButton: true,
                     confirmButtonColor: "#80BA27",
                     cancelButtonColor: "#0D51A0",
-                    cancelButtonText: "OK",
-                    confirmButtonText: "Ver otras opciones",
+                    cancelButtonText: btnOk,
+                    confirmButtonText: btnOpciones,
                     closeOnConfirm: false
                 },
                         function () {
                             window.location.href = "http://digitalmindsbolivia.com/motorreservas/reserva/default?llegada="+checkin+"&salida="+checkout+"&tipoHabitacion="+tipo;
                         });
+            }else{
+                // swal("", "Su solicitud fue enviada con exito", "success");
+                window.location.href = "http://digitalmindsbolivia.com/motorreservas/reserva/default?llegada="+checkin+"&salida="+checkout+"&tipoHabitacion="+tipo;
+                $('#formContact #checkin').val("");
+                $('#formContact #checkout').val("");
+                $('#formContact #tipo').val("");
             }
-            // swal("", "Su solicitud fue enviada con exito", "success");
-            window.location.href = "http://digitalmindsbolivia.com/motorreservas/reserva/default?llegada="+checkin+"&salida="+checkout+"&tipoHabitacion="+tipo;
-            $('#formContact #checkin').val("");
-            $('#formContact #checkout').val("");
-            $('#formContact #tipo').val("");
+
 
         }).error(function () {
 
@@ -17669,14 +17675,16 @@ function sendReserva() {
     }
 }
 
-function sendReserva2() {
+function sendReserva2(mensaje,title,text,btnOk,btnOpciones) {
     var checkin = $('#formReserva #checkin2').val();
     var checkout = $('#formReserva #checkout2').val();
     var tipo = $('#formReserva #tipo2').val();
 
 
+
+
     if (tipo === "" || checkin === "" || checkout === "") {
-        swal("", "Por favor revise los datos del formulario !!!", "warning");
+        //swal("", "Por favor revise los datos del formulario !!!", "warning");
         console.log("Por favor revise los datos del formulario !!!");
     } else {
 
@@ -17692,27 +17700,29 @@ function sendReserva2() {
         }).done(function (data) {
             console.log(data);
             if (data === 'NO') {
-                swal("Lo Sentimos", "", "info");
+                swal(mensaje, "", "info");
                 swal({
-                    title: "Lo Sentimos",
-                    text: "No disponemos el tipo de habitación en las fechas seleccionadas",
-                    type: "info",
-                    showCancelButton: true,
-                    confirmButtonColor: "#80BA27",
-                    cancelButtonColor: "#0D51A0",
-                    cancelButtonText: "OK",
-                    confirmButtonText: "Ver otras opciones",
-                    closeOnConfirm: false
-                },
-                        function () {
-                            window.location.href = "http://digitalmindsbolivia.com/motorreservas/reserva/default?llegada="+checkin+"&salida="+checkout+"&tipoHabitacion="+tipo;
-                        });
+                        title: title,
+                        text: text,
+                        type: "info",
+                        showCancelButton: true,
+                        confirmButtonColor: "#80BA27",
+                        cancelButtonColor: "#0D51A0",
+                        cancelButtonText: btnOk,
+                        confirmButtonText: btnOpciones,
+                        closeOnConfirm: false
+                    },
+                    function () {
+                        window.location.href = "http://digitalmindsbolivia.com/motorreservas/reserva/default?llegada="+checkin+"&salida="+checkout+"&tipoHabitacion="+tipo;
+                    });
+            }else{
+                // swal("", "Su solicitud fue enviada con exito", "success");
+                window.location.href = "http://digitalmindsbolivia.com/motorreservas/reserva/default?llegada="+checkin+"&salida="+checkout+"&tipoHabitacion="+tipo;
+                $('#formContact #checkin2').val("");
+                $('#formContact #checkout2').val("");
+                $('#formContact #tipo2').val("");
             }
-            // swal("", "Su solicitud fue enviada con exito", "success");
-            window.location.href = "http://digitalmindsbolivia.com/motorreservas/reserva/default?llegada="+checkin+"&salida="+checkout+"&tipoHabitacion="+tipo;
-            $('#formContact #checkin2').val("");
-            $('#formContact #checkout2').val("");
-            $('#formContact #tipo2').val("");
+
 
         }).error(function () {
 

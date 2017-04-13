@@ -17,6 +17,10 @@ class Entities_Page extends Com_Database_Entity_Language {
     public $PagStatus;
     public $PagLayout;
     public $PagImage;
+    public $PagBanner;
+    public $PagTitleContent;
+    public $PagTextButton;
+    public $PagLink;
 
     public function funGetList() {
         return Com_Database_Query::getInstance()->select()

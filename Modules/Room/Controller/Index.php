@@ -11,8 +11,8 @@ class Room_Controller_Index extends Public_Controller_Index
         $url = explode("/", $url);
         $url = $url[count($url) - 1];
 
-        
-        $room = Room_Model_RoomType::getInstance()->get($url, $this->lan->LanId);
+
+        $room = Room_Model_RoomType::getInstance()->getByUrl($url, $this->lan->LanId);
        // print_r($room);        exit();
         //$blog = Blog_Model_Blog::getInstance()->get($article->BitemBlogId, $this->lan->LanId);
         // $user = Users_Model_User::getInstance()->get($article->BitemAuthor);
@@ -22,6 +22,8 @@ class Room_Controller_Index extends Public_Controller_Index
 
         Tracking_Model_Tracking::getInstance()->doInsert($_SERVER['REMOTE_ADDR'],Com_Helper_Url::getInstance()->getUrl(),isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '',$_SERVER['PHP_SELF'],date("Y-m-d"),date("H:i:s"),$_SERVER['HTTP_USER_AGENT']);
     }
+
+
 
     public function Lista()
     {

@@ -33,7 +33,7 @@ class SpecialOffers_Widget_List extends Com_Object {
                 data-os-animation="fadeIn" data-os-animation-delay="0s">
                 <div class="pricing-item-list-content">
                     <h3><?= $new->SpeName; ?>
-                        <span><a onclick="$('#formContact #item').val('<?= $new->SpeName; ?>');" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="background-color: #23527c;color: #fff;padding: 4px;border-radius: 5px; cursor: pointer;">Solicitar</a></span></h3>
+                        <span><a onclick="$('#formContact #item').val('<?= $new->SpeName; ?>');" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" style="background-color: #23527c;color: #fff;padding: 4px;border-radius: 5px; cursor: pointer;"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnSolicitarOferta')->TxtDescription; ?></a></span></h3>
                     <p><?= $new->SpeDescription; ?></p>
                 </div>
             </li>
@@ -74,7 +74,7 @@ class SpecialOffers_Widget_List extends Com_Object {
                                     <input type="text" value="OFERTAS" class="form-control hidden" id="type">
                                 </div>
                                 <div class="form-group">
-                                    <label for="recipient-name" class="control-label"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formPromocionesEmail')->TxtDescription; ?></label>
+                                    <label for="recipient-name" class="control-label" type="email"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formPromocionesEmail')->TxtDescription; ?></label>
                                     <input type="text" class="form-control" id="email">
                                 </div>
                                 <div class="form-group">
@@ -85,7 +85,7 @@ class SpecialOffers_Widget_List extends Com_Object {
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formPromocionesCerrar')->TxtDescription; ?></button>
-                            <button onclick="sendRequest();" type="button" class="btn btn-primary"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formPromocionesEnviar')->TxtDescription; ?></button>
+                            <button onclick="sendRequest('<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'FormularioSinDatos')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'FormularioOk')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'FormularioValEmail')->TxtDescription; ?>');" type="button" class="btn btn-primary"><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formPromocionesEnviar')->TxtDescription; ?></button>
                         </div>
                     </div>
                 </div>

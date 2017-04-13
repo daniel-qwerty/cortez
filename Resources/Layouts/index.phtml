@@ -70,7 +70,6 @@
 
         <?php /** FORMULARIO FLOTANTE DE RESERVAS * */ Pages_Widget_Reservation::getInstance()->setLan($this->lan)->render(); ?>
 
-
         <?php Pages_Widget_Reservation::getInstance()->render(); ?>
         <div class="pace-overlay"></div>
         <div class="menu navbar navbar-static-top header-logo-left-menu-right oxy-mega-menu navbar-sticky text-none"
@@ -79,7 +78,7 @@
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button">
                         <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->urlBase ?>"> <img
+                    <a class="navbar-brand" href="<?=  Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode,''); ?>"> <img
                             alt="Lambda Theme - Hotel"
                             src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png">
                     </a>
@@ -166,7 +165,7 @@
                                     <div class="visible-md element-height-40"></div>
                                     <div class="visible-lg element-height-40"></div>
                                 </div>
-                                <form action="contact_mailer_hotel.php" class="contact-form">
+                                <form name="formReservas2" id="formReserva2" class="contact-form">
                                     <div class="row vertical-middle">
                                         <div class="col-md-3 text-light">
                                             <div class="form-group  text-left">
@@ -203,7 +202,8 @@
                                             <div class="form-group text-center">
                                                 <label>&nbsp;</label>
                                                 <br>
-                                                <input onclick="sendReserva2();" class="btn btn-primary" type="submit"
+                                                <input onclick="sendReserva2('<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaMensaje')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaTitle')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaText')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaBtnOk')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaBtnOpciones')->TxtDescription; ?>');" class="btn btn-primary" type="submit"
+
                                                        value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnReserve')->TxtDescription; ?>">
                                             </div>
                                         </div>

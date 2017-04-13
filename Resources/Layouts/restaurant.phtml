@@ -75,7 +75,7 @@
         <div class="navbar-header">
             <button class="navbar-toggle collapsed" data-target=".main-navbar" data-toggle="collapse" type="button">
                 <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-            <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->urlBase ?>"> <img
+            <a class="navbar-brand" href="<?= Com_Helper_Url::getInstance()->generateUrl($this->lan->LanCode,''); ?>"> <img
                     alt="Lambda Theme - Hotel"
                     src="<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/hotel/logohotel1.png"> </a>
         </div>

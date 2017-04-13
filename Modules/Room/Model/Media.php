@@ -64,7 +64,7 @@ class Room_Model_Media extends Com_Module_Model {
 
     public function getListByProject($ProId, $lanId) {
         $db = new Entities_Media();
-        return $db->getAll($db->getListQuery()->where("MedRoomId={$ProId}")->andWhere("MedLanId={$lanId}")->orderBy("MedId"));
+        return $db->getAll($db->getListQuery()->where("MedRoomId={$ProId}")->andWhere("MedLanId={$lanId} and MedStatus = 1")->orderBy("MedId"));
     }
 
 }

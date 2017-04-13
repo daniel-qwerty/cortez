@@ -75,7 +75,7 @@ class Pages_Widget_Reservation extends Com_Object
                                     <div class="form-group text-center">
                                         <label>&nbsp;</label>
                                         <br>
-                                        <input onclick="sendReserva();" class="btn btn-primary" type="submit"
+                                        <input onclick="sendReserva('<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaMensaje')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaTitle')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaText')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaBtnOk')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaBtnOpciones')->TxtDescription; ?>');" class="btn btn-primary" type="submit"
                                                value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnReserve')->TxtDescription; ?>">
                                     </div>
                                 </div>
@@ -87,7 +87,7 @@ class Pages_Widget_Reservation extends Com_Object
                 </div>
             </div>
         </div>
-        <a class="show-form-res go-top-square" href="javascript:void(0)"> <i class="fa fa-suitcase"></i> Reserve ahora! </a>
+        <a class="show-form-res go-top-square" href="javascript:void(0)"> <i class="fa fa-suitcase"></i> <?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnReserveAhora')->TxtDescription; ?></a>
         <a class="go-top go-top-square" href="javascript:void(0)"> <i class="fa fa-angle-up"></i> </a>
         <?PHP
     }

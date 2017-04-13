@@ -64,13 +64,16 @@
                         <div class="visible-md element-height-40"></div>
                         <div class="visible-lg element-height-40"></div>
                     </div>
-                    <form action="contact_mailer_hotel.php" class="contact-form">
+                    <form name="formReservas2" id="formReserva2" class="contact-form">
                         <div class="row vertical-middle">
                             <div class="col-md-3 text-light">
                                 <div class="form-group  text-left">
                                     <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtLlegada')->TxtDescription; ?></label>
                                     <div class="date-wrapper">
-                                        <input type="text" name="datepickerin" size="40" class="form-control datepicker" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneLlegada')->TxtDescription; ?>" required> </div>
+                                        <input type="text" id="checkin2" name="datepickerin" size="40"
+                                               class="form-control datepicker"
+                                               placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneLlegada')->TxtDescription; ?>"
+                                               required></div>
                                 </div>
                             </div>
                             <div class="col-md-3 text-light">
@@ -78,22 +81,27 @@
                                     <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSalida')->TxtDescription; ?></label>
                                     <div class="date-wrapper">
                                         <div class="date-wrapper">
-                                            <input type="text" name="datepickerout" size="40" class="form-control datepicker" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneSalida')->TxtDescription; ?>" required> </div>
+                                            <input type="text" id="checkout2" name="datepickerout" size="40"
+                                                   class="form-control datepicker"
+                                                   placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneSalida')->TxtDescription; ?>"
+                                                   required></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 text-light">
+                            <div class="col-md-3 text-light hidden">
                                 <div class="form-group text-left">
                                     <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtTipoHabitacion')->TxtDescription; ?></label>
                                     <br>
-                                    <input type="text" name="Habitacion" readonly="yes" size="40" class="form-control " value="<?php echo $this->room->TypeName; ?>" required>
+                                    <input  type="text" id="tipo2" name="Habitacion" readonly="yes" size="40" class=" form-control " value="<?php echo $this->room->TypeId; ?>" >
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group text-center">
                                     <label>&nbsp;</label>
                                     <br>
-                                    <input class="btn btn-primary" type="submit" value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnDisponibilidad')->TxtDescription; ?>"> </div>
+                                    <input onclick="sendReserva2('<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaMensaje')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaTitle')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaText')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaBtnOk')->TxtDescription; ?>','<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'formReservaBtnOpciones')->TxtDescription; ?>');" class="btn btn-primary" type="submit"
+                                           value="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'btnReserve')->TxtDescription; ?>">
+                                </div>
                             </div>
                         </div>
                         <div class="messages"></div>

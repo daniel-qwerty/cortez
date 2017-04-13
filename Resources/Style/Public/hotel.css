@@ -78,7 +78,7 @@ h1, h2, h3, h4, h5, h6 {
 #masthead .menu, #masthead.menu, #navbar-slide.menu {
     font-family: "CenturyGothic", sans-serif;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 
@@ -716,7 +716,7 @@ button.mfp-arrow {
 }
 
 .show-form-res {
-    background: #0d51a0 !important;
+    background: #80ba27 !important;
     color: #FFF;
 }
 
