@@ -44,7 +44,7 @@ class Pages_Widget_Reservation extends Com_Object
                                     <div class="form-group  text-left">
                                         <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtLlegada')->TxtDescription; ?></label>
                                         <div class="date-wrapper">
-                                            <input type="text" id="checkin" name="datepickerin" size="40"
+                                            <input type="text" id="checkin" name="datepickerin" size="40" readonly
                                                    class="form-control datepicker"
                                                    placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneLlegada')->TxtDescription; ?>"
                                                    required></div>
@@ -55,7 +55,7 @@ class Pages_Widget_Reservation extends Com_Object
                                         <label><?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSalida')->TxtDescription; ?></label>
                                         <div class="date-wrapper">
                                             <div class="date-wrapper">
-                                                <input type="text" id="checkout" name="datepickerout" size="40"
+                                                <input type="text" id="checkout" name="datepickerout" size="40" readonly
                                                        class="form-control datepicker"
                                                        placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'txtSeleccioneSalida')->TxtDescription; ?>"
                                                        required></div>

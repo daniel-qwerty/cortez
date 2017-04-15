@@ -86,6 +86,18 @@ jQuery(document).ready(function ($) {
                 dateFormat: "yy-mm-dd"
             }
     );
+    var checkoutclic = $('#checkout').datepicker()
+        .on('click', function (ev) {
+            $('#ui-datepicker-div').css("z-index", "9999999999999");
+        }).data('datepicker');
+    var checkinclic = $('#checkin').datepicker()
+        .on('click', function (ev) {
+            $('#ui-datepicker-div').css("z-index", "9999999999999");
+        }).data('datepicker');
+    $('#checkout').datepicker({
+        beforeShow: function(){document.activeElement.blur();}
+    });
+
     function sumaFecha(dias, fecha) {
         fecha = new Date(fecha);
         fecha.setDate(fecha.getDate() + dias);

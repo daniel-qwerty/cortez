@@ -7,20 +7,20 @@ class Request_Controller_Service extends Com_Module_Controller_Json {
             $obj = $this->getPostObject();
             //print_r($obj);
             Request_Model_Request::getInstance()->doInsert($obj, null);
-           // $this->sendEmail($obj->Email, $obj->Name, $obj->Message);
+            $this->sendEmail($obj);
             echo json_encode(true);
         }
     }
 
-    private function sendEmail($emailClient, $nameClient, $messageClient) {
+    private function sendEmail($obj) {
 
-        $to = EMAIL_USERNAME;
-        $subject = 'CONTACT FROM WEB';
+        $to = Configurations_Helper_Configuration::getInstance()->getKey('EMAIL_CONTACT');
+        $subject = 'SOLICITUD DE '.$obj->Type;
         $message = '<html><body>';
-        $message .= '<h3>NAME: </h3>'.$nameClient.'<br> <h3>MESSAGE: </h3>'.$messageClient;
+        $message .= '<h3>NOMBRE: </h3>'.$obj->Name.'<br> <h3>EMAIL: </h3>'.$obj->Email.'<br> <h3>TELEFONO: </h3>'.$obj->Phone.'<br> <h3>REQUERIMIENTO: </h3>'.$obj->Item.'<br> <h3>MENSAJE: </h3>'.$obj->Message;
         $message .= '</body></html>';
-        $headers = 'From:'.$emailClient . "\r\n" .
-                'Reply-To:'.$emailClient. "\r\n" .
+        $headers = 'From:'.EMAIL_USERNAME . "\r\n" .
+                'Reply-To:'.EMAIL_USERNAME. "\r\n" .
                 'Content-Type: text/html; charset=ISO-8859-1\r\n';
                 'X-Mailer: PHP/' . phpversion();
 

@@ -29,7 +29,7 @@ define("DATABASE_PREFIX", "");
 /**
  * Email Settings
  */
-define("EMAIL_HOST", "mail.hobesoundequestrianfarms.com");
+define("EMAIL_HOST", "mail.qwerty..com");
 define("EMAIL_PORT", "25");
 define("EMAIL_FROM", "no-reply");
 define("EMAIL_USERNAME", "daniel@qwerty.com.bo");

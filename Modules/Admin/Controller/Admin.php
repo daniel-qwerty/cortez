@@ -6,10 +6,10 @@ class Admin_Controller_Admin extends Com_Module_Controller {
         if (get("userId") > 0) {
             $this->setLayout("Admin/Admin2");
         } else {
-            $this->redirect(Com_Helper_Url::getInstance()->urlBase . "/lan/Index/Admin");
+            $this->redirect(Com_Helper_Url::getInstance()->urlBase . "/Admin/Admin");
         }
 
-        $this->assign("country", get('userCountry'));
+       // $this->assign("country", get('userCountry'));
         
         $mensajes = Contact_Model_Contact::getInstance()->getListByLan(30);
         $this->assign("mensajes", $mensajes);
@@ -26,7 +26,7 @@ class Admin_Controller_Admin extends Com_Module_Controller {
             $this->redirect(Com_Helper_Url::getInstance()->urlBase . "/lan/Index/Admin");
         }
 
-        $this->assign("country", get('userCountry'));
+        //$this->assign("country", get('userCountry'));
 
         Com_Helper_BreadCrumbs::getInstance()->add("Inicio", '/Admin');
     }
