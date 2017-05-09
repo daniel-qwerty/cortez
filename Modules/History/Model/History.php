@@ -71,7 +71,7 @@ class History_Model_History extends Com_Module_Model {
     
     public function getListService($lanId) {
         $db = new Entities_History();
-        return $db->getAll($db->getList()->where("HisLanId={$lanId}"));
+        return $db->getAll($db->getList()->where("HisLanId={$lanId}")->andWhere("HisStatus = 1"));
     }
 
 }

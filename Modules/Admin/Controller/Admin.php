@@ -13,8 +13,10 @@ class Admin_Controller_Admin extends Com_Module_Controller {
         
         $mensajes = Contact_Model_Contact::getInstance()->getListByLan(30);
         $this->assign("mensajes", $mensajes);
-        $solicitud = Request_Model_Request::getInstance()->getListByLan(30);
-        $this->assign("solicitud", $solicitud);
+        $salones = Request_Model_Request::getInstance()->getListByLanSalones(30);
+        $this->assign("salones", $salones);
+        $ofertas = Request_Model_Request::getInstance()->getListByLanOfertas(30);
+        $this->assign("ofertas", $ofertas);
 
         Com_Helper_BreadCrumbs::getInstance()->add("Inicio", '/Admin');
     }

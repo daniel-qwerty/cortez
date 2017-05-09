@@ -3,6 +3,7 @@
 class Seo_Widget_Seo extends Com_Object {
 
     private $page;
+    private $url;
     private $lan;
 
     /**
@@ -13,8 +14,13 @@ class Seo_Widget_Seo extends Com_Object {
         return self::_getInstance(__CLASS__);
     }
 
-    public function setPage($page) {
+    public function setPage($page, $url) {
         $this->page = $page;
+        return $this;
+    }
+
+    public function setUrl($url) {
+        $this->url = $url;
         return $this;
     }
 
@@ -32,6 +38,7 @@ class Seo_Widget_Seo extends Com_Object {
         <meta name=”robots” content=”Index,Follow”>
         <meta name=”google” content=”nositelinkssearchbox”>
         <meta name="Author" content="Qwerty Bolivia">
+        <?php Seo_Widget_SharingFB::getInstance()->setLan($this->lan)->setPage("Inicio")->setUrl($this->url)->render(); ?>
         
     <?php }
 

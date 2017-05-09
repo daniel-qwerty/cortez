@@ -2,7 +2,9 @@
 <html class="no-js" lang="">
 
     <head>
-        <?php Seo_Widget_Seo::getInstance()->setLan($this->lan)->setPage("Reservas")->render(); ?>
+        
+        <?php $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        Seo_Widget_Seo::getInstance()->setLan($this->lan)->setPage("Reservas")->setUrl($actual_link)->render(); ?>
         
         <link rel='stylesheet' id='open-sans-css'
               href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1'
@@ -267,7 +269,16 @@
                 siteLoader: 'on'
             };
         </script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-97421732-1', 'auto');
+  ga('send', 'pageview', location.pathname);
+
+</script>
 
         <?php
         Com_Helper_Script::getInstance()
@@ -297,7 +308,7 @@
         <!-- Smartsupp Live Chat script -->
         <script type="text/javascript">
             var _smartsupp = _smartsupp || {};
-            _smartsupp.key = '7297473a650eaeeecd1c8851f4eee1f1def96bb7';
+            _smartsupp.key = '3397514ec827ff59e476df0eca1b8583bd221b31';
             window.smartsupp || (function (d) {
                 var s, c, o = smartsupp = function () {
                     o._.push(arguments)
@@ -357,6 +368,14 @@
                 });
             });
         </script>
+        <script type="text/javascript">
+    window.smartlook||(function(d) {
+    var o=smartlook=function(){ o.api.push(arguments)},h=d.getElementsByTagName('head')[0];
+    var c=d.createElement('script');o.api=new Array();c.async=true;c.type='text/javascript';
+    c.charset='utf-8';c.src='//rec.smartlook.com/recorder.js';h.appendChild(c);
+    })(document);
+    smartlook('init', 'f16bc996392720631980d4831c4a2a7c94305ed2');
+</script>
     </body>
 
 </html>

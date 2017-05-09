@@ -2,7 +2,8 @@
 <html class="no-js" lang="">
 
     <head>
-        <?php Seo_Widget_Seo::getInstance()->setLan($this->lan)->setPage("Servicios")->render(); ?>
+        <?php $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        Seo_Widget_Seo::getInstance()->setLan($this->lan)->setPage("Servicios")->setUrl($actual_link)->render(); ?>
 
         <link rel='stylesheet' id='open-sans-css'
               href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1'
@@ -128,81 +129,4 @@
                         </div>
                     </div>
                 </section>
-                <?PHP Services_Widget_Services::getInstance()->setLan($this->lan)->render(); ?>
-
-            </article>
-            <footer id="footer">
-                <?PHP Pages_Widget_Contacto::getInstance()->setLan($this->lan)->render(); ?>
-            </footer>
-        </div>
-        <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&amp;sensor=false"></script>
-    </div>
-    <a class="go-top go-top-square" href="javascript:void(0)"> <i class="fa fa-angle-up"></i> </a>
-    <script type="text/javascript">
-        var oxyThemeData = {
-            navbarHeight: 90,
-            navbarScrolled: 80,
-            navbarScrolledPoint: 100,
-            menuClose: 'off',
-            scrollFinishedMessage: 'No more items to load.',
-            hoverMenu: {
-                hoverActive: false,
-                hoverDelay: 200,
-                hoverFadeDelay: 200
-            },
-            siteLoader: 'on'
-        };
-    </script>
-
-
-    <?php
-    Com_Helper_Script::getInstance()
-            ->addFile("Public/theme.js")
-            ->addFile("Public/contact.js")
-            ->addFile("Public/map.js");
-    echo Com_Helper_Script::getInstance();
-    ?>
-
-    <script>
-        window.map = {
-            map_type: 'ROADMAP',
-            map_zoom: 17,
-            map_style: 'blackwhite',
-            map_scrollable: 'on',
-            marker: 'show',
-            label: ['Hotel Cortez'],
-            address: '',
-            latlng: ['-17.771060, -63.184124'],
-            center_latlng: '',
-            markerURL: '<?PHP echo Com_Helper_Url::getInstance()->getImage(); ?>/Public/marker.png',
-            auto_center: true
-        };
-    </script>
-    <!-- Smartsupp Live Chat script -->
-    <script type="text/javascript">
-        var _smartsupp = _smartsupp || {};
-        _smartsupp.key = '7297473a650eaeeecd1c8851f4eee1f1def96bb7';
-        window.smartsupp || (function (d) {
-            var s, c, o = smartsupp = function () {
-                o._.push(arguments)
-            };
-            o._ = [];
-            s = d.getElementsByTagName('script')[0];
-            c = d.createElement('script');
-            c.type = 'text/javascript';
-            c.charset = 'utf-8';
-            c.async = true;
-            c.src = '//www.smartsuppchat.com/loader.js?';
-            s.parentNode.insertBefore(c, s);
-        })(document);
-    </script>
-    <script>
-        $(window).scroll(function () {
-            $('#aux').css('transform', 'translate(0,100%)');
-        });
-    </script>
-
-</body>
-
-</html>
+                <?PHP Service

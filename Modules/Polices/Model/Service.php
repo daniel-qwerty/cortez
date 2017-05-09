@@ -70,7 +70,7 @@ class Polices_Model_Service extends Com_Module_Model {
     
     public function getListService($lanId) {
         $db = new Entities_Polices();
-        return $db->getAll($db->getList()->where("SerLanId={$lanId}"));
+        return $db->getAll($db->getList()->where("SerLanId={$lanId}")->andWhere("SerStatus = 1"));
     }
 
 }

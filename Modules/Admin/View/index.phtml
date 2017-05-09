@@ -122,7 +122,7 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="panel panel-white">
                         <div class="panel-heading">
-                            <h4 class="panel-title">Bandeja de Solicitudes</h4>    
+                            <h4 class="panel-title">Bandeja de Salones</h4>
                             <div class="panel-control">
                                 <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload"
                                    class="panel-reload"><i class="icon-reload"></i></a>
@@ -144,7 +144,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($this->solicitud as $obj) { ?>                        
+                                        <?php foreach ($this->salones as $obj) { ?>
                                             <tr>
                                                 <th scope="row"><?= $obj->ReqId; ?></th>
                                                 <td><?= $obj->ReqType; ?></td>
@@ -169,8 +169,61 @@
                         </div>
                     </div>
                 </div>
-            </div>           
-       
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="panel panel-white">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Bandeja de Ofertas</h4>
+                            <div class="panel-control">
+                                <a href="javascript:void(0);" data-toggle="tooltip" data-placement="top" title="Reload"
+                                   class="panel-reload"><i class="icon-reload"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="table-responsive project-stats">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Tipo</th>
+                                        <th>De</th>
+                                        <th>Email</th>
+                                        <th>Fecha</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php foreach ($this->ofertas as $obj) { ?>
+                                        <tr>
+                                            <th scope="row"><?= $obj->ReqId; ?></th>
+                                            <td><?= $obj->ReqType; ?></td>
+                                            <td><?= $obj->ReqName; ?></td>
+                                            <td><?= $obj->ReqEmail; ?></td>
+                                            <td><?= $obj->ReqDate; ?></td>
+                                            <?php if ($obj->ReqStatus == '0') { ?>
+                                                <td><span class="label label-success">Leido</span></td>
+                                            <?php } else { ?>
+                                                <td><span class="label label-info">No Leido</span></td>
+                                            <?php } ?>
+                                            <td>
+                                                <a href="<?= Com_Helper_Url::getInstance()->urlBase . '/Admin/Request/Edit/lan/7/id/' . $obj->ReqId; ?>" type="button" class="btn btn-info btn-rounded"> <i class="icon-envelope"></i></a>
+                                                <a href="<?= Com_Helper_Url::getInstance()->urlBase . '/Admin/Request/Delete/id/' . $obj->ReqId; ?>" type="button" class="btn btn-danger btn-rounded"> <i class="icon-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-lg-5 col-md-6 hidden">
                 <div class="panel panel-white">
                     <div class="panel-heading">

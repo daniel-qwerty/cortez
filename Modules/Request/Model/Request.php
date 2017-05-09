@@ -37,11 +37,10 @@ class Request_Model_Request extends Com_Module_Model {
         $db = new Entities_Request();
         $db->ReqId = $intId;
         $db->ReqLanId = $obj->Language;
-        $db->ReqDate = date("Y-m-d H:i:s");
         $db->ReqName = $obj->Name;
         $db->ReqEmail = $obj->Email;
         $db->ReqMessage = $obj->Message;
-        $db->ReqStatus = "1";
+        $db->ReqStatus = $obj->Status;
         $db->ReqType =$obj->Type;
         $db->action = ACTION_UPDATE;
         $db->save();
@@ -65,9 +64,14 @@ class Request_Model_Request extends Com_Module_Model {
     }
 
        
-    public function getListByLan($limit = 1000) {
+    public function getListByLanOfertas($limit = 1000) {
         $text = new Entities_Request();
-        return $text->getAll($text->getList()->where("ReqLanId= 7")->orderBy("ReqDate desc")->limit(0, $limit));
+        return $text->getAll($text->getList()->where("ReqLanId= 7")->andWhere("ReqType = 'OFERTAS'")->orderBy("ReqDate desc")->limit(0, $limit));
+    }
+
+    public function getListByLanSalones($limit = 1000) {
+        $text = new Entities_Request();
+        return $text->getAll($text->getList()->where("ReqLanId= 7")->andWhere("ReqType = 'SALONES'")->orderBy("ReqDate desc")->limit(0, $limit));
     }
     
     public function countAll() {

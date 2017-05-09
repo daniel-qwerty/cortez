@@ -3,6 +3,7 @@
 class Seo_Widget_SharingFB extends Com_Object {
 
     private $page;
+    private $url;
     private $lan;
 
     /**
@@ -18,6 +19,11 @@ class Seo_Widget_SharingFB extends Com_Object {
         return $this;
     }
 
+    public function setUrl($url) {
+        $this->url = $url;
+        return $this;
+    }
+
     public function setLan($lan) {
         $this->lan = $lan;
         return $this;
@@ -25,11 +31,11 @@ class Seo_Widget_SharingFB extends Com_Object {
 
     public function render() {
         ?>           
-        <meta property="og:url"                content="<?= Com_Helper_Url::getInstance()->urlBase . '/' . $this->lan->LanCode . '/page/contacto.html'?>" />
-        <meta property="og:type"               content="article" />
+        <meta property="og:url"                content="<?= $this->url?>" />
+
         <meta property="og:title"              content="<?= Seo_Helper_Seo::getInstance()->get($this->lan, $this->page)->SeoTitle; ?>" />
         <meta property="og:description"        content="<?= Seo_Helper_Seo::getInstance()->get($this->lan, $this->page)->SeoDescription; ?>" />
-        <meta property="og:image"              content="http://digitalmindsbolivia.com/cortez/Resources/Uploads/Image/580fadcbedfbf.jpg" />
+        <meta property="og:image"              content="http://hotelcortez.com/Resources/Uploads/Image/Logotipo.jpg" />
 
     <?php
     }

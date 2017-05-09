@@ -3,8 +3,9 @@
 
     <head>
         
-        <?php Seo_Widget_Seo::getInstance()->setLan($this->lan)->setPage("Contacto")->render(); ?>
-        <?php Seo_Widget_SharingFB::getInstance()->setLan($this->lan)->setPage("Contacto")->render(); ?>
+        
+        <?php $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+        Seo_Widget_Seo::getInstance()->setLan($this->lan)->setPage("Contacto")->setUrl($actual_link)->render(); ?>
         
         <link rel='stylesheet' id='open-sans-css'
               href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=4.1'
@@ -142,7 +143,7 @@
                                             <div class="form-group form-icon-group"> <i class="fa fa-user"></i>
                                                 <input class="form-control" id="name" name="name" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'placeholderNombre')->TxtDescription; ?>" type="text" > </div>
                                             <div class="form-group form-icon-group"> <i class="fa fa-envelope"></i>
-                                                <input class="form-control" id="email" name="email" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'placeholderEmail')->TxtDescription; ?>" type="email" > </div>
+                                                <input class="form-control" id="email" name="email" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'placeholderEmail')->TxtDescription; ?>"  > </div>
                                             <div class="form-group form-icon-group"> <i class="fa fa-pencil"></i>
                                                 <textarea class="form-control" id="message" name="message" placeholder="<?PHP echo Texts_Helper_Text::getInstance()->get($this->lan, 'placeholderMensaje')->TxtDescription; ?>" rows="5" ></textarea>
                                             </div>
@@ -240,7 +241,7 @@
         <!-- Smartsupp Live Chat script -->
         <script type="text/javascript">
             var _smartsupp = _smartsupp || {};
-            _smartsupp.key = '7297473a650eaeeecd1c8851f4eee1f1def96bb7';
+            _smartsupp.key = '3397514ec827ff59e476df0eca1b8583bd221b31';
             window.smartsupp || (function (d) {
                 var s, c, o = smartsupp = function () {
                     o._.push(arguments)
